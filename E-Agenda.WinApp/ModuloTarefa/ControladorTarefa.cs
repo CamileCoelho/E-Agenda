@@ -1,14 +1,17 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class ControladorTarefa : ControladorBase
     {
+        RepositorioTarefa repositorioTarefa;
+        ListagemTarefaControl listagemTarefa;
+
+        public ControladorTarefa(RepositorioTarefa repositorioTarefa)
+        {
+            this.repositorioTarefa = repositorioTarefa;
+        }
+
         public override string ToolTipInserir { get { return "Inserir nova tarefa"; } }
 
         public override string ToolTipEditar { get { return "Editar tarefa existente"; } }
@@ -17,22 +20,87 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override void Inserir()
         {
-            throw new NotImplementedException();
+            TelaTarefaForm telaTarefa = new();
+
+            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Tarefa tarefa = telaTarefa.Tarefa;
+
+                repositorioTarefa.Inserir(tarefa);
+
+                CarregarTarefas();
+            }
         }
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Edição de Contatos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaTarefaForm telaTarefa = new();
+            telaTarefa.Tarefa = tarefa;
+
+            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioTarefa.Editar(telaTarefa.Tarefa);
+
+                CarregarTarefas();
+            }
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Exclusão de Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a tarefa {tarefa.titulo}?", "Exclusão de Tarefas",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioTarefa.Excluir(tarefa);
+
+                CarregarTarefas();
+            }
+        }
+
+        private void CarregarTarefas()
+        {
+            List<Tarefa> tarefas = repositorioTarefa.ListarTodos();
+
+            listagemTarefa.AtualizarRegistros(tarefas);
         }
 
         public override UserControl ObterListagem()
         {
-            throw new NotImplementedException();
+            if (listagemTarefa == null)
+                listagemTarefa = new ListagemTarefaControl();
+
+            CarregarTarefas();
+
+            return listagemTarefa;
         }
 
         public override string ObterTipoCadastro()

@@ -1,9 +1,4 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -11,11 +6,11 @@ namespace E_Agenda.WinApp.ModuloContato
     {
         public void Editar(Contato contato)
         {
-            Contato contatoSelecionado = SelecionarPorId(contato.id);
+            Contato contatoSelecionado = (Contato)SelecionarPorId(contato.id);
 
-            contatoSelecionado.nome = contato.nome;
-            contatoSelecionado.telefone = contato.telefone;
-            contatoSelecionado.email = contato.email;
+            contatoSelecionado.informacoesPessoais.nome = contato.informacoesPessoais.nome;
+            contatoSelecionado.informacoesPessoais.telefone = contato.informacoesPessoais.telefone;
+            contatoSelecionado.informacoesPessoais.email = contato.informacoesPessoais.email;
             contatoSelecionado.cargo = contato.cargo;
             contatoSelecionado.empresa = contato.empresa;
         }

@@ -1,6 +1,6 @@
 ﻿namespace E_Agenda.WinApp.ModuloCompromissos
 {
-    partial class ListagemCompromissoControl
+    partial class listaCompromisso
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,31 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             SuspendLayout();
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(118, 59);
-            label1.Name = "label1";
-            label1.Size = new Size(108, 15);
-            label1.TabIndex = 0;
-            label1.Text = "listaCompromissos";
-            // 
-            // ListagemTarefaControl
+            // listaCompromisso
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
-            Name = "ListagemTarefaControl";
+            Name = "listaCompromisso";
             Size = new Size(759, 574);
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private ListBox listCompromisso;
     }
 }

@@ -26,22 +26,86 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override void Inserir()
         {
-            throw new NotImplementedException();
+            TelaContatoForm telaContato = new TelaContatoForm();
+
+            DialogResult opcaoEscolhida = telaContato.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                Contato contato = telaContato.Contato;
+
+                repositorioContato.Inserir(contato);
+
+                CarregarContatos();
+            }
         }
 
         public override void Editar()
         {
-            throw new NotImplementedException();
+            Contato contato = listagemContato.ObterContatoSelecionado();
+
+            if (contato == null)
+            {
+                MessageBox.Show($"Selecione um contato primeiro!",
+                    "Edição de Contatos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaContatoForm telaContato = new TelaContatoForm();
+            telaContato.Contato = contato;
+
+            DialogResult opcaoEscolhida = telaContato.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioContato.Editar(telaContato.Contato);
+
+                CarregarContatos();
+            }
         }
 
         public override void Excluir()
         {
-            throw new NotImplementedException();
+            Contato contato = listagemContato.ObterContatoSelecionado();
+
+            if (contato == null)
+            {
+                MessageBox.Show($"Selecione um contato primeiro!",
+                    "Exclusão de Contatos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir o contato {contato.informacoesPessoais.nome}?", "Exclusão de Contatos",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioContato.Excluir(contato);
+
+                CarregarContatos();
+            }
+        }
+        private void CarregarContatos()
+        {
+            List<Contato> contatos = repositorioContato.ListarTodos();
+
+            listagemContato.AtualizarRegistros(contatos);
         }
 
         public override UserControl ObterListagem()
         {
-            throw new NotImplementedException();
+            if (listagemContato == null)
+                listagemContato = new ListagemContatoControl();
+
+            CarregarContatos();
+
+            return listagemContato;
         }
 
         public override string ObterTipoCadastro()

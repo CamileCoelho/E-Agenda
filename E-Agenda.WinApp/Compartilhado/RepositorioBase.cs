@@ -22,7 +22,7 @@
             return listaObjeto;
         }
 
-        public virtual void Apagar(T apagar)
+        public virtual void Excluir(T apagar)
         {
             listaObjeto.Remove(apagar);
         }

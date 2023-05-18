@@ -41,5 +41,24 @@
         }
 
         #endregion
+
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem cadastrosMenuItem;
+        private ToolStripMenuItem contatosMenuItem;
+        private ToolStripMenuItem compromissosMenuItem;
+        private ToolStripMenuItem tarefasMenuItem;
+        private ToolStripMenuItem despesasToolStripMenuItem;
+        private ToolStripMenuItem despesasMenuItem;
+        private ToolStripMenuItem categoriasMenuItem;
+        private ToolStripMenuItem relatóriosToolStripMenuItem;
+        private StatusStrip statusStrip1;
+        private ToolStripStatusLabel toolStripStatusLabel1;
+        private ToolStrip toolStrip1;
+        private ToolStripButton btnInserir;
+        private ToolStripButton btnEditar;
+        private ToolStripButton btnExcluir;
+        private Panel panelRegistros;
+        private ToolStripSeparator toolStripSeparator1;
+        private ToolStripLabel labelTipoDoCadastro;
     }
 }
