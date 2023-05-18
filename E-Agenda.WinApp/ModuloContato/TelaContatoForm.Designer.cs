@@ -35,13 +35,13 @@
             txtEmpresa = new TextBox();
             txtEmail = new TextBox();
             txtCargo = new TextBox();
-            txtTelefone = new TextBox();
             txtNome = new TextBox();
             label2 = new Label();
             txtId = new TextBox();
             label1 = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
+            txtTelefone = new MaskedTextBox();
             SuspendLayout();
             // 
             // label6
@@ -107,14 +107,6 @@
             txtCargo.Name = "txtCargo";
             txtCargo.Size = new Size(211, 29);
             txtCargo.TabIndex = 21;
-            // 
-            // txtTelefone
-            // 
-            txtTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTelefone.Location = new Point(92, 131);
-            txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(211, 29);
-            txtTelefone.TabIndex = 20;
             // 
             // txtNome
             // 
@@ -184,11 +176,21 @@
             btnGravar.TextImageRelation = TextImageRelation.TextAboveImage;
             btnGravar.UseVisualStyleBackColor = true;
             // 
+            // txtTelefone
+            // 
+            txtTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtTelefone.Location = new Point(92, 128);
+            txtTelefone.Mask = "(99) 0000-0000";
+            txtTelefone.Name = "txtTelefone";
+            txtTelefone.Size = new Size(159, 29);
+            txtTelefone.TabIndex = 28;
+            // 
             // TelaContatoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(661, 332);
+            Controls.Add(txtTelefone);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -196,7 +198,6 @@
             Controls.Add(txtEmpresa);
             Controls.Add(txtEmail);
             Controls.Add(txtCargo);
-            Controls.Add(txtTelefone);
             Controls.Add(txtNome);
             Controls.Add(label2);
             Controls.Add(txtId);
@@ -223,12 +224,12 @@
         private TextBox txtEmpresa;
         private TextBox txtEmail;
         private TextBox txtCargo;
-        private TextBox txtTelefone;
         private TextBox txtNome;
         private Label label2;
         private TextBox txtId;
         private Label label1;
         private Button btnCancelar;
         private Button btnGravar;
+        private MaskedTextBox txtTelefone;
     }
 }

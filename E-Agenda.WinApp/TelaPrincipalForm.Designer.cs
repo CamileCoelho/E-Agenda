@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TelaPrincipalForm));
             menuStrip1 = new MenuStrip();
             cadastrosMenuItem = new ToolStripMenuItem();
             contatosMenuItem = new ToolStripMenuItem();
@@ -139,18 +140,18 @@
             // btnInserir
             // 
             btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnInserir.Image = Properties.Resources.add_FILL0_wght400_GRAD0_opsz48;
+            btnInserir.Image = (Image)resources.GetObject("btnInserir.Image");
             btnInserir.ImageTransparentColor = Color.Magenta;
             btnInserir.Name = "btnInserir";
             btnInserir.Padding = new Padding(4);
-            btnInserir.Size = new Size(28, 28);
+            btnInserir.Size = new Size(28, 34);
             btnInserir.Text = "Inserir";
             btnInserir.Click += btnInserir_Click;
             // 
             // btnEditar
             // 
             btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnEditar.Image = Properties.Resources.edit_FILL0_wght400_GRAD0_opsz48;
+            btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
             btnEditar.ImageTransparentColor = Color.Magenta;
             btnEditar.Name = "btnEditar";
             btnEditar.Padding = new Padding(4);
@@ -161,7 +162,7 @@
             // btnExcluir
             // 
             btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnExcluir.Image = Properties.Resources.delete_FILL0_wght400_GRAD0_opsz48;
+            btnExcluir.Image = (Image)resources.GetObject("btnExcluir.Image");
             btnExcluir.ImageTransparentColor = Color.Magenta;
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Padding = new Padding(7);
@@ -172,7 +173,7 @@
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 31);
+            toolStripSeparator1.Size = new Size(6, 37);
             // 
             // labelTipoDoCadastro
             // 

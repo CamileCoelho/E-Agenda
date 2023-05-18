@@ -6,13 +6,13 @@ namespace E_Agenda.WinApp.ModuloCompromissos
     public class Compromisso : EntidadeBase
     {
         public string assunto { get; set; }
-        public string data { get; set; }
-        public string inicio { get; set; }
-        public string termino { get; set; }
+        public DateTime data { get; set; }
+        public DateTime inicio { get; set; }
+        public DateTime termino { get; set; }
         public string localizacao { get; set; }
         public Contato contato { get; set; }
 
-        public Compromisso(string assunto, string data, string inicio, string termino, string localizacao)
+        public Compromisso(string assunto, DateTime data, DateTime inicio, DateTime termino, string localizacao)
         {
             this.assunto = assunto;
             this.data = data;   
@@ -21,7 +21,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             this.localizacao = localizacao;
         }
 
-        public Compromisso(string assunto, string data, string inicio, string termino, string localizacao, Contato contato)
+        public Compromisso(string assunto, DateTime data, DateTime inicio, DateTime termino, string localizacao, Contato contato)
         {
             this.assunto = assunto;
             this.data = data;
@@ -33,8 +33,11 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
         public override string ToString()
         {
-            return "Id: " + id + ", " + assunto + ", Data: " + data + ", " +
-                "\nHorário: Das" + inicio + " ás " + termino + ", Localização: " + localizacao;
+            string contatoString = contato == null ?
+                " - Sem Contato" : ", Contato: " + contato.informacoesPessoais.nome;
+            return "Id: " + id + ", Assunto: " + assunto + ", Local: " + localizacao +
+                ", Data: " + data.ToString() + ", Hora Início: " + inicio.ToString("HH:mm") +
+                ", Hora Término: " + termino.ToString("HH:mm") + contato;
         }
     }
 }
