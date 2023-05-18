@@ -132,7 +132,7 @@
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, labelTipoDoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 31);
+            toolStrip1.Size = new Size(800, 37);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
@@ -150,22 +150,22 @@
             // btnEditar
             // 
             btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnEditar.ImageScaling = ToolStripItemImageScaling.None;
+            btnEditar.Image = Properties.Resources.edit_FILL0_wght400_GRAD0_opsz48;
             btnEditar.ImageTransparentColor = Color.Magenta;
             btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(7);
-            btnEditar.Size = new Size(23, 28);
+            btnEditar.Padding = new Padding(4);
+            btnEditar.Size = new Size(28, 34);
             btnEditar.Text = "Editar";
             btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
             btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnExcluir.ImageScaling = ToolStripItemImageScaling.None;
+            btnExcluir.Image = Properties.Resources.delete_FILL0_wght400_GRAD0_opsz48;
             btnExcluir.ImageTransparentColor = Color.Magenta;
             btnExcluir.Name = "btnExcluir";
             btnExcluir.Padding = new Padding(7);
-            btnExcluir.Size = new Size(23, 28);
+            btnExcluir.Size = new Size(34, 34);
             btnExcluir.Text = "Excluir";
             btnExcluir.Click += btnExcluir_Click;
             // 
@@ -177,16 +177,16 @@
             // labelTipoDoCadastro
             // 
             labelTipoDoCadastro.Name = "labelTipoDoCadastro";
-            labelTipoDoCadastro.Size = new Size(75, 28);
-            labelTipoDoCadastro.Text = "tipoCadastro";
+            labelTipoDoCadastro.Size = new Size(90, 34);
+            labelTipoDoCadastro.Text = "tipoDoCadastro";
             // 
             // panelRegistros
             // 
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
-            panelRegistros.Location = new Point(0, 55);
+            panelRegistros.Location = new Point(0, 61);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(800, 373);
+            panelRegistros.Size = new Size(800, 367);
             panelRegistros.TabIndex = 3;
             // 
             // TelaPrincipalForm
