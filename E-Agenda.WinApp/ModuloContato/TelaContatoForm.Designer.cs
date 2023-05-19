@@ -180,9 +180,9 @@
             // 
             txtTelefone.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtTelefone.Location = new Point(92, 128);
-            txtTelefone.Mask = "(99) 0000-0000";
+            txtTelefone.Mask = "(00) 00000-0000";
             txtTelefone.Name = "txtTelefone";
-            txtTelefone.Size = new Size(159, 29);
+            txtTelefone.Size = new Size(211, 29);
             txtTelefone.TabIndex = 28;
             // 
             // TelaContatoForm

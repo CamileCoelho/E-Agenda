@@ -125,8 +125,8 @@
             // toolStripStatusLabel1
             // 
             toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(118, 17);
-            toolStripStatusLabel1.Text = "toolStripStatusLabel1";
+            toolStripStatusLabel1.Size = new Size(39, 17);
+            toolStripStatusLabel1.Text = "Status";
             // 
             // toolStrip1
             // 
@@ -178,8 +178,8 @@
             // labelTipoDoCadastro
             // 
             labelTipoDoCadastro.Name = "labelTipoDoCadastro";
-            labelTipoDoCadastro.Size = new Size(90, 34);
-            labelTipoDoCadastro.Text = "tipoDoCadastro";
+            labelTipoDoCadastro.Size = new Size(76, 34);
+            labelTipoDoCadastro.Text = "                       ";
             // 
             // panelRegistros
             // 
