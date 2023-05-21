@@ -14,9 +14,21 @@ namespace E_Agenda.WinApp.ModuloContato
             this.cargo = cargo;
             this.empresa = empresa;
         }
-        public override string ToString()
+
+        public string validar()
         {
-            return "Id: " + id + ", " + informacoesPessoais.nome + ", Empresa: " + empresa;
+            Validador valida = new();
+
+            if (valida.ValidarString(informacoesPessoais.nome))
+                return $"Você deve escrever um nome!";
+
+            if (informacoesPessoais.telefone == null || valida.ValidaTelefone(informacoesPessoais.telefone))
+                return $"O telefone deve ser no formato (XX)XXXXX-XXXX";
+
+            if (informacoesPessoais.email == null || valida.ValidaFormatoEmail(informacoesPessoais.email))
+                return $"O e-mail deve ser no formato xxxxxx@xxxxx.xxx";
+
+            return "";
         }
     }
 }

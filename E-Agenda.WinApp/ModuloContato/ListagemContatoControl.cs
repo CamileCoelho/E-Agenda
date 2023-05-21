@@ -1,27 +1,60 @@
-﻿using E_Agenda.WinApp.ModuloContato;
+﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloCompromissos;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
-namespace e_Agenda.WinApp.ModuloContato
+namespace E_Agenda.WinApp.ModuloContato
 {
     public partial class ListagemContatoControl : UserControl
     {
         public ListagemContatoControl()
         {
-            InitializeComponent();                       
+            InitializeComponent();
+            grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridSomenteLeitura();
+            grid.Columns.AddRange(ObterColunas());
+        }
+
+        private DataGridViewColumn[] ObterColunas()
+        {
+            var colunas = new DataGridViewColumn[]
+            {
+                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "E-mail", HeaderText = "E-mail"},
+
+                new DataGridViewTextBoxColumn {DataPropertyName = "Empresa", HeaderText = "Empresa"}
+            };
+
+            return colunas;
+        }
+
+        public int ObtemNumeroCompromissoSelecionado()
+        {
+            return grid.SelecionarNumero<int>();
         }
 
         public void AtualizarRegistros(List<Contato> contatos)
         {
-            listContato.Items.Clear();
+            grid.Rows.Clear();
 
-            foreach (Contato item in contatos)
+            foreach (var contato in contatos)
             {
-                listContato.Items.Add(item);
+                grid.Rows.Add(contato.id, contato.informacoesPessoais.nome,
+                    contato.informacoesPessoais.telefone, contato.informacoesPessoais.email, contato.empresa,
+                    contato.cargo);
             }
-        }
-
-        public Contato ObterContatoSelecionado()
-        {
-            return (Contato)listContato.SelectedItem;
         }
     }
 }

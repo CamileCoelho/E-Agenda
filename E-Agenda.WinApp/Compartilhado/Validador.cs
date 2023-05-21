@@ -21,7 +21,7 @@ namespace E_Agenda.WinApp.Compartilhado
         public bool ValidaTelefone(string telefone)
         {
             // formato (XX)XXXXX-XXXX
-            Regex Rgx = new(@"^\(\d{2}\)\d{5}-\d{4}$");
+            Regex Rgx = new(@"^\(\d{2}\)\ \d{5}-\d{4}$");
 
             if (Rgx.IsMatch(telefone))
                 return false;

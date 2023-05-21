@@ -14,10 +14,20 @@ namespace E_Agenda.WinApp.ModuloTarefa
             this.descricao = descricao;
             this.prioridade = prioridade;
         }
-
-        public override string ToString()
+        public string validar()
         {
-            return "Id: " + id + ", " + titulo + " Descição: " + descricao + " Prioridade: " + prioridade;
+            Validador valida = new();
+
+            if (valida.ValidarString(titulo))
+                return $"Você deve escrever um título!";
+
+            if (valida.ValidarString(descricao))
+                return $"Você deve escrever uma descrição!";
+
+            if (valida.ValidarString(prioridade))
+                return $"Você deve selecionar a prioridade!";
+
+            return "";
         }
     }
 }

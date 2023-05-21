@@ -1,4 +1,7 @@
-﻿namespace E_Agenda.WinApp.ModuloTarefa
+﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloContato;
+
+namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class ListagemTarefaControl : UserControl
     {
@@ -7,21 +10,44 @@
         public ListagemTarefaControl()
         {
             InitializeComponent();
-
+            grid.ConfigurarGridZebrado();
+            grid.ConfigurarGridSomenteLeitura();
+            grid.Columns.AddRange(ObterColunas());
         }
-        public void AtualizarRegistros(List<Tarefa> tarefas)
-        {
-            listTarefas.Items.Clear();
 
-            foreach (Tarefa tarefa in tarefas)
+        private DataGridViewColumn[] ObterColunas()
+        {
+            var colunas = new DataGridViewColumn[]
             {
-                listTarefas.Items.Add(tarefa);
-            }
+                new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Empresa", HeaderText = "Empresa"},
+
+                new DataGridViewTextBoxColumn {DataPropertyName = "Cargo", HeaderText = "Cargo"}
+            };
+
+            return colunas;
         }
 
-        public Tarefa ObterTarefaSelecionada()
+        public int ObterNumeroContatoSelecionado()
         {
-            return (Tarefa)listTarefas.SelectedItem;
+            return grid.SelecionarNumero<int>();
+        }
+
+        public void AtualizarRegistros(List<Contato> contatos)
+        {
+            grid.Rows.Clear();
+
+            foreach (var contato in contatos)
+            {
+                grid.Rows.Add(contato.id, contato.informacoesPessoais.nome,
+                    contato.informacoesPessoais.telefone, contato.informacoesPessoais.email, contato.empresa,
+                    contato.cargo);
+            }
         }
     }
 }

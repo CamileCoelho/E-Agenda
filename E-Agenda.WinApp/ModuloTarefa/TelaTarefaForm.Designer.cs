@@ -30,7 +30,6 @@
         {
             label6 = new Label();
             label3 = new Label();
-            txtPrioridade = new TextBox();
             txtDescricao = new TextBox();
             txtTitulo = new TextBox();
             label2 = new Label();
@@ -38,6 +37,7 @@
             label1 = new Label();
             btnCancelar = new Button();
             btnGravar = new Button();
+            cmbPrioridades = new ComboBox();
             SuspendLayout();
             // 
             // label6
@@ -59,14 +59,6 @@
             label3.Size = new Size(80, 21);
             label3.TabIndex = 38;
             label3.Text = "Descrição:";
-            // 
-            // txtPrioridade
-            // 
-            txtPrioridade.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtPrioridade.Location = new Point(172, 194);
-            txtPrioridade.Name = "txtPrioridade";
-            txtPrioridade.Size = new Size(395, 29);
-            txtPrioridade.TabIndex = 35;
             // 
             // txtDescricao
             // 
@@ -144,14 +136,23 @@
             btnGravar.UseVisualStyleBackColor = true;
             btnGravar.Click += btnGravar_Click;
             // 
+            // cmbPrioridades
+            // 
+            cmbPrioridades.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            cmbPrioridades.FormattingEnabled = true;
+            cmbPrioridades.Location = new Point(172, 194);
+            cmbPrioridades.Name = "cmbPrioridades";
+            cmbPrioridades.Size = new Size(395, 29);
+            cmbPrioridades.TabIndex = 46;
+            // 
             // TelaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(650, 361);
+            Controls.Add(cmbPrioridades);
             Controls.Add(label6);
             Controls.Add(label3);
-            Controls.Add(txtPrioridade);
             Controls.Add(txtDescricao);
             Controls.Add(txtTitulo);
             Controls.Add(label2);
@@ -174,7 +175,6 @@
 
         private Label label6;
         private Label label3;
-        private TextBox txtPrioridade;
         private TextBox txtDescricao;
         private TextBox txtTitulo;
         private Label label2;
@@ -182,5 +182,6 @@
         private Label label1;
         private Button btnCancelar;
         private Button btnGravar;
+        private ComboBox cmbPrioridades;
     }
 }

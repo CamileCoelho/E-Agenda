@@ -1,20 +1,16 @@
-﻿using e_Agenda.WinApp.ModuloContato;
-using E_Agenda.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using E_Agenda.WinApp.Compartilhado;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
     public class ControladorContato : ControladorBase
     {
+        RepositorioBase<Contato> repositorioBaseContato;
         RepositorioContato repositorioContato;
         ListagemContatoControl listagemContato;
 
         public ControladorContato(RepositorioContato repositorioContato)
         {
+            this.repositorioBaseContato = repositorioContato;
             this.repositorioContato = repositorioContato;
         }
 
@@ -26,7 +22,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override void Inserir()
         {
-            TelaContatoForm telaContato = new TelaContatoForm();
+            TelaContatoForm telaContato = new();
 
             DialogResult opcaoEscolhida = telaContato.ShowDialog();
 
@@ -34,7 +30,7 @@ namespace E_Agenda.WinApp.ModuloContato
             {
                 Contato contato = telaContato.Contato;
 
-                repositorioContato.Inserir(contato);
+                repositorioBaseContato.Inserir(contato);
 
                 CarregarContatos();
             }
@@ -42,7 +38,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override void Editar()
         {
-            Contato contato = listagemContato.ObterContatoSelecionado();
+            Contato contato = ObterContatoSelecionado();
 
             if (contato == null)
             {
@@ -69,7 +65,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override void Excluir()
         {
-            Contato contato = listagemContato.ObterContatoSelecionado();
+            Contato contato = ObterContatoSelecionado();
 
             if (contato == null)
             {
@@ -86,14 +82,14 @@ namespace E_Agenda.WinApp.ModuloContato
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioContato.Excluir(contato);
+                repositorioBaseContato.Excluir(contato);
 
                 CarregarContatos();
             }
         }
         private void CarregarContatos()
         {
-            List<Contato> contatos = repositorioContato.ListarTodos();
+            List<Contato> contatos = repositorioBaseContato.ListarTodos();
 
             listagemContato.AtualizarRegistros(contatos);
         }
@@ -111,6 +107,13 @@ namespace E_Agenda.WinApp.ModuloContato
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Contatos";
+        }
+
+        private Contato ObterContatoSelecionado()
+        {
+            int id = listagemContato.ObtemNumeroCompromissoSelecionado();
+
+            return (Contato)repositorioBaseContato.SelecionarPorId(id);
         }
     }
 }

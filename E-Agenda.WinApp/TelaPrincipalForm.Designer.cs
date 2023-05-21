@@ -38,8 +38,8 @@
             despesasMenuItem = new ToolStripMenuItem();
             categoriasMenuItem = new ToolStripMenuItem();
             relatóriosToolStripMenuItem = new ToolStripMenuItem();
-            statusStrip1 = new StatusStrip();
-            toolStripStatusLabel1 = new ToolStripStatusLabel();
+            rodape = new StatusStrip();
+            lableRodape = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
@@ -48,7 +48,7 @@
             labelTipoDoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
             menuStrip1.SuspendLayout();
-            statusStrip1.SuspendLayout();
+            rodape.SuspendLayout();
             toolStrip1.SuspendLayout();
             SuspendLayout();
             // 
@@ -113,20 +113,20 @@
             relatóriosToolStripMenuItem.Size = new Size(71, 20);
             relatóriosToolStripMenuItem.Text = "Relatórios";
             // 
-            // statusStrip1
+            // rodape
             // 
-            statusStrip1.Items.AddRange(new ToolStripItem[] { toolStripStatusLabel1 });
-            statusStrip1.Location = new Point(0, 428);
-            statusStrip1.Name = "statusStrip1";
-            statusStrip1.Size = new Size(800, 22);
-            statusStrip1.TabIndex = 1;
-            statusStrip1.Text = "statusStrip1";
+            rodape.Items.AddRange(new ToolStripItem[] { lableRodape });
+            rodape.Location = new Point(0, 428);
+            rodape.Name = "rodape";
+            rodape.Size = new Size(800, 22);
+            rodape.TabIndex = 1;
+            rodape.Text = "statusStrip1";
             // 
-            // toolStripStatusLabel1
+            // lableRodape
             // 
-            toolStripStatusLabel1.Name = "toolStripStatusLabel1";
-            toolStripStatusLabel1.Size = new Size(39, 17);
-            toolStripStatusLabel1.Text = "Status";
+            lableRodape.Name = "lableRodape";
+            lableRodape.Size = new Size(39, 17);
+            lableRodape.Text = "Status";
             // 
             // toolStrip1
             // 
@@ -197,7 +197,7 @@
             ClientSize = new Size(800, 450);
             Controls.Add(panelRegistros);
             Controls.Add(toolStrip1);
-            Controls.Add(statusStrip1);
+            Controls.Add(rodape);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
             Name = "TelaPrincipalForm";
@@ -206,8 +206,8 @@
             Text = "e-Agenda 1.0";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
-            statusStrip1.ResumeLayout(false);
-            statusStrip1.PerformLayout();
+            rodape.ResumeLayout(false);
+            rodape.PerformLayout();
             toolStrip1.ResumeLayout(false);
             toolStrip1.PerformLayout();
             ResumeLayout(false);
@@ -225,8 +225,8 @@
         private ToolStripMenuItem despesasMenuItem;
         private ToolStripMenuItem categoriasMenuItem;
         private ToolStripMenuItem relatóriosToolStripMenuItem;
-        private StatusStrip statusStrip1;
-        private ToolStripStatusLabel toolStripStatusLabel1;
+        private StatusStrip rodape;
+        private ToolStripStatusLabel lableRodape;
         private ToolStrip toolStrip1;
         private ToolStripButton btnInserir;
         private ToolStripButton btnEditar;

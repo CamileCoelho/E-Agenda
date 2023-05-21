@@ -15,6 +15,23 @@ namespace E_Agenda.WinApp
         public TelaPrincipalForm()
         {
             InitializeComponent();
+
+            Tela = this;
+
+            lableRodape.Text = string.Empty;
+            labelTipoDoCadastro.Text = string.Empty;
+            //desabilitar os botoes de add,edit e del
+        }
+
+        public static TelaPrincipalForm Tela
+        {
+            get;
+            private set;
+        }
+
+        public void atualizarRodape(string status)
+        {
+            lableRodape.Text = status;
         }
 
         private void contatosMenuItem_Click(object sender, EventArgs e)

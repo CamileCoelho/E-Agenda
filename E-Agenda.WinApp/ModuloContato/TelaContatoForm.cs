@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using System.Windows.Forms;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -17,7 +18,7 @@ namespace E_Agenda.WinApp.ModuloContato
             {
                 txtId.Text = value.id.ToString();
                 txtNome.Text = value.informacoesPessoais.nome;
-                txtTelefone.Text = value.informacoesPessoais.telefone;
+                txtTelefone.Text = value.informacoesPessoais.telefone.ToString();
                 txtEmail.Text = value.informacoesPessoais.email;
                 txtCargo.Text = value.cargo;
                 txtEmpresa.Text = value.empresa;
@@ -40,9 +41,18 @@ namespace E_Agenda.WinApp.ModuloContato
 
             string empresa = txtEmpresa.Text;
 
-            InformacoesPessoais info = new InformacoesPessoais(nome, telefone, email);
+            InformacoesPessoais info = new(nome, telefone, email);
 
-            contato = new Contato(info, cargo, empresa);
+            contato = new(info, cargo, empresa);
+
+            string status = contato.validar();
+
+            if (status != "")
+            {
+                TelaPrincipalForm.Tela.atualizarRodape(status);
+
+                DialogResult = DialogResult.None;
+            }
 
             if (txtId.Text != "0")
                 contato.id = Convert.ToInt32(txtId.Text);

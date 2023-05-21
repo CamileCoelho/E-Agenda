@@ -18,6 +18,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public TelaTarefaForm()
         {
             InitializeComponent();
+
+            CarregarPrioridades();
         }
 
         public Tarefa Tarefa
@@ -27,12 +29,18 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 txtId.Text = value.id.ToString();
                 txtTitulo.Text = value.titulo;
                 txtDescricao.Text = value.descricao;
-                txtPrioridade.Text = value.prioridade;
+                cmbPrioridades.SelectedItem = value.prioridade;
             }
             get
             {
                 return tarefa;
             }
+        }
+        public void CarregarPrioridades()
+        {
+            cmbPrioridades.Items.Add("Alta");
+            cmbPrioridades.Items.Add("Média");
+            cmbPrioridades.Items.Add("Baixa");
         }
 
         private void btnGravar_Click(object sender, EventArgs e)
@@ -41,9 +49,18 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             string descricao = txtDescricao.Text;
 
-            string prioridade = txtPrioridade.Text;
+            string prioridade = (string)cmbPrioridades.SelectedItem;
 
             tarefa = new Tarefa(titulo, descricao, prioridade);
+
+            string status = tarefa.validar();
+
+            if (status != "")
+            {
+                TelaPrincipalForm.Tela.atualizarRodape(status);
+
+                DialogResult = DialogResult.None;
+            }
 
             if (txtId.Text != "0")
                 tarefa.id = Convert.ToInt32(txtId.Text);
