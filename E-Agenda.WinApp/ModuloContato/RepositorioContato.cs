@@ -4,6 +4,16 @@ namespace E_Agenda.WinApp.ModuloContato
 {
     public class RepositorioContato : RepositorioBase<Contato>
     {
+        public RepositorioContato()
+        {
+
+        }
+
+        public RepositorioContato(List<Contato> contatos)
+        {
+            this.listaObjeto = contatos;
+        }
+
         public void Editar(Contato contato)
         {
             Contato contatoSelecionado = (Contato)SelecionarPorId(contato.id);

@@ -40,6 +40,12 @@ namespace E_Agenda.WinApp
 
             ConfigurarTelaPrincipal(controlador);
         }
+        private void compromissosMenuItem_Click(object sender, EventArgs e)
+        {
+            controlador = new ControladorCompromisso(repositorioContato, repositorioCompromisso);
+
+            ConfigurarTelaPrincipal(controlador);
+        }
 
         private void tarefasMenuItem_Click(object sender, EventArgs e)
         {
@@ -88,6 +94,11 @@ namespace E_Agenda.WinApp
         private void btnExcluir_Click(object sender, EventArgs e)
         {
             controlador.Excluir();
+        }
+
+        private void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            controlador.Filtrar();
         }
     }
 }

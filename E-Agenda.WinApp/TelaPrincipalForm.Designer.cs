@@ -47,6 +47,8 @@
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoDoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
+            btnFiltrar = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
             menuStrip1.SuspendLayout();
             rodape.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -71,20 +73,21 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(154, 22);
+            contatosMenuItem.Size = new Size(180, 22);
             contatosMenuItem.Text = "Contatos";
             contatosMenuItem.Click += contatosMenuItem_Click;
             // 
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name = "compromissosMenuItem";
-            compromissosMenuItem.Size = new Size(154, 22);
+            compromissosMenuItem.Size = new Size(180, 22);
             compromissosMenuItem.Text = "Compromissos";
+            compromissosMenuItem.Click += compromissosMenuItem_Click;
             // 
             // tarefasMenuItem
             // 
             tarefasMenuItem.Name = "tarefasMenuItem";
-            tarefasMenuItem.Size = new Size(154, 22);
+            tarefasMenuItem.Size = new Size(180, 22);
             tarefasMenuItem.Text = "Tarefas";
             tarefasMenuItem.Click += tarefasMenuItem_Click;
             // 
@@ -92,7 +95,7 @@
             // 
             despesasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { despesasMenuItem, categoriasMenuItem });
             despesasToolStripMenuItem.Name = "despesasToolStripMenuItem";
-            despesasToolStripMenuItem.Size = new Size(154, 22);
+            despesasToolStripMenuItem.Size = new Size(180, 22);
             despesasToolStripMenuItem.Text = "Despesas";
             // 
             // despesasMenuItem
@@ -130,7 +133,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator1, labelTipoDoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator1, labelTipoDoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 37);
@@ -190,6 +193,22 @@
             panelRegistros.Size = new Size(800, 367);
             panelRegistros.TabIndex = 3;
             // 
+            // btnFiltrar
+            // 
+            btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
+            btnFiltrar.ImageTransparentColor = Color.Magenta;
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Padding = new Padding(7);
+            btnFiltrar.Size = new Size(34, 34);
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 37);
+            // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -200,10 +219,12 @@
             Controls.Add(rodape);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
+            MaximumSize = new Size(816, 489);
+            MinimumSize = new Size(816, 489);
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "e-Agenda 1.0";
+            Text = "E-Agenda ";
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             rodape.ResumeLayout(false);
@@ -234,5 +255,7 @@
         private Panel panelRegistros;
         private ToolStripSeparator toolStripSeparator1;
         private ToolStripLabel labelTipoDoCadastro;
+        private ToolStripSeparator toolStripSeparator2;
+        private ToolStripButton btnFiltrar;
     }
 }

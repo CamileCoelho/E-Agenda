@@ -12,9 +12,29 @@
             listaObjeto.Add(adicionar);
         }
 
-        public virtual EntidadeBase SelecionarPorId(int id)
+        //public virtual void Editar(int id, TEntidade registroAtualizado)
+        //{
+        //    TEntidade registroSelecionado = SelecionarPorId(id);
+
+        //    registroSelecionado.AtualizarInformacoes(registroAtualizado);
+        ////}
+
+        //public virtual void Editar(TEntidade registroSelecionado, TEntidade registroAtualizado)
+        //{
+        //    registroSelecionado.AtualizarInformacoes(registroAtualizado);
+        //}
+
+        public virtual void Excluir(int id)
         {
-            return listaObjeto.Find(entidade => entidade.id == id);
+            T registroSelecionado = SelecionarPorId(id);
+
+            if (registroSelecionado != null)
+                listaObjeto.Remove(registroSelecionado);
+        }
+
+        public virtual void Excluir(T apagar)
+        {
+            listaObjeto.Remove(apagar);
         }
 
         public virtual List<T> ListarTodos()
@@ -22,9 +42,22 @@
             return listaObjeto;
         }
 
-        public virtual void Excluir(T apagar)
+        public virtual T SelecionarPorId(int id)
         {
-            listaObjeto.Remove(apagar);
+            return listaObjeto.Find(entidade => entidade.id == id);
+        }
+
+        //public virtual T SelecionarPorId(int id)
+        //{
+        //    if (listaObjeto.Exists(registro => registro.id == id))
+        //        return listaObjeto.First(registro => registro.id == id);
+
+        //    return null;
+        //}
+
+        public virtual List<T> SelecionarTodos()
+        {
+            return listaObjeto.OrderByDescending(x => x.id).ToList();
         }
     }
 }

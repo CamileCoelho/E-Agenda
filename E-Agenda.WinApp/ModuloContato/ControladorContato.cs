@@ -4,13 +4,13 @@ namespace E_Agenda.WinApp.ModuloContato
 {
     public class ControladorContato : ControladorBase
     {
-        RepositorioBase<Contato> repositorioBaseContato;
-        RepositorioContato repositorioContato;
-        ListagemContatoControl listagemContato;
+        private RepositorioBase<Contato> repositorioBaseContato;
+        private RepositorioContato repositorioContato;
+        private ListagemContatoControl listagemContato;
 
         public ControladorContato(RepositorioContato repositorioContato)
         {
-            this.repositorioBaseContato = repositorioContato;
+            repositorioBaseContato = repositorioContato;
             this.repositorioContato = repositorioContato;
         }
 
@@ -50,14 +50,14 @@ namespace E_Agenda.WinApp.ModuloContato
                 return;
             }
 
-            TelaContatoForm telaContato = new TelaContatoForm();
-            telaContato.Contato = contato;
+            TelaContatoForm tela = new();
+            tela.Contato = contato;
 
-            DialogResult opcaoEscolhida = telaContato.ShowDialog();
+            DialogResult opcaoEscolhida = tela.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioContato.Editar(telaContato.Contato);
+                repositorioContato.Editar(tela.Contato);
 
                 CarregarContatos();
             }
@@ -111,7 +111,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
         private Contato ObterContatoSelecionado()
         {
-            int id = listagemContato.ObtemNumeroCompromissoSelecionado();
+            int id = listagemContato.ObterNumeroContatoSelecionado();
 
             return (Contato)repositorioBaseContato.SelecionarPorId(id);
         }

@@ -40,7 +40,7 @@ namespace E_Agenda.WinApp.ModuloContato
             return colunas;
         }
 
-        public int ObtemNumeroCompromissoSelecionado()
+        public int ObterNumeroContatoSelecionado()
         {
             return grid.SelecionarNumero<int>();
         }

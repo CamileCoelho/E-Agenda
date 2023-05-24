@@ -1,6 +1,6 @@
 ﻿namespace E_Agenda.WinApp.ModuloCompromissos
 {
-    partial class listaCompromisso
+    partial class ListagemCompromissoControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,19 +28,34 @@
         /// </summary>
         private void InitializeComponent()
         {
+            grid = new DataGridView();
+            ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // listaCompromisso
+            // grid
+            // 
+            grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grid.Dock = DockStyle.Fill;
+            grid.Location = new Point(0, 0);
+            grid.Name = "grid";
+            grid.RowTemplate.Height = 25;
+            grid.Size = new Size(759, 574);
+            grid.TabIndex = 1;
+            // 
+            // ListagemCompromissoControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Name = "listaCompromisso";
+            Controls.Add(grid);
+            Name = "ListagemCompromissoControl";
             Size = new Size(759, 574);
+            ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }
 
         #endregion
 
         private ListBox listCompromisso;
+        private DataGridView grid;
     }
 }

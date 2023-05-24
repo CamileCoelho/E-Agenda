@@ -9,7 +9,6 @@ namespace E_Agenda.WinApp.ModuloTarefa
             Tarefa tarefaSelecionada = (Tarefa)SelecionarPorId(tarefa.id);
 
             tarefaSelecionada.titulo = tarefa.titulo;
-            tarefaSelecionada.descricao = tarefa.descricao;
             tarefaSelecionada.prioridade = tarefa.prioridade;
         }
     }

@@ -1,13 +1,6 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloContato;
+using System.Xml.Linq;
 
 namespace E_Agenda.WinApp.ModuloCompromissos
 {
@@ -15,30 +8,35 @@ namespace E_Agenda.WinApp.ModuloCompromissos
     {
         Compromisso compromisso;
 
-        public List<Contato> contatos;
-
-        public TelaCompromissoForm()
+        public TelaCompromissoForm(List<Contato> contatos)
         {
             InitializeComponent();
 
-            configurarDateTime(dateTimeInicio);
-            configurarDateTime(dateTimeTermino);
-        }
-
-        private void configurarDateTime(DateTimePicker data)
-        {
-            data.Format = DateTimePickerFormat.Custom;
-            data.CustomFormat = "HH:mm";
-            data.ShowUpDown = true;
-        }
-
-        public void ObterContatos(List<Contato> contatos)
-        {
-            this.contatos = contatos;
             foreach (Contato contato in contatos)
             {
-                cmbContatos.Items.Add(contato.informacoesPessoais.nome);
+                cmbContatos.Items.Add(contato);
             }
+        }
+
+        public Compromisso ObterCompromisso()
+        {
+            string assunto = txtAssunto.Text;
+            DateTime data = txtData.Value;
+            DateTime horarioInicio = txtInicio.Value;
+            DateTime horarioFinal = txtTermino.Value;
+
+            TipoLocalizacaoCompromissoEnum tipo = rbtOnline.Checked ? TipoLocalizacaoCompromissoEnum.Online : TipoLocalizacaoCompromissoEnum.Presencial;
+
+            Contato contato = (Contato)cmbContatos.SelectedItem;
+
+            string localizacao;
+            if (rbtOnline.Checked)
+                localizacao = txtLocalOnline.Text;
+            else
+                localizacao = txtLocalPresencial.Text;
+
+
+            return new Compromisso(assunto, data, horarioInicio, horarioFinal, contato, localizacao, tipo);
         }
 
         public Compromisso Compromisso
@@ -47,11 +45,11 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             {
                 txtId.Text = value.id.ToString();
                 txtAssunto.Text = value.assunto;
-                txtLocal.Text = value.localizacao;
-                txtLink.Text = value.localizacao;
-                dateTimeInicio.Value = value.inicio;
-                dateTimeTermino.Value = value.termino;
-                dateTimeData.Value = value.data;
+                txtLocalPresencial.Text = value.localizacao;
+                txtLocalOnline.Text = value.localizacao;
+                txtInicio.Value = value.horarioInicio;
+                txtTermino.Value = value.horarioTermino;
+                txtData.Value = value.data;
                 if (value.contato != null)
                 {
                     cmbContatos.SelectedItem = value.contato.informacoesPessoais.nome;
@@ -63,21 +61,67 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             }
         }
 
+        public void ConfigurarTela(Compromisso compromissoSelecionado)
+        {
+            txtId.Text = compromissoSelecionado.id.ToString();
+            txtAssunto.Text = compromissoSelecionado.assunto;
+            txtData.Value = compromissoSelecionado.data;
+            txtInicio.Value = compromissoSelecionado.horarioInicio;
+            txtTermino.Value = compromissoSelecionado.horarioTermino;
+            //txtInicio.Value = DateTime.Now.Date.Add(compromissoSelecionado.horarioInicio);
+            //txtTermino.Value = DateTime.Now.Date.Add(compromissoSelecionado.horarioTermino);
+
+            if (compromissoSelecionado.contato == null)
+            {
+                chkSelecionarContato.Checked = true;
+                cmbContatos.SelectedItem = compromissoSelecionado.contato;
+            }
+
+            if (compromissoSelecionado.tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial)
+            {
+                rbtPresencial.Checked = true;
+                txtLocalPresencial.Text = compromissoSelecionado.localPresencial;
+            }
+            else
+            {
+                rbtOnline.Checked = true;
+                txtLocalOnline.Text = compromissoSelecionado.localOnline;
+            }
+        }
+
         private void btnGravar_Click(object sender, EventArgs e)
         {
-            //string nome = txtNome.Text;
+            compromisso = ObterCompromisso();
 
-            //string telefone = txtTelefone.Text;
+            string status = compromisso.validar();
 
-            //string email = txtEmail.Text;
+            if (status.Length > 0)
+            {
+                TelaPrincipalForm.Tela.atualizarRodape(status);
 
-            //string cargo = txtCargo.Text;
-            //string empresa = txtEmpresa.Text;
+                DialogResult = DialogResult.None;
+            }
+        }
 
-            //compromisso = new Compromisso(dfksdkdjsfkdjfjdfk,fdsjfkdjfk);
+        private void rbtPresencial_CheckedChanged(object sender, EventArgs e)
+        {
+            txtLocalPresencial.Enabled = true;
+            txtLocalOnline.Enabled = false;
+            txtLocalOnline.Text = "";
 
-            //if (txtId.Text != "0")
-            //    compromisso.id = Convert.ToInt32(txtId.Text);
+        }
+
+        private void rbtOnline_CheckedChanged(object sender, EventArgs e)
+        {
+            txtLocalOnline.Enabled = true;
+            txtLocalPresencial.Enabled = false;
+            txtLocalPresencial.Text = "";
+        }
+
+        private void chkSelecionarContato_CheckedChanged(object sender, EventArgs e)
+        {
+            cmbContatos.Enabled = !cmbContatos.Enabled;
+            cmbContatos.SelectedIndex = -1;
         }
     }
 }

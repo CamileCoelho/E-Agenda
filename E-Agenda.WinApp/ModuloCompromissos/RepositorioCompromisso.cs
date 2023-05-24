@@ -10,8 +10,8 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
             compromissoSelecionado.assunto = compromisso.assunto;
             compromissoSelecionado.data = compromisso.data;
-            compromissoSelecionado.inicio = compromisso.inicio;
-            compromissoSelecionado.termino = compromisso.termino;
+            compromissoSelecionado.horarioInicio = compromisso.horarioInicio;
+            compromissoSelecionado.horarioTermino = compromisso.horarioTermino;
             compromissoSelecionado.localizacao = compromisso.localizacao;
             compromissoSelecionado.contato = compromisso.contato;
         }

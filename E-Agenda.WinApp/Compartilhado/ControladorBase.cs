@@ -14,6 +14,8 @@
 
         public abstract void Excluir();
 
+        public virtual void Filtrar(){}
+
         public abstract UserControl ObterListagem();
 
         public abstract string ObterTipoCadastro();

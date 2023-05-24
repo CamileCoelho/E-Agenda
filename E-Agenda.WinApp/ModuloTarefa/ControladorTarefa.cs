@@ -1,14 +1,17 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class ControladorTarefa : ControladorBase
     {
+        RepositorioBase<Tarefa> repositorioBaseTarefa;
         RepositorioTarefa repositorioTarefa;
         ListagemTarefaControl listagemTarefa;
 
         public ControladorTarefa(RepositorioTarefa repositorioTarefa)
         {
+            this.repositorioBaseTarefa = repositorioTarefa;
             this.repositorioTarefa = repositorioTarefa;
         }
 
@@ -36,61 +39,61 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override void Editar()
         {
-            //Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefa = ObterTarefaSelecionada();
 
-            //if (tarefa == null)
-            //{
-            //    MessageBox.Show($"Selecione uma tarefa primeiro!",
-            //        "Edição de Contatos",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Exclamation);
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Edição de Contatos",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
-            //    return;
-            //}
+                return;
+            }
 
-            //TelaTarefaForm telaTarefa = new();
-            //telaTarefa.Tarefa = tarefa;
+            TelaTarefaForm telaTarefa = new();
+            telaTarefa.Tarefa = tarefa;
 
-            //DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
 
-            //if (opcaoEscolhida == DialogResult.OK)
-            //{
-            //    repositorioTarefa.Editar(telaTarefa.Tarefa);
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioTarefa.Editar(telaTarefa.Tarefa);
 
-            //    CarregarTarefas();
-            //}
+                CarregarTarefas();
+            }
         }
 
         public override void Excluir()
         {
-            //Tarefa tarefa = listagemTarefa.ObterTarefaSelecionada();
+            Tarefa tarefa = ObterTarefaSelecionada();
 
-            //if (tarefa == null)
-            //{
-            //    MessageBox.Show($"Selecione uma tarefa primeiro!",
-            //        "Exclusão de Tarefas",
-            //        MessageBoxButtons.OK,
-            //        MessageBoxIcon.Exclamation);
+            if (tarefa == null)
+            {
+                MessageBox.Show($"Selecione uma tarefa primeiro!",
+                    "Exclusão de Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
 
-            //    return;
-            //}
+                return;
+            }
 
-            //DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a tarefa {tarefa.titulo}?", "Exclusão de Tarefas",
-            //    MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            DialogResult opcaoEscolhida = MessageBox.Show($"Deseja excluir a tarefa {tarefa.titulo}?", "Exclusão de Tarefas",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
 
-            //if (opcaoEscolhida == DialogResult.OK)
-            //{
-            //    repositorioTarefa.Excluir(tarefa);
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                repositorioTarefa.Excluir(tarefa);
 
-            //    CarregarTarefas();
-            //}
+                CarregarTarefas();
+            }
         }
 
         private void CarregarTarefas()
         {
-            //List<Tarefa> tarefas = repositorioTarefa.ListarTodos();
+            List<Tarefa> tarefas = repositorioTarefa.ListarTodos();
 
-            //listagemTarefa.AtualizarRegistros(tarefas);
+            listagemTarefa.AtualizarRegistros(tarefas);
         }
 
         public override UserControl ObterListagem()
@@ -106,6 +109,13 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public override string ObterTipoCadastro()
         {
             return "Cadastro de Tarefas";
+        }
+
+        private Tarefa ObterTarefaSelecionada()
+        {
+            int id = listagemTarefa.ObterNumeroTarefaSelecionada();
+
+            return (Tarefa)repositorioBaseTarefa.SelecionarPorId(id);
         }
     }
 }

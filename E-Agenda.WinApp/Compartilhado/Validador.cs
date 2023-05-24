@@ -1,4 +1,5 @@
 ﻿
+using System;
 using System.Text.RegularExpressions;
 
 namespace E_Agenda.WinApp.Compartilhado
@@ -49,6 +50,16 @@ namespace E_Agenda.WinApp.Compartilhado
                 return false;
             else
                 return true;
+        }
+
+        public bool ValidaDateTime(DateTime date)
+        {
+            if (string.IsNullOrEmpty(date.ToString()) && string.IsNullOrWhiteSpace(date.ToString()))
+                return true;
+            if (date == DateTime.MinValue)
+                return true; 
+            else
+                return false;
         }
     }
 }

@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             label6 = new Label();
-            label3 = new Label();
-            txtDescricao = new TextBox();
             txtTitulo = new TextBox();
             label2 = new Label();
             txtId = new TextBox();
@@ -44,34 +42,16 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(59, 194);
+            label6.Location = new Point(9, 103);
             label6.Name = "label6";
             label6.Size = new Size(85, 21);
             label6.TabIndex = 41;
             label6.Text = "Prioridade:";
             // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(64, 143);
-            label3.Name = "label3";
-            label3.Size = new Size(80, 21);
-            label3.TabIndex = 38;
-            label3.Text = "Descrição:";
-            // 
-            // txtDescricao
-            // 
-            txtDescricao.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtDescricao.Location = new Point(172, 143);
-            txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(395, 29);
-            txtDescricao.TabIndex = 34;
-            // 
             // txtTitulo
             // 
             txtTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtTitulo.Location = new Point(172, 93);
+            txtTitulo.Location = new Point(122, 55);
             txtTitulo.Name = "txtTitulo";
             txtTitulo.Size = new Size(395, 29);
             txtTitulo.TabIndex = 33;
@@ -80,7 +60,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(92, 93);
+            label2.Location = new Point(42, 55);
             label2.Name = "label2";
             label2.Size = new Size(52, 21);
             label2.TabIndex = 32;
@@ -89,7 +69,7 @@
             // txtId
             // 
             txtId.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            txtId.Location = new Point(172, 50);
+            txtId.Location = new Point(122, 12);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
             txtId.Size = new Size(100, 29);
@@ -100,7 +80,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(118, 50);
+            label1.Location = new Point(68, 12);
             label1.Name = "label1";
             label1.Size = new Size(26, 21);
             label1.TabIndex = 30;
@@ -112,7 +92,7 @@
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ImageAlign = ContentAlignment.BottomRight;
-            btnCancelar.Location = new Point(515, 283);
+            btnCancelar.Location = new Point(424, 504);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 41);
@@ -126,7 +106,7 @@
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGravar.ImageAlign = ContentAlignment.BottomRight;
-            btnGravar.Location = new Point(400, 283);
+            btnGravar.Location = new Point(309, 504);
             btnGravar.Margin = new Padding(4);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(94, 41);
@@ -138,9 +118,9 @@
             // 
             // cmbPrioridades
             // 
+            cmbPrioridades.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbPrioridades.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            cmbPrioridades.FormattingEnabled = true;
-            cmbPrioridades.Location = new Point(172, 194);
+            cmbPrioridades.Location = new Point(122, 103);
             cmbPrioridades.Name = "cmbPrioridades";
             cmbPrioridades.Size = new Size(395, 29);
             cmbPrioridades.TabIndex = 46;
@@ -149,11 +129,9 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(650, 361);
+            ClientSize = new Size(559, 582);
             Controls.Add(cmbPrioridades);
             Controls.Add(label6);
-            Controls.Add(label3);
-            Controls.Add(txtDescricao);
             Controls.Add(txtTitulo);
             Controls.Add(label2);
             Controls.Add(txtId);
@@ -163,7 +141,6 @@
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;
-            MinimumSize = new Size(666, 400);
             Name = "TelaTarefaForm";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Cadastro de Tarefas";
@@ -174,8 +151,6 @@
         #endregion
 
         private Label label6;
-        private Label label3;
-        private TextBox txtDescricao;
         private TextBox txtTitulo;
         private Label label2;
         private TextBox txtId;

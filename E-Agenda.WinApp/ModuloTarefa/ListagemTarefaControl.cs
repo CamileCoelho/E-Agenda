@@ -5,8 +5,6 @@ namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class ListagemTarefaControl : UserControl
     {
-        List<Tarefa> tarefas = new List<Tarefa>();
-
         public ListagemTarefaControl()
         {
             InitializeComponent();
@@ -21,32 +19,27 @@ namespace E_Agenda.WinApp.ModuloTarefa
             {
                 new DataGridViewTextBoxColumn { DataPropertyName = "Id", HeaderText = "Id"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Nome", HeaderText = "Nome"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Título", HeaderText = "Título"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Telefone", HeaderText = "Telefone"},
-
-                new DataGridViewTextBoxColumn { DataPropertyName = "Empresa", HeaderText = "Empresa"},
-
-                new DataGridViewTextBoxColumn {DataPropertyName = "Cargo", HeaderText = "Cargo"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Prioridade", HeaderText = "Prioridade"}
             };
 
             return colunas;
         }
 
-        public int ObterNumeroContatoSelecionado()
+        public int ObterNumeroTarefaSelecionada()
         {
             return grid.SelecionarNumero<int>();
         }
 
-        public void AtualizarRegistros(List<Contato> contatos)
+        public void AtualizarRegistros(List<Tarefa> tarefas)
         {
             grid.Rows.Clear();
 
-            foreach (var contato in contatos)
+            foreach (var tarefa in tarefas)
             {
-                grid.Rows.Add(contato.id, contato.informacoesPessoais.nome,
-                    contato.informacoesPessoais.telefone, contato.informacoesPessoais.email, contato.empresa,
-                    contato.cargo);
+                grid.Rows.Add(tarefa.id, tarefa.titulo,
+                   tarefa.prioridade);
             }
         }
     }
