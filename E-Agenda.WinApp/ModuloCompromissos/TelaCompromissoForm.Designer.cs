@@ -141,7 +141,7 @@
             txtData.Name = "txtData";
             txtData.Size = new Size(149, 29);
             txtData.TabIndex = 46;
-            txtData.Value = new DateTime(2023, 5, 18, 9, 25, 16, 0);
+            txtData.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
             // 
             // cmbContatos
             // 
@@ -251,7 +251,7 @@
             txtTermino.ShowUpDown = true;
             txtTermino.Size = new Size(149, 29);
             txtTermino.TabIndex = 58;
-            txtTermino.Value = new DateTime(2023, 5, 17, 15, 51, 0, 0);
+            txtTermino.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
             // 
             // txtInicio
             // 
@@ -263,7 +263,7 @@
             txtInicio.ShowUpDown = true;
             txtInicio.Size = new Size(149, 29);
             txtInicio.TabIndex = 57;
-            txtInicio.Value = new DateTime(2023, 5, 17, 15, 51, 0, 0);
+            txtInicio.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
             // 
             // TelaCompromissoForm
             // 
