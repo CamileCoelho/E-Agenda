@@ -4,16 +4,29 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 {
     public class RepositorioCompromisso : RepositorioBase<Compromisso>
     {
-        public void Editar(Compromisso compromisso)
+        public RepositorioCompromisso()
         {
-            Compromisso compromissoSelecionado = (Compromisso)SelecionarPorId(compromisso.id);
-
-            compromissoSelecionado.assunto = compromisso.assunto;
-            compromissoSelecionado.data = compromisso.data;
-            compromissoSelecionado.horarioInicio = compromisso.horarioInicio;
-            compromissoSelecionado.horarioTermino = compromisso.horarioTermino;
-            compromissoSelecionado.localizacao = compromisso.localizacao;
-            compromissoSelecionado.contato = compromisso.contato;
+            
         }
+
+        public RepositorioCompromisso(List<Compromisso> compromissos)
+        {
+            this.listaObjeto = compromissos;
+        }
+
+        ////Selecionar Compromissos Passados
+        //public List<Compromisso> SelecionarCompromissosPassados(DateTime hoje)
+        //{
+        //    return listaObjeto.Where(x => x.data.Date < hoje.Date).ToList();
+        //}
+
+        ////Selecionar Compromissos Futuros ( dataInicio, dataFinal)
+        //public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
+        //{
+        //    return listaObjeto
+        //        .Where(x => x.data > dataInicio)
+        //        .Where(x => x.data < dataFinal)
+        //        .ToList();
+        //}
     }
 }

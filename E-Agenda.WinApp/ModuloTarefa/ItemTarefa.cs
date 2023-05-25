@@ -8,11 +8,10 @@ using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class ItemTarefa : EntidadeBase
+    public class ItemTarefa 
     {
         public bool concluido { get; set; }
         public string titulo { get; set; }
-        public string descricao { get; set; }
 
         public void marcarConcluido()
         {
@@ -23,5 +22,33 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             concluido = false;
         }
+        public ItemTarefa(string titulo)
+        {
+            this.titulo = titulo;
+        }
+
+        public override string ToString()
+        {
+            return titulo;
+        }
+
+        public void Concluir()
+        {
+            concluido = true;
+        }
+
+        public override bool Equals(object? obj)
+        {
+            return obj is ItemTarefa tarefa &&
+                   titulo == tarefa.titulo &&
+                   concluido == tarefa.concluido;
+        }
+
+        public void Desmarcar()
+        {
+            concluido = false;
+        }
     }
+
 }
+

@@ -11,9 +11,17 @@ namespace E_Agenda.WinApp.Compartilhado
             
         }
 
-        public bool ValidarString(string str)
+        public bool ValidaString(string str)
         {
             if (string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str))
+                return true;
+            else
+                return false;
+        }
+
+        public bool ValidaEnum(Enum e)
+        {
+            if (string.IsNullOrEmpty(e.ToString()) && string.IsNullOrWhiteSpace(e.ToString()))
                 return true;
             else
                 return false;
@@ -58,6 +66,26 @@ namespace E_Agenda.WinApp.Compartilhado
                 return true;
             if (date == DateTime.MinValue)
                 return true; 
+            else
+                return false;
+        }
+
+        public bool ValidaDateOnly(DateOnly data)
+        {
+            if (string.IsNullOrEmpty(data.ToString()) && string.IsNullOrWhiteSpace(data.ToString()))
+                return true;
+            if (data == DateOnly.MinValue)
+                return true;
+            else
+                return false;
+        }
+
+        public bool ValidaTimeOnly(TimeOnly hora)
+        {
+            if (string.IsNullOrEmpty(hora.ToString()) && string.IsNullOrWhiteSpace(hora.ToString()))
+                return true;
+            if (hora == TimeOnly.MinValue)
+                return true;
             else
                 return false;
         }

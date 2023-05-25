@@ -1,6 +1,6 @@
 ﻿namespace E_Agenda.WinApp.Compartilhado
 {
-    public abstract class RepositorioBase<T> where T : EntidadeBase
+    public abstract class RepositorioBase<T> where T : EntidadeBase<T>
     {
         protected List<T> listaObjeto = new List<T>();
 
@@ -12,17 +12,17 @@
             listaObjeto.Add(adicionar);
         }
 
-        //public virtual void Editar(int id, TEntidade registroAtualizado)
-        //{
-        //    TEntidade registroSelecionado = SelecionarPorId(id);
+        public virtual void Editar(int id, T registroAtualizado)
+        {
+            T registroSelecionado = SelecionarPorId(id);
 
-        //    registroSelecionado.AtualizarInformacoes(registroAtualizado);
-        ////}
+            registroSelecionado.AtualizarInformacoes(registroAtualizado);
+        }
 
-        //public virtual void Editar(TEntidade registroSelecionado, TEntidade registroAtualizado)
-        //{
-        //    registroSelecionado.AtualizarInformacoes(registroAtualizado);
-        //}
+        public virtual void Editar(T registroSelecionado, T registroAtualizado)
+        {
+            registroSelecionado.AtualizarInformacoes(registroAtualizado);
+        }
 
         public virtual void Excluir(int id)
         {

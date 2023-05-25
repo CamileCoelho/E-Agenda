@@ -1,0 +1,1 @@
+﻿global using E_Agenda.WinApp.Compartilhado;

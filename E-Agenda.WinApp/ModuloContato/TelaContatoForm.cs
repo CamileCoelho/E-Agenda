@@ -45,7 +45,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             contato = new(info, cargo, empresa);
 
-            string status = contato.validar();
+            string status = contato.Validar();
 
             if (status != "")
             {

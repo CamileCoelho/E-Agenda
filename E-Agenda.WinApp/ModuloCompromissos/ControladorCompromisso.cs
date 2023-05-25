@@ -42,9 +42,9 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         }
         public override void Editar()
         {
-            Compromisso compromisso = ObterCompromissoSelecionado();
+            Compromisso compromissoSelecionado = ObterCompromissoSelecionado();
 
-            if (compromisso == null)
+            if (compromissoSelecionado == null)
             {
                 MessageBox.Show($"Selecione um compromisso primeiro!",
                     "Edição de Compromissos",
@@ -56,15 +56,18 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
             List<Contato> contatos = repositorioContato.SelecionarTodos();
             TelaCompromissoForm tela = new(contatos);
-            tela.Compromisso = compromisso;
 
-            tela.ConfigurarTela(compromisso);
+            tela.ConfigurarTela(compromissoSelecionado);
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioCompromisso.Editar(tela.Compromisso);
+                Compromisso compromisso = tela.ObterCompromisso();
+
+                //repositorioCompromisso.Editar(compromissoSelecionado, compromisso);
+
+                repositorioCompromisso.Editar(compromisso.id, compromisso);
 
                 CarregarCompromissos();
             }

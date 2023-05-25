@@ -4,12 +4,32 @@ namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefa : RepositorioBase<Tarefa>
     {
-        public void Editar(Tarefa tarefa)
+        public RepositorioTarefa()
         {
-            Tarefa tarefaSelecionada = (Tarefa)SelecionarPorId(tarefa.id);
+            
+        }
 
-            tarefaSelecionada.titulo = tarefa.titulo;
-            tarefaSelecionada.prioridade = tarefa.prioridade;
+        public List<Tarefa>? SelecionarConcluidas()
+        {
+            return listaObjeto
+                .Where(x => x.percentualConcluido == 100)
+                .OrderByDescending(x => x.prioridade)
+                .ToList();
+        }
+
+        public List<Tarefa>? SelecionarPendentes()
+        {
+            return listaObjeto
+                .Where(x => x.percentualConcluido < 100)
+                .OrderByDescending(x => x.prioridade)
+                .ToList();
+        }
+
+        public List<Tarefa> SelecionarTodosOrdenadosPorPrioridade()
+        {
+            return listaObjeto
+                .OrderByDescending(x => x.prioridade)
+                .ToList();
         }
     }
 }

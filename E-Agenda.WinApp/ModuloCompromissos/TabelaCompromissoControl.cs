@@ -26,9 +26,9 @@ namespace E_Agenda.WinApp.ModuloCompromissos
                 new DataGridViewTextBoxColumn { DataPropertyName = "Horário de Início", HeaderText = "Horário de Início"},
 
                 new DataGridViewTextBoxColumn {DataPropertyName = "Horário de Término", HeaderText = "Horário de Término"},
-                
+
                 new DataGridViewTextBoxColumn {DataPropertyName = "Online/Presencial", HeaderText = "Online/Presencial"},
-                
+
                 new DataGridViewTextBoxColumn {DataPropertyName = "Localização", HeaderText = "Localização"}
             };
 
@@ -47,7 +47,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             foreach (var compromisso in compromissos)
             {
                 grid.Rows.Add(compromisso.id, compromisso.assunto, compromisso.data,
-                    compromisso.horarioInicio, compromisso.horarioTermino, 
+                    compromisso.horarioInicio, compromisso.horarioTermino,
                     compromisso.tipoLocal, compromisso.localizacao);
             }
         }

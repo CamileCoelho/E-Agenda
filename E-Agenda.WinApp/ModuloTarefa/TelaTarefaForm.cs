@@ -37,11 +37,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             string titulo = txtTitulo.Text;
 
-            string prioridade = (string)cmbPrioridades.SelectedItem;
+            TipoPrioridadeTarefaEnum prioridade = (TipoPrioridadeTarefaEnum)cmbPrioridades.SelectedItem;
 
             tarefa = new Tarefa(titulo, prioridade);
 
-            string status = tarefa.validar();
+            string status = tarefa.Validar();
 
             if (status != "")
             {

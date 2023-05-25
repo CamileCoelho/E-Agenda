@@ -2,7 +2,7 @@
 
 namespace E_Agenda.WinApp.ModuloContato
 {
-    public class Contato : EntidadeBase
+    public class Contato : EntidadeBase<Contato>
     {
         public InformacoesPessoais informacoesPessoais {  get; set; }
         public string cargo { get; set; }
@@ -15,11 +15,20 @@ namespace E_Agenda.WinApp.ModuloContato
             this.empresa = empresa;
         }
 
-        public string validar()
+        public override void AtualizarInformacoes(Contato registroAtualizado)
+        {
+            this.informacoesPessoais.nome = registroAtualizado.informacoesPessoais.nome;
+            this.informacoesPessoais.telefone = registroAtualizado.informacoesPessoais.telefone;
+            this.informacoesPessoais.email = registroAtualizado.informacoesPessoais.email;
+            this.cargo = registroAtualizado.cargo;
+            this.empresa = registroAtualizado.empresa;
+        }
+
+        public override string Validar()
         {
             Validador valida = new();
 
-            if (valida.ValidarString(informacoesPessoais.nome))
+            if (valida.ValidaString(informacoesPessoais.nome))
                 return $"Você deve escrever um nome!";
 
             if (informacoesPessoais.telefone == null || valida.ValidaTelefone(informacoesPessoais.telefone))

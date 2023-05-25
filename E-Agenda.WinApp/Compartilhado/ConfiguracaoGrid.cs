@@ -35,6 +35,9 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public static void ConfigurarGridSomenteLeitura(this DataGridView grid)
         {
+            grid.EnableHeadersVisualStyles = false;
+            grid.ColumnHeadersDefaultCellStyle.BackColor = Color.RosyBrown;
+
             grid.AllowUserToAddRows = false;
             grid.AllowUserToDeleteRows = false;
 

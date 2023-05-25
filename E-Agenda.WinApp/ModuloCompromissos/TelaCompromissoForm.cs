@@ -1,5 +1,6 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
 using E_Agenda.WinApp.ModuloContato;
+using System;
 using System.Xml.Linq;
 
 namespace E_Agenda.WinApp.ModuloCompromissos
@@ -21,9 +22,9 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         public Compromisso ObterCompromisso()
         {
             string assunto = txtAssunto.Text;
-            DateTime data = txtData.Value;
-            DateTime horarioInicio = txtInicio.Value;
-            DateTime horarioFinal = txtTermino.Value;
+            DateOnly data = DateOnly.FromDateTime(txtData.Value);
+            TimeOnly horarioInicio = TimeOnly.FromDateTime(txtInicio.Value);
+            TimeOnly horarioFinal = TimeOnly.FromDateTime(txtTermino.Value);
 
             TipoLocalizacaoCompromissoEnum tipo = rbtOnline.Checked ? TipoLocalizacaoCompromissoEnum.Online : TipoLocalizacaoCompromissoEnum.Presencial;
 
@@ -39,35 +40,13 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             return new Compromisso(assunto, data, horarioInicio, horarioFinal, contato, localizacao, tipo);
         }
 
-        public Compromisso Compromisso
-        {
-            set
-            {
-                txtId.Text = value.id.ToString();
-                txtAssunto.Text = value.assunto;
-                txtLocalPresencial.Text = value.localizacao;
-                txtLocalOnline.Text = value.localizacao;
-                txtInicio.Value = value.horarioInicio;
-                txtTermino.Value = value.horarioTermino;
-                txtData.Value = value.data;
-                if (value.contato != null)
-                {
-                    cmbContatos.SelectedItem = value.contato.informacoesPessoais.nome;
-                }
-            }
-            get
-            {
-                return compromisso;
-            }
-        }
-
         public void ConfigurarTela(Compromisso compromissoSelecionado)
         {
             txtId.Text = compromissoSelecionado.id.ToString();
             txtAssunto.Text = compromissoSelecionado.assunto;
-            txtData.Value = compromissoSelecionado.data;
-            txtInicio.Value = compromissoSelecionado.horarioInicio;
-            txtTermino.Value = compromissoSelecionado.horarioTermino;
+            txtData.Value = compromissoSelecionado.data.ToDateTime(TimeOnly.Parse("00:00 AM"));
+            txtInicio.Value = Convert.ToDateTime(compromissoSelecionado.horarioInicio);
+            txtTermino.Value = Convert.ToDateTime(compromissoSelecionado.horarioTermino);
             //txtInicio.Value = DateTime.Now.Date.Add(compromissoSelecionado.horarioInicio);
             //txtTermino.Value = DateTime.Now.Date.Add(compromissoSelecionado.horarioTermino);
 
@@ -93,7 +72,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         {
             compromisso = ObterCompromisso();
 
-            string status = compromisso.validar();
+            string status = compromisso.Validar();
 
             if (status.Length > 0)
             {

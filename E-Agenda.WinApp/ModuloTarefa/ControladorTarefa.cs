@@ -58,7 +58,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioTarefa.Editar(telaTarefa.Tarefa);
+                repositorioTarefa.Editar(telaTarefa.Tarefa.id, telaTarefa.Tarefa);
 
                 CarregarTarefas();
             }
