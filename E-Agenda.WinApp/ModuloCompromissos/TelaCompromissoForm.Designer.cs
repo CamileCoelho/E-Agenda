@@ -289,7 +289,7 @@
             MaximumSize = new Size(535, 643);
             MinimumSize = new Size(535, 643);
             Name = "TelaCompromissoForm";
-            Text = "TelaCompromissoForm";
+            Text = "Cadastro de Compromissos";
             groupBoxLocalizacao.ResumeLayout(false);
             groupBoxLocalizacao.PerformLayout();
             ResumeLayout(false);

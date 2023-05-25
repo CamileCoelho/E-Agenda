@@ -18,11 +18,15 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             this.repositorioContato = repositorioContato;
         }
 
-        public override string ToolTipInserir { get { return "Inserir novo Compromisso"; } }
+        public override string ToolTipInserir => "Inserir novo compromisso";
 
-        public override string ToolTipEditar { get { return "Editar Compromisso existente"; } }
+        public override string ToolTipEditar => "Editar compromisso existente";
 
-        public override string ToolTipExcluir { get { return "Excluir Compromisso existente"; } }
+        public override string ToolTipExcluir => "Excluir compromisso existente";
+
+        public override string ToolTipFiltrar => "Filtrar compromissos";
+
+        public override bool FiltrarHabilitado => true;
 
         public override void Inserir()
         {

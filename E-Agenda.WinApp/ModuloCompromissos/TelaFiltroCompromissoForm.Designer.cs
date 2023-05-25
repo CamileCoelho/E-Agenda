@@ -33,8 +33,10 @@
             radioButton1 = new RadioButton();
             radioButton2 = new RadioButton();
             radioButton3 = new RadioButton();
-            label1 = new Label();
             label2 = new Label();
+            label1 = new Label();
+            txtDataFinal = new DateTimePicker();
+            txtDataInicio = new DateTimePicker();
             SuspendLayout();
             // 
             // btnCancelar
@@ -43,7 +45,7 @@
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ImageAlign = ContentAlignment.BottomRight;
-            btnCancelar.Location = new Point(345, 324);
+            btnCancelar.Location = new Point(258, 336);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 41);
@@ -58,7 +60,7 @@
             btnFiltrar.DialogResult = DialogResult.OK;
             btnFiltrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnFiltrar.ImageAlign = ContentAlignment.BottomRight;
-            btnFiltrar.Location = new Point(230, 324);
+            btnFiltrar.Location = new Point(143, 336);
             btnFiltrar.Margin = new Padding(4);
             btnFiltrar.Name = "btnFiltrar";
             btnFiltrar.Size = new Size(94, 41);
@@ -103,31 +105,55 @@
             radioButton3.Text = "Visualizar compromissos passados ";
             radioButton3.UseVisualStyleBackColor = true;
             // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(41, 202);
-            label1.Name = "label1";
-            label1.Size = new Size(38, 15);
-            label1.TabIndex = 21;
-            label1.Text = "label1";
-            // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(41, 241);
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(38, 244);
             label2.Name = "label2";
-            label2.Size = new Size(38, 15);
-            label2.TabIndex = 22;
-            label2.Text = "label2";
+            label2.Size = new Size(82, 21);
+            label2.TabIndex = 24;
+            label2.Text = "Data Final:";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(32, 206);
+            label1.Name = "label1";
+            label1.Size = new Size(89, 21);
+            label1.TabIndex = 23;
+            label1.Text = "Data Inicial:";
+            // 
+            // txtDataFinal
+            // 
+            txtDataFinal.Enabled = false;
+            txtDataFinal.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDataFinal.Format = DateTimePickerFormat.Short;
+            txtDataFinal.Location = new Point(165, 244);
+            txtDataFinal.Name = "txtDataFinal";
+            txtDataFinal.Size = new Size(187, 29);
+            txtDataFinal.TabIndex = 22;
+            // 
+            // txtDataInicio
+            // 
+            txtDataInicio.Enabled = false;
+            txtDataInicio.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDataInicio.Format = DateTimePickerFormat.Short;
+            txtDataInicio.Location = new Point(165, 206);
+            txtDataInicio.Name = "txtDataInicio";
+            txtDataInicio.Size = new Size(187, 29);
+            txtDataInicio.TabIndex = 21;
             // 
             // TelaFiltroCompromissoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(473, 394);
+            ClientSize = new Size(386, 406);
             Controls.Add(label2);
             Controls.Add(label1);
+            Controls.Add(txtDataFinal);
+            Controls.Add(txtDataInicio);
             Controls.Add(radioButton3);
             Controls.Add(radioButton2);
             Controls.Add(radioButton1);
@@ -146,7 +172,9 @@
         private RadioButton radioButton1;
         private RadioButton radioButton2;
         private RadioButton radioButton3;
-        private Label label1;
         private Label label2;
+        private Label label1;
+        private DateTimePicker txtDataFinal;
+        private DateTimePicker txtDataInicio;
     }
 }

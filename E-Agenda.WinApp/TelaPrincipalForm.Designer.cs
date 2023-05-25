@@ -44,11 +44,14 @@
             btnInserir = new ToolStripButton();
             btnEditar = new ToolStripButton();
             btnExcluir = new ToolStripButton();
+            toolStripSeparator2 = new ToolStripSeparator();
+            btnFiltrar = new ToolStripButton();
             toolStripSeparator1 = new ToolStripSeparator();
             labelTipoDoCadastro = new ToolStripLabel();
             panelRegistros = new Panel();
-            btnFiltrar = new ToolStripButton();
-            toolStripSeparator2 = new ToolStripSeparator();
+            toolStripSeparator3 = new ToolStripSeparator();
+            btnAdicionarItens = new ToolStripButton();
+            btnConcluirItens = new ToolStripButton();
             menuStrip1.SuspendLayout();
             rodape.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -133,7 +136,7 @@
             // 
             // toolStrip1
             // 
-            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator1, labelTipoDoCadastro });
+            toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnAdicionarItens, btnConcluirItens, toolStripSeparator1, labelTipoDoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
             toolStrip1.Size = new Size(800, 37);
@@ -173,6 +176,22 @@
             btnExcluir.Text = "Excluir";
             btnExcluir.Click += btnExcluir_Click;
             // 
+            // toolStripSeparator2
+            // 
+            toolStripSeparator2.Name = "toolStripSeparator2";
+            toolStripSeparator2.Size = new Size(6, 37);
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
+            btnFiltrar.ImageTransparentColor = Color.Magenta;
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Padding = new Padding(7);
+            btnFiltrar.Size = new Size(34, 34);
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.Click += btnFiltrar_Click;
+            // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
@@ -193,21 +212,28 @@
             panelRegistros.Size = new Size(800, 367);
             panelRegistros.TabIndex = 3;
             // 
-            // btnFiltrar
+            // toolStripSeparator3
             // 
-            btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
-            btnFiltrar.ImageTransparentColor = Color.Magenta;
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Padding = new Padding(7);
-            btnFiltrar.Size = new Size(34, 34);
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.Click += btnFiltrar_Click;
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 37);
             // 
-            // toolStripSeparator2
+            // btnAdicionarItens
             // 
-            toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 37);
+            btnAdicionarItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdicionarItens.Image = (Image)resources.GetObject("btnAdicionarItens.Image");
+            btnAdicionarItens.ImageTransparentColor = Color.Magenta;
+            btnAdicionarItens.Name = "btnAdicionarItens";
+            btnAdicionarItens.Padding = new Padding(7);
+            btnAdicionarItens.Size = new Size(34, 34);
+            // 
+            // btnConcluirItens
+            // 
+            btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Image = (Image)resources.GetObject("btnConcluirItens.Image");
+            btnConcluirItens.ImageTransparentColor = Color.Magenta;
+            btnConcluirItens.Name = "btnConcluirItens";
+            btnConcluirItens.Padding = new Padding(7);
+            btnConcluirItens.Size = new Size(34, 34);
             // 
             // TelaPrincipalForm
             // 
@@ -257,5 +283,8 @@
         private ToolStripLabel labelTipoDoCadastro;
         private ToolStripSeparator toolStripSeparator2;
         private ToolStripButton btnFiltrar;
+        private ToolStripSeparator toolStripSeparator3;
+        private ToolStripButton btnAdicionarItens;
+        private ToolStripButton btnConcluirItens;
     }
 }
