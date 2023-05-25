@@ -12,10 +12,10 @@ namespace E_Agenda.WinApp.Compartilhado
 
             DataGridViewCellStyle linhaEscura = new DataGridViewCellStyle
             {
-                BackColor = Color.LightBlue,
+                BackColor = Color.RosyBrown,
                 Font = font,
                 ForeColor = Color.Black,
-                SelectionBackColor = Color.LightCyan,
+                SelectionBackColor = Color.Gray,
                 SelectionForeColor = Color.Black
             };
 
@@ -26,7 +26,7 @@ namespace E_Agenda.WinApp.Compartilhado
                 BackColor = Color.White,
                 Font = font,
                 ForeColor = Color.Black,
-                SelectionBackColor = Color.LightCyan,
+                SelectionBackColor = Color.Gray,
                 SelectionForeColor = Color.Black
             };
 

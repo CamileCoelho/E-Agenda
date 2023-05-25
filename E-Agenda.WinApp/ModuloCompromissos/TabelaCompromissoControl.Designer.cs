@@ -1,6 +1,6 @@
 ﻿namespace E_Agenda.WinApp.ModuloCompromissos
 {
-    partial class ListagemCompromissoControl
+    partial class TabelaCompromissoControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -42,12 +42,12 @@
             grid.Size = new Size(759, 574);
             grid.TabIndex = 1;
             // 
-            // ListagemCompromissoControl
+            // TabelaCompromissoControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(grid);
-            Name = "ListagemCompromissoControl";
+            Name = "TabelaCompromissoControl";
             Size = new Size(759, 574);
             ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);

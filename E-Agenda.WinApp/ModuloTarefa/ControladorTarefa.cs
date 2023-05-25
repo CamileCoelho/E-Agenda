@@ -7,7 +7,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
     {
         RepositorioBase<Tarefa> repositorioBaseTarefa;
         RepositorioTarefa repositorioTarefa;
-        ListagemTarefaControl listagemTarefa;
+        TabelaTarefaControl listagemTarefa;
 
         public ControladorTarefa(RepositorioTarefa repositorioTarefa)
         {
@@ -99,7 +99,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public override UserControl ObterListagem()
         {
             if (listagemTarefa == null)
-                listagemTarefa = new ListagemTarefaControl();
+                listagemTarefa = new TabelaTarefaControl();
 
             CarregarTarefas();
 

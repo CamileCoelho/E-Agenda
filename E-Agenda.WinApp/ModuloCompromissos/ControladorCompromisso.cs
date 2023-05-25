@@ -9,7 +9,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         private RepositorioBase<Compromisso> repositorioBaseCompromisso;
         private RepositorioCompromisso repositorioCompromisso;
         private RepositorioContato repositorioContato;
-        private ListagemCompromissoControl listagemCompromisso;
+        private TabelaCompromissoControl listagemCompromisso;
 
         public ControladorCompromisso(RepositorioContato repositorioContato, RepositorioCompromisso repositorioCompromisso)
         {
@@ -138,7 +138,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         public override UserControl ObterListagem()
         {
             if (listagemCompromisso == null)
-                listagemCompromisso = new ListagemCompromissoControl();
+                listagemCompromisso = new TabelaCompromissoControl();
 
             CarregarCompromissos();
 

@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
-    public partial class ListagemContatoControl : UserControl
+    public partial class TabelaContatoControl : UserControl
     {
-        public ListagemContatoControl()
+        public TabelaContatoControl()
         {
             InitializeComponent();
             grid.ConfigurarGridZebrado();

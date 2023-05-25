@@ -1,6 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
-    partial class ListagemContatoControl
+    partial class TabelaTarefaControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -39,16 +39,16 @@
             grid.Location = new Point(0, 0);
             grid.Name = "grid";
             grid.RowTemplate.Height = 25;
-            grid.Size = new Size(666, 435);
+            grid.Size = new Size(522, 383);
             grid.TabIndex = 0;
             // 
-            // ListagemContatoControl
+            // ListagemTarefaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(grid);
-            Name = "ListagemContatoControl";
-            Size = new Size(666, 435);
+            Name = "ListagemTarefaControl";
+            Size = new Size(522, 383);
             ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }

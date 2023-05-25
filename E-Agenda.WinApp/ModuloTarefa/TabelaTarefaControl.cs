@@ -3,9 +3,9 @@ using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public partial class ListagemTarefaControl : UserControl
+    public partial class TabelaTarefaControl : UserControl
     {
-        public ListagemTarefaControl()
+        public TabelaTarefaControl()
         {
             InitializeComponent();
             grid.ConfigurarGridZebrado();
