@@ -6,11 +6,18 @@ namespace E_Agenda.WinApp.ModuloTarefa
     {
         private Tarefa tarefa;
 
-        public TelaTarefaForm()
+        public TelaTarefaForm(bool edicaoDaTarefa)
         {
             InitializeComponent();
 
+            this.ConfigurarDialog();
+
             CarregarPrioridades();
+
+            if (edicaoDaTarefa)
+            {
+                txtDataCriacao.Enabled = false;
+            }
         }
 
         public Tarefa Tarefa
@@ -28,9 +35,15 @@ namespace E_Agenda.WinApp.ModuloTarefa
         }
         public void CarregarPrioridades()
         {
-            cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Alta.ToString());
-            cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Normal.ToString());
-            cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Baixa.ToString());
+            TipoPrioridadeTarefaEnum[] prioridades = Enum.GetValues<TipoPrioridadeTarefaEnum>();
+
+            foreach (TipoPrioridadeTarefaEnum prioridade in prioridades)
+            {
+                cmbPrioridades.Items.Add(prioridade);
+            }
+            //cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Alta.ToString());
+            //cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Normal.ToString());
+            //cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Baixa.ToString());
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

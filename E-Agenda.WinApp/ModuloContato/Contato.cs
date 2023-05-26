@@ -39,5 +39,10 @@ namespace E_Agenda.WinApp.ModuloContato
 
             return "";
         }
+
+        public override string ToString()
+        {
+            return informacoesPessoais.nome;
+        }
     }
 }

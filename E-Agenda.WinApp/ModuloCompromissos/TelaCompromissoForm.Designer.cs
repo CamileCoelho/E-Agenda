@@ -322,8 +322,8 @@
         private NumericUpDown numericUpDown2;
         private DateTimePicker txtTermino;
         private DateTimePicker txtInicio;
+        private RadioButton rbtPresencial;
+        private RadioButton rbtOnline;
         private CheckBox chkSelecionarContato;
-        public RadioButton rbtPresencial;
-        public RadioButton rbtOnline;
     }
 }

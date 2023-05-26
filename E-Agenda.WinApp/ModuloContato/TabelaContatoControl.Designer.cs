@@ -48,6 +48,7 @@
             grid.Location = new Point(0, 0);
             grid.MultiSelect = false;
             grid.Name = "grid";
+            grid.RowHeadersVisible = false;
             grid.RowTemplate.Height = 25;
             grid.Size = new Size(666, 435);
             grid.TabIndex = 0;

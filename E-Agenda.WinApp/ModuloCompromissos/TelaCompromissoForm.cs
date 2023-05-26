@@ -60,11 +60,6 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             txtInicio.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioInicio);
             txtTermino.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioTermino);
 
-            if (compromissoSelecionado.contato == null)
-            {
-                chkSelecionarContato.Checked = false;
-                cmbContatos.SelectedItem = compromissoSelecionado.contato;
-            }
             if (compromissoSelecionado.contato != null)
             {
                 chkSelecionarContato.Checked = true;
@@ -74,12 +69,12 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             if (compromissoSelecionado.tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial)
             {
                 rbtPresencial.Checked = true;
-                txtLocalPresencial.Text = compromissoSelecionado.localPresencial;
+                txtLocalPresencial.Text = compromissoSelecionado.localizacao;
             }
             if (compromissoSelecionado.tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
             {
                 rbtOnline.Checked = true;
-                txtLocalOnline.Text = compromissoSelecionado.localOnline;
+                txtLocalOnline.Text = compromissoSelecionado.localizacao;
             }
         }
 
@@ -88,6 +83,9 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             compromisso = ObterCompromisso();
 
             string status = compromisso.Validar();
+
+            if (chkSelecionarContato.Checked == true && compromisso.contato == null)
+                status =  $"Você deve selecionar um contato ou desmarcar essa opção!";
 
             if (status.Length > 0)
             {

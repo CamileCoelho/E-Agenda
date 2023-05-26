@@ -10,8 +10,6 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         public TimeOnly horarioInicio { get; set; }
         public TimeOnly horarioTermino { get; set; }
         public string localizacao { get; set; }
-        public string localPresencial { get; set; }
-        public string localOnline { get; set; }
         public TipoLocalizacaoCompromissoEnum tipoLocal { get; set; }
         public Contato contato { get; set; }
 
@@ -27,10 +25,10 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             this.tipoLocal = tipo;
 
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
-                this.localOnline = localizacao;
+                this.localizacao = localizacao;
 
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial)
-                this.localPresencial = localizacao;
+                this.localizacao = localizacao;
         }
 
         public override string Validar()
@@ -49,7 +47,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             if (valida.ValidaTimeOnly(horarioTermino))
                 return $"Você deve adicionar o horario de término!";
 
-            if (horarioTermino < horarioInicio)
+            if (horarioTermino <= horarioInicio)
                 return $"O horario de término deve ser posterior ao horário de início!";
 
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Nenhum)
@@ -57,14 +55,14 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
             {
-                if (valida.ValidaString(localOnline))
+                if (valida.ValidaString(localizacao))
                     return $"O campo do local online não pode estar vazio!";
                 else
                     return "";
             }
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial)
             {
-                if (valida.ValidaString(localPresencial))
+                if (valida.ValidaString(localizacao))
                     return $"O campo do local presencial não pode estar vazio!";
                 else
                     return "";

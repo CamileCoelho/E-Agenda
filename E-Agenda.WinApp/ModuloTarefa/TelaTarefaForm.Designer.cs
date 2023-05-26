@@ -36,13 +36,15 @@
             btnCancelar = new Button();
             btnGravar = new Button();
             cmbPrioridades = new ComboBox();
+            txtDataCriacao = new DateTimePicker();
+            label4 = new Label();
             SuspendLayout();
             // 
             // label6
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label6.Location = new Point(9, 103);
+            label6.Location = new Point(22, 103);
             label6.Name = "label6";
             label6.Size = new Size(85, 21);
             label6.TabIndex = 41;
@@ -53,14 +55,14 @@
             txtTitulo.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtTitulo.Location = new Point(122, 55);
             txtTitulo.Name = "txtTitulo";
-            txtTitulo.Size = new Size(395, 29);
+            txtTitulo.Size = new Size(505, 29);
             txtTitulo.TabIndex = 33;
             // 
             // label2
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(42, 55);
+            label2.Location = new Point(55, 55);
             label2.Name = "label2";
             label2.Size = new Size(52, 21);
             label2.TabIndex = 32;
@@ -80,7 +82,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(68, 12);
+            label1.Location = new Point(81, 12);
             label1.Name = "label1";
             label1.Size = new Size(26, 21);
             label1.TabIndex = 30;
@@ -92,7 +94,7 @@
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ImageAlign = ContentAlignment.BottomRight;
-            btnCancelar.Location = new Point(424, 504);
+            btnCancelar.Location = new Point(534, 157);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 41);
@@ -106,7 +108,7 @@
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGravar.ImageAlign = ContentAlignment.BottomRight;
-            btnGravar.Location = new Point(309, 504);
+            btnGravar.Location = new Point(419, 157);
             btnGravar.Margin = new Padding(4);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(94, 41);
@@ -122,14 +124,35 @@
             cmbPrioridades.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cmbPrioridades.Location = new Point(122, 103);
             cmbPrioridades.Name = "cmbPrioridades";
-            cmbPrioridades.Size = new Size(395, 29);
+            cmbPrioridades.Size = new Size(176, 29);
             cmbPrioridades.TabIndex = 46;
+            // 
+            // txtDataCriacao
+            // 
+            txtDataCriacao.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            txtDataCriacao.Format = DateTimePickerFormat.Short;
+            txtDataCriacao.Location = new Point(451, 103);
+            txtDataCriacao.Name = "txtDataCriacao";
+            txtDataCriacao.Size = new Size(176, 29);
+            txtDataCriacao.TabIndex = 48;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(323, 106);
+            label4.Name = "label4";
+            label4.Size = new Size(122, 21);
+            label4.TabIndex = 47;
+            label4.Text = "Data de Criação:";
             // 
             // TelaTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(559, 582);
+            ClientSize = new Size(656, 225);
+            Controls.Add(txtDataCriacao);
+            Controls.Add(label4);
             Controls.Add(cmbPrioridades);
             Controls.Add(label6);
             Controls.Add(txtTitulo);
@@ -158,5 +181,7 @@
         private Button btnCancelar;
         private Button btnGravar;
         private ComboBox cmbPrioridades;
+        private DateTimePicker txtDataCriacao;
+        private Label label4;
     }
 }
