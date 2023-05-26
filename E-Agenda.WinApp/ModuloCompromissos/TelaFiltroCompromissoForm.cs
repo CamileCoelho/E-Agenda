@@ -16,5 +16,37 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         {
             InitializeComponent();
         }
+
+        public StatusCompromissoEnum ObterStatus()
+        {
+            if (rdbFuturos.Checked)
+            {
+                return StatusCompromissoEnum.Futuros;
+            }
+            else if (rbdPassados.Checked)
+            {
+                return StatusCompromissoEnum.Passados;
+            }
+            else
+            {
+                return StatusCompromissoEnum.Todos;
+            }
+        }
+
+        public DateOnly ObterDataInicio()
+        {
+            return DateOnly.FromDateTime(txtDataInicio.Value);
+        }
+
+        public DateOnly ObterDataFinal()
+        {
+            return DateOnly.FromDateTime(txtDataFinal.Value);
+        }
+
+        private void rdbFuturos_CheckedChanged(object sender, EventArgs e)
+        {
+            txtDataInicio.Enabled = !txtDataInicio.Enabled;
+            txtDataFinal.Enabled = !txtDataFinal.Enabled;
+        }
     }
 }

@@ -49,6 +49,27 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             if (valida.ValidaTimeOnly(horarioTermino))
                 return $"Você deve adicionar o horario de término!";
 
+            if (horarioTermino < horarioInicio)
+                return $"O horario de término deve ser posterior ao horário de início!";
+
+            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Nenhum)
+                return $"Você deve selecionar uma das opções de localização!";
+
+            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
+            {
+                if (valida.ValidaString(localOnline))
+                    return $"O campo do local online não pode estar vazio!";
+                else
+                    return "";
+            }
+            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial)
+            {
+                if (valida.ValidaString(localPresencial))
+                    return $"O campo do local presencial não pode estar vazio!";
+                else
+                    return "";
+            }
+
             return "";
         }
 

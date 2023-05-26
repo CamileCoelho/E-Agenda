@@ -8,11 +8,22 @@ namespace E_Agenda.WinApp.ModuloCompromissos
     public partial class TelaCompromissoForm : Form
     {
         Compromisso compromisso;
+        public TelaCompromissoForm()
+        {
+
+        }
 
         public TelaCompromissoForm(List<Contato> contatos)
         {
             InitializeComponent();
 
+            this.ConfigurarDialog();
+
+            CarregarContatos(contatos);
+        }
+
+        private void CarregarContatos(List<Contato> contatos)
+        {
             foreach (Contato contato in contatos)
             {
                 cmbContatos.Items.Add(contato);
@@ -26,16 +37,17 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             TimeOnly horarioInicio = TimeOnly.FromDateTime(txtInicio.Value);
             TimeOnly horarioFinal = TimeOnly.FromDateTime(txtTermino.Value);
 
-            TipoLocalizacaoCompromissoEnum tipo = rbtOnline.Checked ? TipoLocalizacaoCompromissoEnum.Online : TipoLocalizacaoCompromissoEnum.Presencial;
+            TipoLocalizacaoCompromissoEnum tipo = rbtOnline.Checked ? TipoLocalizacaoCompromissoEnum.Online :
+                rbtPresencial.Checked ? TipoLocalizacaoCompromissoEnum.Presencial : TipoLocalizacaoCompromissoEnum.Nenhum;
 
             Contato contato = (Contato)cmbContatos.SelectedItem;
 
-            string localizacao;
+            string localizacao = "";
+
             if (rbtOnline.Checked)
                 localizacao = txtLocalOnline.Text;
-            else
+            if (rbtPresencial.Checked)
                 localizacao = txtLocalPresencial.Text;
-
 
             return new Compromisso(assunto, data, horarioInicio, horarioFinal, contato, localizacao, tipo);
         }
@@ -45,12 +57,15 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             txtId.Text = compromissoSelecionado.id.ToString();
             txtAssunto.Text = compromissoSelecionado.assunto;
             txtData.Value = compromissoSelecionado.data.ToDateTime(TimeOnly.Parse("00:00 AM"));
-            txtInicio.Value = Convert.ToDateTime(compromissoSelecionado.horarioInicio);
-            txtTermino.Value = Convert.ToDateTime(compromissoSelecionado.horarioTermino);
-            //txtInicio.Value = DateTime.Now.Date.Add(compromissoSelecionado.horarioInicio);
-            //txtTermino.Value = DateTime.Now.Date.Add(compromissoSelecionado.horarioTermino);
+            txtInicio.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioInicio);
+            txtTermino.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioTermino);
 
             if (compromissoSelecionado.contato == null)
+            {
+                chkSelecionarContato.Checked = false;
+                cmbContatos.SelectedItem = compromissoSelecionado.contato;
+            }
+            if (compromissoSelecionado.contato != null)
             {
                 chkSelecionarContato.Checked = true;
                 cmbContatos.SelectedItem = compromissoSelecionado.contato;
@@ -61,7 +76,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
                 rbtPresencial.Checked = true;
                 txtLocalPresencial.Text = compromissoSelecionado.localPresencial;
             }
-            else
+            if (compromissoSelecionado.tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
             {
                 rbtOnline.Checked = true;
                 txtLocalOnline.Text = compromissoSelecionado.localOnline;
@@ -87,7 +102,6 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             txtLocalPresencial.Enabled = true;
             txtLocalOnline.Enabled = false;
             txtLocalOnline.Text = "";
-
         }
 
         private void rbtOnline_CheckedChanged(object sender, EventArgs e)

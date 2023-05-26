@@ -8,8 +8,8 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 {
     public enum StatusCompromissoEnum
     {
-        Nenhum,
-        Online, 
-        Presencial
+        Todos,
+        Passados, 
+        Futuros
     }
 }

@@ -39,9 +39,9 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override void Editar()
         {
-            Tarefa tarefa = ObterTarefaSelecionada();
+            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
 
-            if (tarefa == null)
+            if (tarefaSelecionada == null)
             {
                 MessageBox.Show($"Selecione uma tarefa primeiro!",
                     "Edição de Contatos",
@@ -51,14 +51,17 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 return;
             }
 
-            TelaTarefaForm telaTarefa = new();
-            telaTarefa.Tarefa = tarefa;
+            TelaTarefaForm tela = new();
+            tela.Tarefa = tarefaSelecionada;
 
-            DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
+            DialogResult opcaoEscolhida = tela.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioTarefa.Editar(telaTarefa.Tarefa.id, telaTarefa.Tarefa);
+                //Tarefa tarefa = tela.ObterTarefa();
+                Tarefa tarefa = tela.Tarefa;
+
+                repositorioTarefa.Editar(tarefaSelecionada, tarefa);
 
                 CarregarTarefas();
             }

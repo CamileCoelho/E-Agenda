@@ -12,7 +12,7 @@ namespace E_Agenda.WinApp.ModuloContato
             InitializeComponent();
         }
 
-        public Contato Contato
+        public Contato ObterContato
         {
             set
             {

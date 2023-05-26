@@ -30,9 +30,9 @@
         {
             btnCancelar = new Button();
             btnFiltrar = new Button();
-            radioButton1 = new RadioButton();
-            radioButton2 = new RadioButton();
-            radioButton3 = new RadioButton();
+            rbdTodos = new RadioButton();
+            rdbFuturos = new RadioButton();
+            rbdPassados = new RadioButton();
             label2 = new Label();
             label1 = new Label();
             txtDataFinal = new DateTimePicker();
@@ -69,41 +69,41 @@
             btnFiltrar.TextImageRelation = TextImageRelation.TextAboveImage;
             btnFiltrar.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rbdTodos
             // 
-            radioButton1.AutoSize = true;
-            radioButton1.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton1.Location = new Point(61, 39);
-            radioButton1.Name = "radioButton1";
-            radioButton1.Size = new Size(264, 25);
-            radioButton1.TabIndex = 18;
-            radioButton1.TabStop = true;
-            radioButton1.Text = "Visualizar todos os compromissos";
-            radioButton1.UseVisualStyleBackColor = true;
+            rbdTodos.AutoSize = true;
+            rbdTodos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rbdTodos.Location = new Point(61, 39);
+            rbdTodos.Name = "rbdTodos";
+            rbdTodos.Size = new Size(264, 25);
+            rbdTodos.TabIndex = 18;
+            rbdTodos.TabStop = true;
+            rbdTodos.Text = "Visualizar todos os compromissos";
+            rbdTodos.UseVisualStyleBackColor = true;
             // 
-            // radioButton2
+            // rdbFuturos
             // 
-            radioButton2.AutoSize = true;
-            radioButton2.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton2.Location = new Point(61, 131);
-            radioButton2.Name = "radioButton2";
-            radioButton2.Size = new Size(255, 25);
-            radioButton2.TabIndex = 19;
-            radioButton2.TabStop = true;
-            radioButton2.Text = "Visualizar compromissos futuros";
-            radioButton2.UseVisualStyleBackColor = true;
+            rdbFuturos.AutoSize = true;
+            rdbFuturos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rdbFuturos.Location = new Point(61, 131);
+            rdbFuturos.Name = "rdbFuturos";
+            rdbFuturos.Size = new Size(255, 25);
+            rdbFuturos.TabIndex = 19;
+            rdbFuturos.TabStop = true;
+            rdbFuturos.Text = "Visualizar compromissos futuros";
+            rdbFuturos.UseVisualStyleBackColor = true;
             // 
-            // radioButton3
+            // rbdPassados
             // 
-            radioButton3.AutoSize = true;
-            radioButton3.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            radioButton3.Location = new Point(61, 85);
-            radioButton3.Name = "radioButton3";
-            radioButton3.Size = new Size(273, 25);
-            radioButton3.TabIndex = 20;
-            radioButton3.TabStop = true;
-            radioButton3.Text = "Visualizar compromissos passados ";
-            radioButton3.UseVisualStyleBackColor = true;
+            rbdPassados.AutoSize = true;
+            rbdPassados.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            rbdPassados.Location = new Point(61, 85);
+            rbdPassados.Name = "rbdPassados";
+            rbdPassados.Size = new Size(273, 25);
+            rbdPassados.TabIndex = 20;
+            rbdPassados.TabStop = true;
+            rbdPassados.Text = "Visualizar compromissos passados ";
+            rbdPassados.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -154,9 +154,9 @@
             Controls.Add(label1);
             Controls.Add(txtDataFinal);
             Controls.Add(txtDataInicio);
-            Controls.Add(radioButton3);
-            Controls.Add(radioButton2);
-            Controls.Add(radioButton1);
+            Controls.Add(rbdPassados);
+            Controls.Add(rdbFuturos);
+            Controls.Add(rbdTodos);
             Controls.Add(btnCancelar);
             Controls.Add(btnFiltrar);
             Name = "TelaFiltroCompromissoForm";
@@ -169,9 +169,9 @@
 
         private Button btnCancelar;
         private Button btnFiltrar;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
+        private RadioButton rbdTodos;
+        private RadioButton rdbFuturos;
+        private RadioButton rbdPassados;
         private Label label2;
         private Label label1;
         private DateTimePicker txtDataFinal;

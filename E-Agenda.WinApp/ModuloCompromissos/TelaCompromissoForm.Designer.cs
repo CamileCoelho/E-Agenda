@@ -33,7 +33,6 @@
             txtLocalPresencial = new TextBox();
             rbtOnline = new RadioButton();
             rbtPresencial = new RadioButton();
-            chkSelecionarContato = new CheckBox();
             label7 = new Label();
             label2 = new Label();
             txtData = new DateTimePicker();
@@ -48,6 +47,7 @@
             btnGravar = new Button();
             txtTermino = new DateTimePicker();
             txtInicio = new DateTimePicker();
+            chkSelecionarContato = new CheckBox();
             groupBoxLocalizacao.SuspendLayout();
             SuspendLayout();
             // 
@@ -59,9 +59,9 @@
             groupBoxLocalizacao.Controls.Add(rbtOnline);
             groupBoxLocalizacao.Controls.Add(rbtPresencial);
             groupBoxLocalizacao.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            groupBoxLocalizacao.Location = new Point(15, 346);
+            groupBoxLocalizacao.Location = new Point(31, 288);
             groupBoxLocalizacao.Name = "groupBoxLocalizacao";
-            groupBoxLocalizacao.Size = new Size(465, 160);
+            groupBoxLocalizacao.Size = new Size(520, 160);
             groupBoxLocalizacao.TabIndex = 52;
             groupBoxLocalizacao.TabStop = false;
             groupBoxLocalizacao.Text = "Localização";
@@ -70,14 +70,14 @@
             // 
             txtLocalOnline.Location = new Point(133, 99);
             txtLocalOnline.Name = "txtLocalOnline";
-            txtLocalOnline.Size = new Size(300, 29);
+            txtLocalOnline.Size = new Size(354, 29);
             txtLocalOnline.TabIndex = 39;
             // 
             // txtLocalPresencial
             // 
             txtLocalPresencial.Location = new Point(133, 48);
             txtLocalPresencial.Name = "txtLocalPresencial";
-            txtLocalPresencial.Size = new Size(300, 29);
+            txtLocalPresencial.Size = new Size(354, 29);
             txtLocalPresencial.TabIndex = 38;
             // 
             // rbtOnline
@@ -101,23 +101,11 @@
             rbtPresencial.UseVisualStyleBackColor = true;
             rbtPresencial.CheckedChanged += rbtPresencial_CheckedChanged;
             // 
-            // chkSelecionarContato
-            // 
-            chkSelecionarContato.AutoSize = true;
-            chkSelecionarContato.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            chkSelecionarContato.Location = new Point(50, 234);
-            chkSelecionarContato.Name = "chkSelecionarContato";
-            chkSelecionarContato.Size = new Size(398, 25);
-            chkSelecionarContato.TabIndex = 51;
-            chkSelecionarContato.Text = "Deseja selecionar um contato para esse comprmisso?";
-            chkSelecionarContato.UseVisualStyleBackColor = true;
-            chkSelecionarContato.CheckedChanged += chkSelecionarContato_CheckedChanged;
-            // 
             // label7
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label7.Location = new Point(15, 288);
+            label7.Location = new Point(295, 240);
             label7.Name = "label7";
             label7.Size = new Size(68, 21);
             label7.TabIndex = 48;
@@ -139,18 +127,19 @@
             txtData.Format = DateTimePickerFormat.Short;
             txtData.Location = new Point(89, 125);
             txtData.Name = "txtData";
-            txtData.Size = new Size(149, 29);
+            txtData.Size = new Size(181, 29);
             txtData.TabIndex = 46;
             txtData.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
             // 
             // cmbContatos
             // 
             cmbContatos.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmbContatos.Enabled = false;
             cmbContatos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             cmbContatos.FormattingEnabled = true;
-            cmbContatos.Location = new Point(89, 288);
+            cmbContatos.Location = new Point(370, 235);
             cmbContatos.Name = "cmbContatos";
-            cmbContatos.Size = new Size(391, 29);
+            cmbContatos.Size = new Size(181, 29);
             cmbContatos.TabIndex = 45;
             // 
             // label6
@@ -167,7 +156,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
-            label5.Location = new Point(256, 177);
+            label5.Location = new Point(295, 174);
             label5.Name = "label5";
             label5.Size = new Size(69, 21);
             label5.TabIndex = 43;
@@ -188,7 +177,7 @@
             txtAssunto.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtAssunto.Location = new Point(89, 65);
             txtAssunto.Name = "txtAssunto";
-            txtAssunto.Size = new Size(391, 29);
+            txtAssunto.Size = new Size(462, 29);
             txtAssunto.TabIndex = 41;
             // 
             // txtId
@@ -217,7 +206,7 @@
             btnCancelar.DialogResult = DialogResult.Cancel;
             btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnCancelar.ImageAlign = ContentAlignment.BottomRight;
-            btnCancelar.Location = new Point(387, 533);
+            btnCancelar.Location = new Point(459, 475);
             btnCancelar.Margin = new Padding(4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(94, 41);
@@ -232,7 +221,7 @@
             btnGravar.DialogResult = DialogResult.OK;
             btnGravar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnGravar.ImageAlign = ContentAlignment.BottomRight;
-            btnGravar.Location = new Point(272, 533);
+            btnGravar.Location = new Point(344, 475);
             btnGravar.Margin = new Padding(4);
             btnGravar.Name = "btnGravar";
             btnGravar.Size = new Size(94, 41);
@@ -240,16 +229,17 @@
             btnGravar.Text = "Gravar";
             btnGravar.TextImageRelation = TextImageRelation.TextAboveImage;
             btnGravar.UseVisualStyleBackColor = true;
+            btnGravar.Click += btnGravar_Click;
             // 
             // txtTermino
             // 
             txtTermino.CustomFormat = "HH:mm";
             txtTermino.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             txtTermino.Format = DateTimePickerFormat.Custom;
-            txtTermino.Location = new Point(331, 176);
+            txtTermino.Location = new Point(370, 174);
             txtTermino.Name = "txtTermino";
             txtTermino.ShowUpDown = true;
-            txtTermino.Size = new Size(149, 29);
+            txtTermino.Size = new Size(181, 29);
             txtTermino.TabIndex = 58;
             txtTermino.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
             // 
@@ -261,21 +251,34 @@
             txtInicio.Location = new Point(89, 174);
             txtInicio.Name = "txtInicio";
             txtInicio.ShowUpDown = true;
-            txtInicio.Size = new Size(149, 29);
+            txtInicio.Size = new Size(181, 29);
             txtInicio.TabIndex = 57;
-            txtInicio.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
+            txtInicio.Value = new DateTime(2020, 2, 1, 0, 0, 0, 0);
+            // 
+            // chkSelecionarContato
+            // 
+            chkSelecionarContato.AutoSize = true;
+            chkSelecionarContato.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            chkSelecionarContato.Location = new Point(31, 239);
+            chkSelecionarContato.Name = "chkSelecionarContato";
+            chkSelecionarContato.RightToLeft = RightToLeft.Yes;
+            chkSelecionarContato.Size = new Size(239, 25);
+            chkSelecionarContato.TabIndex = 59;
+            chkSelecionarContato.Text = "?Deseja selecionar um contato";
+            chkSelecionarContato.UseVisualStyleBackColor = true;
+            chkSelecionarContato.CheckedChanged += chkSelecionarContato_CheckedChanged;
             // 
             // TelaCompromissoForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(519, 604);
+            ClientSize = new Size(591, 546);
+            Controls.Add(chkSelecionarContato);
             Controls.Add(txtTermino);
             Controls.Add(txtInicio);
             Controls.Add(btnCancelar);
             Controls.Add(btnGravar);
             Controls.Add(groupBoxLocalizacao);
-            Controls.Add(chkSelecionarContato);
             Controls.Add(label7);
             Controls.Add(label2);
             Controls.Add(txtData);
@@ -286,8 +289,8 @@
             Controls.Add(txtAssunto);
             Controls.Add(txtId);
             Controls.Add(label1);
-            MaximumSize = new Size(535, 643);
-            MinimumSize = new Size(535, 643);
+            MaximumSize = new Size(607, 585);
+            MinimumSize = new Size(607, 585);
             Name = "TelaCompromissoForm";
             Text = "Cadastro de Compromissos";
             groupBoxLocalizacao.ResumeLayout(false);
@@ -303,7 +306,6 @@
         private TextBox txtLocalPresencial;
         private RadioButton rbRemoto;
         private RadioButton rBPresencial;
-        private CheckBox chkSelecionarContato;
         private Label label7;
         private Label label2;
         private DateTimePicker txtData;
@@ -320,7 +322,8 @@
         private NumericUpDown numericUpDown2;
         private DateTimePicker txtTermino;
         private DateTimePicker txtInicio;
-        private RadioButton rbtOnline;
-        private RadioButton rbtPresencial;
+        private CheckBox chkSelecionarContato;
+        public RadioButton rbtPresencial;
+        public RadioButton rbtOnline;
     }
 }

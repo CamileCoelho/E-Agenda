@@ -69,9 +69,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             {
                 Compromisso compromisso = tela.ObterCompromisso();
 
-                //repositorioCompromisso.Editar(compromissoSelecionado, compromisso);
-
-                repositorioCompromisso.Editar(compromisso.id, compromisso);
+                repositorioCompromisso.Editar(compromissoSelecionado, compromisso);
 
                 CarregarCompromissos();
             }

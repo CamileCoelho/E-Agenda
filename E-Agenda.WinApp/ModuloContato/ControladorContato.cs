@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloCompromissos;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -28,7 +29,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Contato contato = telaContato.Contato;
+                Contato contato = telaContato.ObterContato;
 
                 repositorioBaseContato.Inserir(contato);
 
@@ -38,9 +39,9 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override void Editar()
         {
-            Contato contato = ObterContatoSelecionado();
+            Contato contatoSelecionado = ObterContatoSelecionado();
 
-            if (contato == null)
+            if (contatoSelecionado == null)
             {
                 MessageBox.Show($"Selecione um contato primeiro!",
                     "Edição de Contatos",
@@ -51,13 +52,15 @@ namespace E_Agenda.WinApp.ModuloContato
             }
 
             TelaContatoForm tela = new();
-            tela.Contato = contato;
+            tela.ObterContato = contatoSelecionado;
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioContato.Editar(tela.Contato.id, tela.Contato);
+                Contato contato = tela.ObterContato;
+
+                repositorioContato.Editar(contatoSelecionado, contato);
 
                 CarregarContatos();
             }

@@ -12,13 +12,6 @@
             listaObjeto.Add(adicionar);
         }
 
-        public virtual void Editar(int id, T registroAtualizado)
-        {
-            T registroSelecionado = SelecionarPorId(id);
-
-            registroSelecionado.AtualizarInformacoes(registroAtualizado);
-        }
-
         public virtual void Editar(T registroSelecionado, T registroAtualizado)
         {
             registroSelecionado.AtualizarInformacoes(registroAtualizado);
