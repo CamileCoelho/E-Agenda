@@ -33,17 +33,27 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 return tarefa;
             }
         }
+        public Tarefa ObterTarefa()
+        {
+            string titulo = txtTitulo.Text;
+
+            TipoPrioridadeTarefaEnum prioridade = (TipoPrioridadeTarefaEnum)cmbPrioridades.SelectedItem;
+
+            DateTime dataCriacao = txtDataCriacao.Value;
+
+            return new Tarefa(id, titulo, prioridade, dataCriacao);
+        }
         public void CarregarPrioridades()
         {
-            TipoPrioridadeTarefaEnum[] prioridades = Enum.GetValues<TipoPrioridadeTarefaEnum>();
+            //TipoPrioridadeTarefaEnum[] prioridades = Enum.GetValues<TipoPrioridadeTarefaEnum>();
 
-            foreach (TipoPrioridadeTarefaEnum prioridade in prioridades)
-            {
-                cmbPrioridades.Items.Add(prioridade);
-            }
-            //cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Alta.ToString());
-            //cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Normal.ToString());
-            //cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Baixa.ToString());
+            //foreach (TipoPrioridadeTarefaEnum prioridade in prioridades)
+            //{
+            //    cmbPrioridades.Items.Add(prioridade);
+            //}
+            cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Alta.ToString());
+            cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Normal.ToString());
+            cmbPrioridades.Items.Add(TipoPrioridadeTarefaEnum.Baixa.ToString());
         }
 
         private void btnGravar_Click(object sender, EventArgs e)

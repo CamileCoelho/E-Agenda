@@ -35,5 +35,40 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             return "";
         }
+        public void AdicionarItem(ItemTarefa item)
+        {
+            itens.Add(item);
+        }
+
+        public void ConcluirItem(ItemTarefa item)
+        {
+            ItemTarefa itemSelecionado = itens.FirstOrDefault(x => x.Equals(item));
+
+            itemSelecionado.Concluir();
+
+            CalcularPercentualConcluido();
+        }
+
+        public void DesmarcarItem(ItemTarefa item)
+        {
+            ItemTarefa itemSelecionado = itens.FirstOrDefault(x => x.Equals(item));
+
+            itemSelecionado.Desmarcar();
+
+            CalcularPercentualConcluido();
+        }
+        private void CalcularPercentualConcluido()
+        {
+            decimal qtdItens = itens.Count();
+
+            if (qtdItens == 0)
+                return;
+
+            decimal qtdConcluidos = itens.Count(x => x.concluido == true);
+
+            decimal resultado = (qtdConcluidos / qtdItens) * 100;
+
+            percentualConcluido = Math.Round(resultado, 2);
+        }
     }
 }
