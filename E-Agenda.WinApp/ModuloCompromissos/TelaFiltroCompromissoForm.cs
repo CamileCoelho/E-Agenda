@@ -33,14 +33,14 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             }
         }
 
-        public DateOnly ObterDataInicio()
+        public DateTime ObterDataInicio()
         {
-            return DateOnly.FromDateTime(txtDataInicio.Value);
+            return txtDataInicio.Value;
         }
 
-        public DateOnly ObterDataFinal()
+        public DateTime ObterDataFinal()
         {
-            return DateOnly.FromDateTime(txtDataFinal.Value);
+            return txtDataFinal.Value;
         }
 
         private void rdbFuturos_CheckedChanged(object sender, EventArgs e)

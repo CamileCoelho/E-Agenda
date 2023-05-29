@@ -23,7 +23,9 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Prioridade", HeaderText = "Prioridade"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Data de Criação", HeaderText = "Data de Criação"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Data de Criação", HeaderText = "Data de Criação"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem Concluída", HeaderText = "Porcentagem Concluída"},
 
             };
 
@@ -42,7 +44,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
             foreach (var tarefa in tarefas)
             {
                 grid.Rows.Add(tarefa.id, tarefa.titulo,
-                   tarefa.prioridade, DateOnly.FromDateTime(tarefa.dataCriacao));
+                   tarefa.prioridade, DateOnly.FromDateTime(tarefa.dataCriacao),
+                   tarefa.percentualConcluido+"%");
             }
         }
     }

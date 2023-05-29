@@ -3,8 +3,8 @@
     public enum TipoPrioridadeTarefaEnum
     {
         Nenhuma,
-        Alta,
+        Baixa, 
         Normal,
-        Baixa
+        Alta
     }
 }

@@ -13,7 +13,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public bool ValidaString(string str)
         {
-            if (string.IsNullOrEmpty(str) && string.IsNullOrWhiteSpace(str))
+            if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str))
                 return true;
             else
                 return false;
@@ -62,7 +62,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public bool ValidaDateTime(DateTime date)
         {
-            if (string.IsNullOrEmpty(date.ToString()) && string.IsNullOrWhiteSpace(date.ToString()))
+            if (string.IsNullOrEmpty(date.ToString()) || string.IsNullOrWhiteSpace(date.ToString()))
                 return true;
             if (date == DateTime.MinValue)
                 return true; 
@@ -72,7 +72,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public bool ValidaDateOnly(DateOnly data)
         {
-            if (string.IsNullOrEmpty(data.ToString()) && string.IsNullOrWhiteSpace(data.ToString()))
+            if (string.IsNullOrEmpty(data.ToString()) || string.IsNullOrWhiteSpace(data.ToString()))
                 return true;
             if (data.ToString() == "01/01/2000")
                 return true;
@@ -82,7 +82,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public bool ValidaTimeOnly(TimeOnly hora)
         {
-            if (string.IsNullOrEmpty(hora.ToString()) && string.IsNullOrWhiteSpace(hora.ToString()))
+            if (string.IsNullOrEmpty(hora.ToString()) || string.IsNullOrWhiteSpace(hora.ToString()))
                 return true;
             if (hora == TimeOnly.MinValue)
                 return true;

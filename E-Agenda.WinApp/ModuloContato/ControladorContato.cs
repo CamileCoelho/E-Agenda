@@ -33,7 +33,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Contato contato = telaContato.ObterContato;
+                Contato contato = telaContato.ObterContato();
 
                 repositorioBaseContato.Inserir(contato);
 

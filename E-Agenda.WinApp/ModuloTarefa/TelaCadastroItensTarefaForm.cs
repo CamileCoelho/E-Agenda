@@ -24,9 +24,32 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string titulo = txtTituloItem.Text;
+            string item = txtItemDescricao.Text;
 
-            ItemTarefa itemTarefa = new ItemTarefa(titulo);
+            if(string.IsNullOrEmpty(item) || string.IsNullOrWhiteSpace(item))
+            {
+                MessageBox.Show($"Você deve preencher o a descrição!",
+                    "Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            foreach (ItemTarefa i in listItens.Items)
+            {
+                if (item.Trim() == i.ToString().Trim())
+                {
+                    MessageBox.Show($"Você não pode adicionar dois itens com a mesma descrição em sua To-Do List!",
+                    "Tarefas",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+
+            txtItemDescricao.Text = "";
+
+            ItemTarefa itemTarefa = new(item);
 
             listItens.Items.Add(itemTarefa);
         }

@@ -26,9 +26,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public override bool EditarHabilitado => true;
         public override bool ExcluirHabilitado => true;
         public override bool FiltrarHabilitado => true;
-
         public override bool AdicionarItensHabilitado => true;
-
         public override bool ConcluirItensHabilitado => true;
 
         public override void Inserir()

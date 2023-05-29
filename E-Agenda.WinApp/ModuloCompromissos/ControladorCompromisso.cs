@@ -124,8 +124,8 @@ namespace E_Agenda.WinApp.ModuloCompromissos
                 }
                 else if (status == StatusCompromissoEnum.Futuros)
                 {
-                    DateOnly dataInicio = telaFiltro.ObterDataInicio();
-                    DateOnly dataFinal = telaFiltro.ObterDataFinal();
+                    DateOnly dataInicio = DateOnly.FromDateTime(telaFiltro.ObterDataInicio());
+                    DateOnly dataFinal = DateOnly.FromDateTime(telaFiltro.ObterDataFinal());
 
                     compromissos = repositorioCompromisso.SelecionarCompromissosFuturos(dataInicio, dataFinal);
                 }

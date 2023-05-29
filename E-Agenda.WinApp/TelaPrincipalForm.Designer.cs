@@ -141,6 +141,7 @@
             // btnInserir
             // 
             btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnInserir.Enabled = false;
             btnInserir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnInserir.Image = (Image)resources.GetObject("btnInserir.Image");
             btnInserir.ImageTransparentColor = Color.Magenta;
@@ -153,6 +154,7 @@
             // btnEditar
             // 
             btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditar.Enabled = false;
             btnEditar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
             btnEditar.ImageTransparentColor = Color.Magenta;
@@ -165,6 +167,7 @@
             // btnExcluir
             // 
             btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnExcluir.Enabled = false;
             btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnExcluir.Image = (Image)resources.GetObject("btnExcluir.Image");
             btnExcluir.ImageTransparentColor = Color.Magenta;
@@ -182,6 +185,7 @@
             // btnFiltrar
             // 
             btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Enabled = false;
             btnFiltrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
             btnFiltrar.ImageTransparentColor = Color.Magenta;
@@ -199,6 +203,7 @@
             // btnAdicionarItens
             // 
             btnAdicionarItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdicionarItens.Enabled = false;
             btnAdicionarItens.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnAdicionarItens.Image = (Image)resources.GetObject("btnAdicionarItens.Image");
             btnAdicionarItens.ImageTransparentColor = Color.Magenta;
@@ -210,6 +215,7 @@
             // btnConcluirItens
             // 
             btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Enabled = false;
             btnConcluirItens.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnConcluirItens.Image = (Image)resources.GetObject("btnConcluirItens.Image");
             btnConcluirItens.ImageTransparentColor = Color.Magenta;

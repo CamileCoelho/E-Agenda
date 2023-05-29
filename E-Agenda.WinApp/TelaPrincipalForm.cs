@@ -29,11 +29,8 @@ namespace E_Agenda.WinApp
             InformacoesPessoais info4 = new("Tiago", "(99) 99999-9999", "tiago@gmail.com");
 
             Contato camile = new Contato(info1, "Dev", "NDD");
-
-            Contato tales = new Contato(info1, "Dev", "NDD");
-
+            Contato tales = new Contato(info2, "Dev", "NDD");
             Contato rech = new Contato(info3, "Dev", "ACAD. DO PROGAMADOR");
-
             Contato tiago = new Contato(info4, "Dev", "ACAD. DO PROGAMADOR");
 
             repositorioContato.Inserir(camile);
@@ -41,17 +38,25 @@ namespace E_Agenda.WinApp
             repositorioContato.Inserir(rech);
             repositorioContato.Inserir(tiago);
 
-            //Compromisso c01 = new Compromisso();
-            //Compromisso c02 = new Compromisso();
-            //Compromisso c03 = new Compromisso();
-            //Compromisso c04 = new Compromisso();
-            //Compromisso c05 = new Compromisso();
+            Compromisso c01 = new("Entrevista", new DateOnly(2023, 05, 12), new TimeOnly(10, 00), new TimeOnly(11, 30), camile, "NDD", TipoLocalizacaoCompromissoEnum.Presencial);
+            Compromisso c02 = new("Reunião", new DateOnly(2023, 05, 16), new TimeOnly(13, 00), new TimeOnly(14, 00), tales, "NDD", TipoLocalizacaoCompromissoEnum.Online);
+            Compromisso c03 = new("Entrevista", new DateOnly(2023, 05, 18), new TimeOnly(15, 00), new TimeOnly(16, 30), rech, "MID", TipoLocalizacaoCompromissoEnum.Presencial);
+            Compromisso c04 = new("Reunião", new DateOnly(2023, 05, 20), new TimeOnly(11, 00), new TimeOnly(12, 00), tiago, "NDD", TipoLocalizacaoCompromissoEnum.Online);
 
-            //repositorioCompromisso.Inserir(c01);
-            //repositorioCompromisso.Inserir(c02);
-            //repositorioCompromisso.Inserir(c03);
-            //repositorioCompromisso.Inserir(c04);
-            //repositorioCompromisso.Inserir(c05);
+            repositorioCompromisso.Inserir(c01);
+            repositorioCompromisso.Inserir(c02);
+            repositorioCompromisso.Inserir(c03);
+            repositorioCompromisso.Inserir(c04);
+
+            Tarefa t1 = new("Tarefa 1", TipoPrioridadeTarefaEnum.Alta, new DateTime(2023, 05, 25));
+            Tarefa t2 = new("Tarefa 2", TipoPrioridadeTarefaEnum.Baixa, new DateTime(2023, 05, 26));
+            Tarefa t3 = new("Tarefa 3", TipoPrioridadeTarefaEnum.Alta, new DateTime(2023, 05, 27));
+            Tarefa t4 = new("Tarefa 4", TipoPrioridadeTarefaEnum.Normal, new DateTime(2023, 05, 28));
+
+            repositorioTarefa.Inserir(t1);
+            repositorioTarefa.Inserir(t2);
+            repositorioTarefa.Inserir(t3);
+            repositorioTarefa.Inserir(t4);
         }
 
         public static TelaPrincipalForm Tela
@@ -113,6 +118,13 @@ namespace E_Agenda.WinApp
             btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
             btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
             btnConcluirItens.ToolTipText = controlador.ToolTipConcluirItens;
+
+            btnInserir.Enabled = controlador.InserirHabilitado;
+            btnEditar.Enabled = controlador.EditarHabilitado;
+            btnExcluir.Enabled = controlador.ExcluirHabilitado;
+            btnFiltrar.Enabled = controlador.FiltrarHabilitado;
+            btnAdicionarItens.Enabled = controlador.AdicionarItensHabilitado;
+            btnConcluirItens.Enabled = controlador.ConcluirItensHabilitado;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
