@@ -68,6 +68,7 @@
             // 
             // txtLocalOnline
             // 
+            txtLocalOnline.Enabled = false;
             txtLocalOnline.Location = new Point(133, 99);
             txtLocalOnline.Name = "txtLocalOnline";
             txtLocalOnline.Size = new Size(354, 29);
@@ -75,6 +76,7 @@
             // 
             // txtLocalPresencial
             // 
+            txtLocalPresencial.Enabled = false;
             txtLocalPresencial.Location = new Point(133, 48);
             txtLocalPresencial.Name = "txtLocalPresencial";
             txtLocalPresencial.Size = new Size(354, 29);
@@ -129,7 +131,7 @@
             txtData.Name = "txtData";
             txtData.Size = new Size(181, 29);
             txtData.TabIndex = 46;
-            txtData.Value = new DateTime(2023, 5, 24, 0, 0, 0, 0);
+            txtData.Value = new DateTime(2023, 5, 28, 0, 0, 0, 0);
             // 
             // cmbContatos
             // 

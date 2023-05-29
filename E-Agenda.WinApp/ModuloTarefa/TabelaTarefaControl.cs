@@ -21,7 +21,10 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Título", HeaderText = "Título"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Prioridade", HeaderText = "Prioridade"}
+                new DataGridViewTextBoxColumn { DataPropertyName = "Prioridade", HeaderText = "Prioridade"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Data de Criação", HeaderText = "Data de Criação"}
+
             };
 
             return colunas;
@@ -39,7 +42,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
             foreach (var tarefa in tarefas)
             {
                 grid.Rows.Add(tarefa.id, tarefa.titulo,
-                   tarefa.prioridade);
+                   tarefa.prioridade, DateOnly.FromDateTime(tarefa.dataCriacao));
             }
         }
     }

@@ -19,9 +19,6 @@ namespace E_Agenda.WinApp
             Tela = this;
 
             PopularRepositoriosParaTeste();
-            lableRodape.Text = string.Empty;
-            labelTipoDoCadastro.Text = string.Empty;
-            //desabilitar os botoes de add,edit e del
         }
 
         private void PopularRepositoriosParaTeste()
@@ -32,7 +29,7 @@ namespace E_Agenda.WinApp
             InformacoesPessoais info4 = new("Tiago", "(99) 99999-9999", "tiago@gmail.com");
 
             Contato camile = new Contato(info1, "Dev", "NDD");
-            
+
             Contato tales = new Contato(info1, "Dev", "NDD");
 
             Contato rech = new Contato(info3, "Dev", "ACAD. DO PROGAMADOR");
@@ -63,7 +60,7 @@ namespace E_Agenda.WinApp
             private set;
         }
 
-        public void atualizarRodape(string status)
+        public void AtualizarRodape(string status)
         {
             lableRodape.Text = status;
         }
@@ -113,6 +110,9 @@ namespace E_Agenda.WinApp
             btnInserir.ToolTipText = controlador.ToolTipInserir;
             btnEditar.ToolTipText = controlador.ToolTipEditar;
             btnExcluir.ToolTipText = controlador.ToolTipExcluir;
+            btnFiltrar.ToolTipText = controlador.ToolTipFiltrar;
+            btnAdicionarItens.ToolTipText = controlador.ToolTipAdicionarItens;
+            btnConcluirItens.ToolTipText = controlador.ToolTipConcluirItens;
         }
 
         private void btnInserir_Click(object sender, EventArgs e)
@@ -133,6 +133,16 @@ namespace E_Agenda.WinApp
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             controlador.Filtrar();
+        }
+
+        private void btnAdicionarItens_Click(object sender, EventArgs e)
+        {
+            controlador.AdicionarItens();
+        }
+
+        private void btnConcluirItens_Click(object sender, EventArgs e)
+        {
+            controlador.ConcluirItens();
         }
     }
 }

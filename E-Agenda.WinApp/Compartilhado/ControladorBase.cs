@@ -14,9 +14,9 @@
 
         public virtual string ToolTipConcluirItens { get; }
 
-        public virtual bool InserirHabilitado { get { return true; } }
-        public virtual bool EditarHabilitado { get { return true; } }
-        public virtual bool ExcluirHabilitado { get { return true; } }
+        public virtual bool InserirHabilitado { get { return false; } }
+        public virtual bool EditarHabilitado { get { return false; } }
+        public virtual bool ExcluirHabilitado { get { return false; } }
 
         public virtual bool FiltrarHabilitado { get { return false; } }
         public virtual bool AdicionarItensHabilitado { get { return false; } }
@@ -34,7 +34,7 @@
 
         public virtual void Filtrar(){}
 
-        public virtual void Adicionar(){}
+        public virtual void AdicionarItens(){}
 
         public virtual void ConcluirItens(){}
     }

@@ -92,6 +92,7 @@
             rdbFuturos.TabStop = true;
             rdbFuturos.Text = "Visualizar compromissos futuros";
             rdbFuturos.UseVisualStyleBackColor = true;
+            rdbFuturos.CheckedChanged += rdbFuturos_CheckedChanged;
             // 
             // rbdPassados
             // 

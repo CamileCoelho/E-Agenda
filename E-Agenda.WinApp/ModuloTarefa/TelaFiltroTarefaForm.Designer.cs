@@ -28,39 +28,20 @@
         /// </summary>
         private void InitializeComponent()
         {
-            btnFiltrar = new Button();
-            btnCancelar = new Button();
             rdbTodos = new RadioButton();
             rdbPendentes = new RadioButton();
             rdbConcluidas = new RadioButton();
+            btnCancelar = new Button();
+            btnFiltrar = new Button();
             SuspendLayout();
-            // 
-            // btnFiltrar
-            // 
-            btnFiltrar.DialogResult = DialogResult.OK;
-            btnFiltrar.Location = new Point(139, 185);
-            btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Size = new Size(75, 50);
-            btnFiltrar.TabIndex = 0;
-            btnFiltrar.Text = "Filtrar";
-            btnFiltrar.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelar
-            // 
-            btnCancelar.DialogResult = DialogResult.Cancel;
-            btnCancelar.Location = new Point(220, 185);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 50);
-            btnCancelar.TabIndex = 1;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
             // 
             // rdbTodos
             // 
             rdbTodos.AutoSize = true;
+            rdbTodos.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             rdbTodos.Location = new Point(34, 31);
             rdbTodos.Name = "rdbTodos";
-            rdbTodos.Size = new Size(160, 19);
+            rdbTodos.Size = new Size(209, 25);
             rdbTodos.TabIndex = 2;
             rdbTodos.TabStop = true;
             rdbTodos.Text = "Visualizar Todas as Tarefas";
@@ -69,9 +50,10 @@
             // rdbPendentes
             // 
             rdbPendentes.AutoSize = true;
+            rdbPendentes.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             rdbPendentes.Location = new Point(34, 68);
             rdbPendentes.Name = "rdbPendentes";
-            rdbPendentes.Size = new Size(171, 19);
+            rdbPendentes.Size = new Size(222, 25);
             rdbPendentes.TabIndex = 3;
             rdbPendentes.TabStop = true;
             rdbPendentes.Text = "Visualizar Tarefas Pendentes";
@@ -80,24 +62,55 @@
             // rdbConcluidas
             // 
             rdbConcluidas.AutoSize = true;
+            rdbConcluidas.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             rdbConcluidas.Location = new Point(34, 106);
             rdbConcluidas.Name = "rdbConcluidas";
-            rdbConcluidas.Size = new Size(175, 19);
+            rdbConcluidas.Size = new Size(227, 25);
             rdbConcluidas.TabIndex = 4;
             rdbConcluidas.TabStop = true;
             rdbConcluidas.Text = "Visualizar Tarefas Concluídas";
             rdbConcluidas.UseVisualStyleBackColor = true;
             // 
+            // btnCancelar
+            // 
+            btnCancelar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnCancelar.DialogResult = DialogResult.Cancel;
+            btnCancelar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnCancelar.ImageAlign = ContentAlignment.BottomRight;
+            btnCancelar.Location = new Point(197, 189);
+            btnCancelar.Margin = new Padding(4);
+            btnCancelar.Name = "btnCancelar";
+            btnCancelar.Size = new Size(94, 41);
+            btnCancelar.TabIndex = 19;
+            btnCancelar.Text = "Cancelar";
+            btnCancelar.TextImageRelation = TextImageRelation.TextAboveImage;
+            btnCancelar.UseVisualStyleBackColor = true;
+            // 
+            // btnFiltrar
+            // 
+            btnFiltrar.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnFiltrar.DialogResult = DialogResult.OK;
+            btnFiltrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnFiltrar.ImageAlign = ContentAlignment.BottomRight;
+            btnFiltrar.Location = new Point(82, 189);
+            btnFiltrar.Margin = new Padding(4);
+            btnFiltrar.Name = "btnFiltrar";
+            btnFiltrar.Size = new Size(94, 41);
+            btnFiltrar.TabIndex = 18;
+            btnFiltrar.Text = "Filtrar";
+            btnFiltrar.TextImageRelation = TextImageRelation.TextAboveImage;
+            btnFiltrar.UseVisualStyleBackColor = true;
+            // 
             // TelaFiltroTarefaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(324, 275);
+            ClientSize = new Size(326, 262);
+            Controls.Add(btnCancelar);
+            Controls.Add(btnFiltrar);
             Controls.Add(rdbConcluidas);
             Controls.Add(rdbPendentes);
             Controls.Add(rdbTodos);
-            Controls.Add(btnCancelar);
-            Controls.Add(btnFiltrar);
             FormBorderStyle = FormBorderStyle.FixedSingle;
             MaximizeBox = false;
             MinimizeBox = false;
@@ -111,11 +124,10 @@
         }
 
         #endregion
-
-        private Button btnFiltrar;
-        private Button btnCancelar;
         private RadioButton rdbTodos;
         private RadioButton rdbPendentes;
         private RadioButton rdbConcluidas;
+        private Button btnCancelar;
+        private Button btnFiltrar;
     }
 }

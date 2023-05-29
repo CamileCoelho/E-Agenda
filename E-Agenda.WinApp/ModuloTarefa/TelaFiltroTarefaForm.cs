@@ -9,7 +9,7 @@
 
         public StatusTarefaEnum ObterFiltroTarefa()
         {
-            if (rdbConcluidas.Checked == true)            
+            if (rdbConcluidas.Checked == true)
                 return StatusTarefaEnum.Concluidas;
 
             else if (rdbPendentes.Checked == true)

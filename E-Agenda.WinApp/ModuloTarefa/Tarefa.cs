@@ -11,16 +11,19 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public List<ItemTarefa> itens { get; set; }
         public decimal percentualConcluido { get; set; }
 
-        public Tarefa(string titulo, TipoPrioridadeTarefaEnum prioridade)
+        public Tarefa(string titulo, TipoPrioridadeTarefaEnum prioridade, DateTime dataCriacao)
         {
             this.titulo = titulo;
             this.prioridade = prioridade;
+            this.dataCriacao = dataCriacao;
+            this.itens = new List<ItemTarefa>();
         }
 
         public override void AtualizarInformacoes(Tarefa registroAtualizado)
         {
             this.titulo = registroAtualizado.titulo;
             this.prioridade = registroAtualizado.prioridade;
+
         }
 
         public override string Validar()
@@ -30,11 +33,15 @@ namespace E_Agenda.WinApp.ModuloTarefa
             if (valida.ValidaString(titulo))
                 return $"Você deve escrever um título!";
 
-            if (valida.ValidaEnum(prioridade))
+            if (valida.ValidaEnum(prioridade) || prioridade == TipoPrioridadeTarefaEnum.Nenhuma)
                 return $"Você deve selecionar a prioridade!";
+
+            if (valida.ValidaDateTime(dataCriacao))
+                return $"Você deve selecionar a data de criação!";
 
             return "";
         }
+
         public void AdicionarItem(ItemTarefa item)
         {
             itens.Add(item);
@@ -57,6 +64,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             CalcularPercentualConcluido();
         }
+
         private void CalcularPercentualConcluido()
         {
             decimal qtdItens = itens.Count();

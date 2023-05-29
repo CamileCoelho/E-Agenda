@@ -21,6 +21,10 @@ namespace E_Agenda.WinApp.ModuloContato
 
         public override string ToolTipExcluir { get { return "Excluir contato existente"; } }
 
+        public override bool InserirHabilitado => true;
+        public override bool EditarHabilitado => true;
+        public override bool ExcluirHabilitado => true;
+
         public override void Inserir()
         {
             TelaContatoForm telaContato = new();
@@ -52,13 +56,14 @@ namespace E_Agenda.WinApp.ModuloContato
             }
 
             TelaContatoForm tela = new();
-            tela.ObterContato = contatoSelecionado;
+
+            contatoSelecionado = tela.ObterContato();
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Contato contato = tela.ObterContato;
+                Contato contato = tela.ObterContato();
 
                 repositorioContato.Editar(contatoSelecionado, contato);
 

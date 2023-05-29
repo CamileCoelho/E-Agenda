@@ -2,6 +2,7 @@
 {
     public enum TipoPrioridadeTarefaEnum
     {
+        Nenhuma,
         Alta,
         Normal,
         Baixa

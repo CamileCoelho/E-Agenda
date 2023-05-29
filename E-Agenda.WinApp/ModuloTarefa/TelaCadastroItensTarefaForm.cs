@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿using E_Agenda.WinApp.ModuloTarefa;
+
+namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaCadastroItensTarefaForm : Form
     {
@@ -17,7 +19,7 @@
 
             txtTitulo.Text = tarefa.titulo;
 
-            listItens.Items.AddRange(tarefa.items.ToArray());
+            listItens.Items.AddRange(tarefa.itens.ToArray());
         }
 
         private void btnAdicionar_Click(object sender, EventArgs e)

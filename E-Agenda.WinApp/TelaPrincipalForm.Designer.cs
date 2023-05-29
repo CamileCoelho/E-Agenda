@@ -37,7 +37,6 @@
             despesasToolStripMenuItem = new ToolStripMenuItem();
             despesasMenuItem = new ToolStripMenuItem();
             categoriasMenuItem = new ToolStripMenuItem();
-            relatóriosToolStripMenuItem = new ToolStripMenuItem();
             rodape = new StatusStrip();
             lableRodape = new ToolStripStatusLabel();
             toolStrip1 = new ToolStrip();
@@ -46,12 +45,12 @@
             btnExcluir = new ToolStripButton();
             toolStripSeparator2 = new ToolStripSeparator();
             btnFiltrar = new ToolStripButton();
-            toolStripSeparator1 = new ToolStripSeparator();
-            labelTipoDoCadastro = new ToolStripLabel();
-            panelRegistros = new Panel();
             toolStripSeparator3 = new ToolStripSeparator();
             btnAdicionarItens = new ToolStripButton();
             btnConcluirItens = new ToolStripButton();
+            toolStripSeparator1 = new ToolStripSeparator();
+            labelTipoDoCadastro = new ToolStripLabel();
+            panelRegistros = new Panel();
             menuStrip1.SuspendLayout();
             rodape.SuspendLayout();
             toolStrip1.SuspendLayout();
@@ -59,16 +58,17 @@
             // 
             // menuStrip1
             // 
-            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosMenuItem, relatóriosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { cadastrosMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(800, 24);
+            menuStrip1.Size = new Size(1284, 24);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
             // cadastrosMenuItem
             // 
             cadastrosMenuItem.DropDownItems.AddRange(new ToolStripItem[] { contatosMenuItem, compromissosMenuItem, tarefasMenuItem, despesasToolStripMenuItem });
+            cadastrosMenuItem.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             cadastrosMenuItem.Name = "cadastrosMenuItem";
             cadastrosMenuItem.Size = new Size(71, 20);
             cadastrosMenuItem.Text = "Cadastros";
@@ -76,21 +76,21 @@
             // contatosMenuItem
             // 
             contatosMenuItem.Name = "contatosMenuItem";
-            contatosMenuItem.Size = new Size(180, 22);
+            contatosMenuItem.Size = new Size(154, 22);
             contatosMenuItem.Text = "Contatos";
             contatosMenuItem.Click += contatosMenuItem_Click;
             // 
             // compromissosMenuItem
             // 
             compromissosMenuItem.Name = "compromissosMenuItem";
-            compromissosMenuItem.Size = new Size(180, 22);
+            compromissosMenuItem.Size = new Size(154, 22);
             compromissosMenuItem.Text = "Compromissos";
             compromissosMenuItem.Click += compromissosMenuItem_Click;
             // 
             // tarefasMenuItem
             // 
             tarefasMenuItem.Name = "tarefasMenuItem";
-            tarefasMenuItem.Size = new Size(180, 22);
+            tarefasMenuItem.Size = new Size(154, 22);
             tarefasMenuItem.Text = "Tarefas";
             tarefasMenuItem.Click += tarefasMenuItem_Click;
             // 
@@ -98,7 +98,7 @@
             // 
             despesasToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { despesasMenuItem, categoriasMenuItem });
             despesasToolStripMenuItem.Name = "despesasToolStripMenuItem";
-            despesasToolStripMenuItem.Size = new Size(180, 22);
+            despesasToolStripMenuItem.Size = new Size(154, 22);
             despesasToolStripMenuItem.Text = "Despesas";
             // 
             // despesasMenuItem
@@ -113,140 +113,144 @@
             categoriasMenuItem.Size = new Size(130, 22);
             categoriasMenuItem.Text = "Categorias";
             // 
-            // relatóriosToolStripMenuItem
-            // 
-            relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
-            relatóriosToolStripMenuItem.Size = new Size(71, 20);
-            relatóriosToolStripMenuItem.Text = "Relatórios";
-            // 
             // rodape
             // 
             rodape.Items.AddRange(new ToolStripItem[] { lableRodape });
-            rodape.Location = new Point(0, 428);
+            rodape.Location = new Point(0, 715);
             rodape.Name = "rodape";
-            rodape.Size = new Size(800, 22);
+            rodape.Size = new Size(1284, 26);
             rodape.TabIndex = 1;
             rodape.Text = "statusStrip1";
             // 
             // lableRodape
             // 
+            lableRodape.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             lableRodape.Name = "lableRodape";
-            lableRodape.Size = new Size(39, 17);
-            lableRodape.Text = "Status";
+            lableRodape.Size = new Size(50, 21);
+            lableRodape.Text = "          ";
             // 
             // toolStrip1
             // 
             toolStrip1.Items.AddRange(new ToolStripItem[] { btnInserir, btnEditar, btnExcluir, toolStripSeparator2, btnFiltrar, toolStripSeparator3, btnAdicionarItens, btnConcluirItens, toolStripSeparator1, labelTipoDoCadastro });
             toolStrip1.Location = new Point(0, 24);
             toolStrip1.Name = "toolStrip1";
-            toolStrip1.Size = new Size(800, 37);
+            toolStrip1.Size = new Size(1284, 35);
             toolStrip1.TabIndex = 2;
             toolStrip1.Text = "toolStrip1";
             // 
             // btnInserir
             // 
             btnInserir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnInserir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnInserir.Image = (Image)resources.GetObject("btnInserir.Image");
             btnInserir.ImageTransparentColor = Color.Magenta;
             btnInserir.Name = "btnInserir";
-            btnInserir.Padding = new Padding(4);
-            btnInserir.Size = new Size(28, 34);
+            btnInserir.Padding = new Padding(6);
+            btnInserir.Size = new Size(32, 32);
             btnInserir.Text = "Inserir";
             btnInserir.Click += btnInserir_Click;
             // 
             // btnEditar
             // 
             btnEditar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnEditar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnEditar.Image = (Image)resources.GetObject("btnEditar.Image");
             btnEditar.ImageTransparentColor = Color.Magenta;
             btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(4);
-            btnEditar.Size = new Size(28, 34);
+            btnEditar.Padding = new Padding(6);
+            btnEditar.Size = new Size(32, 32);
             btnEditar.Text = "Editar";
             btnEditar.Click += btnEditar_Click;
             // 
             // btnExcluir
             // 
             btnExcluir.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnExcluir.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnExcluir.Image = (Image)resources.GetObject("btnExcluir.Image");
             btnExcluir.ImageTransparentColor = Color.Magenta;
             btnExcluir.Name = "btnExcluir";
-            btnExcluir.Padding = new Padding(7);
-            btnExcluir.Size = new Size(34, 34);
+            btnExcluir.Padding = new Padding(6);
+            btnExcluir.Size = new Size(32, 32);
             btnExcluir.Text = "Excluir";
             btnExcluir.Click += btnExcluir_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new Size(6, 37);
+            toolStripSeparator2.Size = new Size(6, 35);
             // 
             // btnFiltrar
             // 
             btnFiltrar.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnFiltrar.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
             btnFiltrar.Image = (Image)resources.GetObject("btnFiltrar.Image");
             btnFiltrar.ImageTransparentColor = Color.Magenta;
             btnFiltrar.Name = "btnFiltrar";
-            btnFiltrar.Padding = new Padding(7);
-            btnFiltrar.Size = new Size(34, 34);
+            btnFiltrar.Padding = new Padding(6);
+            btnFiltrar.Size = new Size(32, 32);
             btnFiltrar.Text = "Filtrar";
             btnFiltrar.Click += btnFiltrar_Click;
+            // 
+            // toolStripSeparator3
+            // 
+            toolStripSeparator3.Name = "toolStripSeparator3";
+            toolStripSeparator3.Size = new Size(6, 35);
+            // 
+            // btnAdicionarItens
+            // 
+            btnAdicionarItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnAdicionarItens.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnAdicionarItens.Image = (Image)resources.GetObject("btnAdicionarItens.Image");
+            btnAdicionarItens.ImageTransparentColor = Color.Magenta;
+            btnAdicionarItens.Name = "btnAdicionarItens";
+            btnAdicionarItens.Padding = new Padding(6);
+            btnAdicionarItens.Size = new Size(32, 32);
+            btnAdicionarItens.Click += btnAdicionarItens_Click;
+            // 
+            // btnConcluirItens
+            // 
+            btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            btnConcluirItens.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            btnConcluirItens.Image = (Image)resources.GetObject("btnConcluirItens.Image");
+            btnConcluirItens.ImageTransparentColor = Color.Magenta;
+            btnConcluirItens.Name = "btnConcluirItens";
+            btnConcluirItens.Padding = new Padding(6);
+            btnConcluirItens.Size = new Size(32, 32);
+            btnConcluirItens.Click += btnConcluirItens_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new Size(6, 37);
+            toolStripSeparator1.Size = new Size(6, 35);
             // 
             // labelTipoDoCadastro
             // 
             labelTipoDoCadastro.Name = "labelTipoDoCadastro";
-            labelTipoDoCadastro.Size = new Size(76, 34);
+            labelTipoDoCadastro.Size = new Size(76, 32);
             labelTipoDoCadastro.Text = "                       ";
             // 
             // panelRegistros
             // 
             panelRegistros.BorderStyle = BorderStyle.FixedSingle;
             panelRegistros.Dock = DockStyle.Fill;
-            panelRegistros.Location = new Point(0, 61);
+            panelRegistros.Location = new Point(0, 59);
             panelRegistros.Name = "panelRegistros";
-            panelRegistros.Size = new Size(800, 367);
+            panelRegistros.Size = new Size(1284, 656);
             panelRegistros.TabIndex = 3;
-            // 
-            // toolStripSeparator3
-            // 
-            toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new Size(6, 37);
-            // 
-            // btnAdicionarItens
-            // 
-            btnAdicionarItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnAdicionarItens.Image = (Image)resources.GetObject("btnAdicionarItens.Image");
-            btnAdicionarItens.ImageTransparentColor = Color.Magenta;
-            btnAdicionarItens.Name = "btnAdicionarItens";
-            btnAdicionarItens.Padding = new Padding(7);
-            btnAdicionarItens.Size = new Size(34, 34);
-            // 
-            // btnConcluirItens
-            // 
-            btnConcluirItens.DisplayStyle = ToolStripItemDisplayStyle.Image;
-            btnConcluirItens.Image = (Image)resources.GetObject("btnConcluirItens.Image");
-            btnConcluirItens.ImageTransparentColor = Color.Magenta;
-            btnConcluirItens.Name = "btnConcluirItens";
-            btnConcluirItens.Padding = new Padding(7);
-            btnConcluirItens.Size = new Size(34, 34);
             // 
             // TelaPrincipalForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1284, 741);
             Controls.Add(panelRegistros);
             Controls.Add(toolStrip1);
             Controls.Add(rodape);
             Controls.Add(menuStrip1);
+            Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
             MainMenuStrip = menuStrip1;
-            MaximumSize = new Size(816, 489);
-            MinimumSize = new Size(816, 489);
+            MaximumSize = new Size(1300, 780);
+            MinimumSize = new Size(900, 700);
             Name = "TelaPrincipalForm";
             ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
@@ -271,7 +275,6 @@
         private ToolStripMenuItem despesasToolStripMenuItem;
         private ToolStripMenuItem despesasMenuItem;
         private ToolStripMenuItem categoriasMenuItem;
-        private ToolStripMenuItem relatóriosToolStripMenuItem;
         private StatusStrip rodape;
         private ToolStripStatusLabel lableRodape;
         private ToolStrip toolStrip1;

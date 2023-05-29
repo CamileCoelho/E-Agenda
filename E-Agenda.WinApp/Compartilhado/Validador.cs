@@ -74,7 +74,7 @@ namespace E_Agenda.WinApp.Compartilhado
         {
             if (string.IsNullOrEmpty(data.ToString()) && string.IsNullOrWhiteSpace(data.ToString()))
                 return true;
-            if (data == DateOnly.MinValue)
+            if (data.ToString() == "01/01/2000")
                 return true;
             else
                 return false;

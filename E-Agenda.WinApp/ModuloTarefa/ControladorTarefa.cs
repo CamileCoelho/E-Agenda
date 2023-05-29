@@ -1,4 +1,5 @@
-﻿using E_Agenda.WinApp.Compartilhado;
+﻿using e_Agenda.WinApp.ModuloTarefa;
+using E_Agenda.WinApp.Compartilhado;
 using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloTarefa
@@ -21,15 +22,24 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override string ToolTipExcluir { get { return "Excluír tarefa existente"; } }
 
+        public override bool InserirHabilitado => true;
+        public override bool EditarHabilitado => true;
+        public override bool ExcluirHabilitado => true;
+        public override bool FiltrarHabilitado => true;
+
+        public override bool AdicionarItensHabilitado => true;
+
+        public override bool ConcluirItensHabilitado => true;
+
         public override void Inserir()
         {
-            TelaTarefaForm telaTarefa = new();
+            TelaTarefaForm telaTarefa = new(false);
 
             DialogResult opcaoEscolhida = telaTarefa.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                Tarefa tarefa = telaTarefa.Tarefa;
+                Tarefa tarefa = telaTarefa.ObterTarefa();
 
                 repositorioTarefa.Inserir(tarefa);
 
@@ -51,16 +61,15 @@ namespace E_Agenda.WinApp.ModuloTarefa
                 return;
             }
 
-            TelaTarefaForm tela = new();
-            tela.Tarefa = tarefaSelecionada;
+            TelaTarefaForm tela = new(true);
+            tarefaSelecionada = tela.ObterTarefa();
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                //Tarefa tarefa = tela.ObterTarefa();
-                Tarefa tarefa = tela.Tarefa;
-
+                Tarefa tarefa = tela.ObterTarefa();
+                
                 repositorioTarefa.Editar(tarefaSelecionada, tarefa);
 
                 CarregarTarefas();
@@ -92,11 +101,117 @@ namespace E_Agenda.WinApp.ModuloTarefa
             }
         }
 
+        public override void AdicionarItens()
+        {
+            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
+
+            if (tarefaSelecionada == null)
+            {
+                MessageBox.Show("Selecione uma tarefa primeiro", "Adição de Itens da Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaCadastroItensTarefaForm telaCadastroItensTarefa = new TelaCadastroItensTarefaForm(tarefaSelecionada);
+
+            DialogResult opcaoEscolhida = telaCadastroItensTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                List<ItemTarefa> itensParaAdicionar = telaCadastroItensTarefa.ObterItensCadastrados();
+
+                foreach (ItemTarefa item in itensParaAdicionar)
+                {
+                    tarefaSelecionada.AdicionarItem(item);
+                }
+
+                repositorioTarefa.Editar(tarefaSelecionada.id, tarefaSelecionada);
+                CarregarTarefas();
+            }
+        }
+
+        public override void ConcluirItens()
+        {
+            Tarefa tarefaSelecionada = ObterTarefaSelecionada();
+
+            if (tarefaSelecionada == null)
+            {
+                MessageBox.Show("Selecione uma tarefa primeiro", "Atualização de Itens da Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                return;
+            }
+
+            TelaAtualizacaoItensTarefaForm telaAtualizacaoItensTarefa = new TelaAtualizacaoItensTarefaForm(tarefaSelecionada);
+
+            DialogResult opcaoEscolhida = telaAtualizacaoItensTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                List<ItemTarefa> itensMarcados = telaAtualizacaoItensTarefa.ObterItensMarcados();
+
+                List<ItemTarefa> itensPendentes = telaAtualizacaoItensTarefa.ObterItensPendentes();
+
+                foreach (ItemTarefa item in itensMarcados)
+                {
+                    tarefaSelecionada.ConcluirItem(item);
+                }
+
+                foreach (ItemTarefa item in itensPendentes)
+                {
+                    tarefaSelecionada.DesmarcarItem(item);
+                }
+
+                repositorioTarefa.Editar(tarefaSelecionada.id, tarefaSelecionada);
+
+                CarregarTarefas();
+            }
+        }
+
+        public override void Filtrar()
+        {
+            TelaFiltroTarefaForm telaFiltroTarefa = new TelaFiltroTarefaForm();
+
+            DialogResult opcaoEscolhida = telaFiltroTarefa.ShowDialog();
+
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                List<Tarefa> tarefas;
+
+                StatusTarefaEnum status = telaFiltroTarefa.ObterFiltroTarefa();
+
+                switch (status)
+                {
+                    case StatusTarefaEnum.Pendentes:
+                        tarefas = repositorioTarefa.SelecionarPendentes();
+                        break;
+
+                    case StatusTarefaEnum.Concluidas:
+                        tarefas = repositorioTarefa.SelecionarConcluidas();
+                        break;
+
+                    default:
+                        tarefas = repositorioTarefa.SelecionarTodosOrdenadosPorPrioridade();
+                        break;
+                }
+
+                CarregarTarefas(tarefas);
+            }
+        }
+
+        private void CarregarTarefas(List<Tarefa> tarefas)
+        {
+            listagemTarefa.AtualizarRegistros(tarefas);
+
+            TelaPrincipalForm.Tela.AtualizarRodape($"Visualizando {tarefas.Count} tarefa(s)!");
+        }
+
         private void CarregarTarefas()
         {
-            List<Tarefa> tarefas = repositorioTarefa.ListarTodos();
+            List<Tarefa> tarefas = repositorioTarefa.SelecionarTodosOrdenadosPorPrioridade();
 
             listagemTarefa.AtualizarRegistros(tarefas);
+
+            TelaPrincipalForm.Tela.AtualizarRodape($"Visualizando {tarefas.Count} tarefa(s)!");
         }
 
         public override UserControl ObterListagem()

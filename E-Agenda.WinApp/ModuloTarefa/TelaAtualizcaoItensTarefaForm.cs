@@ -1,4 +1,6 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿using E_Agenda.WinApp.ModuloTarefa;
+
+namespace e_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaAtualizacaoItensTarefaForm : Form
     {
@@ -18,7 +20,7 @@
             txtTitulo.Text = tarefa.titulo;
 
             int i = 0;
-            foreach (ItemTarefa item in tarefa.items)
+            foreach (ItemTarefa item in tarefa.itens)
             {
                 listItensTarefa.Items.Add(item);
 

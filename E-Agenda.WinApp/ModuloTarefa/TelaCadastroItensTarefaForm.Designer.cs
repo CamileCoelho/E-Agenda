@@ -128,7 +128,7 @@
             btnAdicionar.Name = "btnAdicionar";
             btnAdicionar.Size = new Size(75, 23);
             btnAdicionar.TabIndex = 19;
-            btnAdicionar.Text = "Adicionar";
+            btnAdicionar.Text = "AdicionarItens";
             btnAdicionar.UseVisualStyleBackColor = true;
             btnAdicionar.Click += btnAdicionar_Click;
             // 

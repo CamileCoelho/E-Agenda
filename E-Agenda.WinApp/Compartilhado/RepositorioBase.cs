@@ -17,6 +17,13 @@
             registroSelecionado.AtualizarInformacoes(registroAtualizado);
         }
 
+        public virtual void Editar(int id, T registroAtualizado)
+        {
+            T registroSelecionado = SelecionarPorId(id);
+
+            registroSelecionado.AtualizarInformacoes(registroAtualizado);
+        }
+
         public virtual void Excluir(int id)
         {
             T registroSelecionado = SelecionarPorId(id);

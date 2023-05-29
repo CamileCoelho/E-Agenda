@@ -56,7 +56,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         {
             txtId.Text = compromissoSelecionado.id.ToString();
             txtAssunto.Text = compromissoSelecionado.assunto;
-            txtData.Value = compromissoSelecionado.data.ToDateTime(TimeOnly.Parse("00:00 AM"));
+            txtData.Value = compromissoSelecionado.data.ToDateTime(TimeOnly.MinValue);
             txtInicio.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioInicio);
             txtTermino.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioTermino);
 
@@ -85,11 +85,11 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             string status = compromisso.Validar();
 
             if (chkSelecionarContato.Checked == true && compromisso.contato == null)
-                status =  $"Você deve selecionar um contato ou desmarcar essa opção!";
+                status = $"Você deve selecionar um contato ou desmarcar essa opção!";
 
             if (status.Length > 0)
             {
-                TelaPrincipalForm.Tela.atualizarRodape(status);
+                TelaPrincipalForm.Tela.AtualizarRodape(status);
 
                 DialogResult = DialogResult.None;
             }

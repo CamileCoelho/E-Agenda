@@ -26,6 +26,9 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
         public override string ToolTipFiltrar => "Filtrar compromissos";
 
+        public override bool InserirHabilitado => true;
+        public override bool EditarHabilitado => true;
+        public override bool ExcluirHabilitado => true;
         public override bool FiltrarHabilitado => true;
 
         public override void Inserir()
@@ -105,32 +108,32 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             TelaFiltroCompromissoForm telaFiltro = new();
             DialogResult opcaoEscolhida = telaFiltro.ShowDialog();
 
-            //if (opcaoEscolhida == DialogResult.OK)
-            //{
-            //    StatusCompromissoEnum status = telaFiltro.ObterStatus();
-            //    List<Compromisso> compromissos = null;
+            if (opcaoEscolhida == DialogResult.OK)
+            {
+                StatusCompromissoEnum status = telaFiltro.ObterStatus();
+                List<Compromisso> compromissos = null;
 
-            //    if (status == StatusCompromissoEnum.Todos)
-            //    {
-            //        compromissos = repositorioCompromisso.SelecionarTodos();
-            //    }
+                if (status == StatusCompromissoEnum.Todos)
+                {
+                    compromissos = repositorioCompromisso.SelecionarTodos();
+                }
 
-            //    else if (status == StatusCompromissoEnum.Passados)
-            //    {
-            //        compromissos = repositorioCompromisso.SelecionarCompromissosPassados(DateTime.Now);                    
-            //    }
-            //    else if (status == StatusCompromissoEnum.Futuros)
-            //    {
-            //        DateTime dataInicio = telaFiltro.ObterDataInicio();
-            //        DateTime dataFinal = telaFiltro.ObterDataFinal();
+                else if (status == StatusCompromissoEnum.Passados)
+                {
+                    compromissos = repositorioCompromisso.SelecionarCompromissosPassados(DateOnly.FromDateTime(DateTime.Today));
+                }
+                else if (status == StatusCompromissoEnum.Futuros)
+                {
+                    DateOnly dataInicio = telaFiltro.ObterDataInicio();
+                    DateOnly dataFinal = telaFiltro.ObterDataFinal();
 
-            //        compromissos = repositorioCompromisso.SelecionarCompromissosFuturos(dataInicio, dataFinal);                    
-            //    }
+                    compromissos = repositorioCompromisso.SelecionarCompromissosFuturos(dataInicio, dataFinal);
+                }
 
-            //    CarregarCompromissos(compromissos);
+                CarregarCompromissos();
 
-            //    TelaPrincipalForm.Instancia.AtualizarRodape($"Visualizando {compromissos.Count} compromissos");
-            //}
+                TelaPrincipalForm.Tela.AtualizarRodape($"Visualizando {compromissos.Count} compromissos");
+            }
         }
 
         private void CarregarCompromissos()

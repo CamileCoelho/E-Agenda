@@ -14,19 +14,17 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             this.listaObjeto = compromissos;
         }
 
-        ////Selecionar Compromissos Passados
-        //public List<Compromisso> SelecionarCompromissosPassados(DateTime hoje)
-        //{
-        //    return listaObjeto.Where(x => x.data.Date < hoje.Date).ToList();
-        //}
+        public List<Compromisso> SelecionarCompromissosPassados(DateOnly hoje)
+        {
+            return listaObjeto.Where(x => x.data.Day < hoje.Day).ToList();
+        }
 
-        ////Selecionar Compromissos Futuros ( dataInicio, dataFinal)
-        //public List<Compromisso> SelecionarCompromissosFuturos(DateTime dataInicio, DateTime dataFinal)
-        //{
-        //    return listaObjeto
-        //        .Where(x => x.data > dataInicio)
-        //        .Where(x => x.data < dataFinal)
-        //        .ToList();
-        //}
+        public List<Compromisso> SelecionarCompromissosFuturos(DateOnly dataInicio, DateOnly dataFinal)
+        {
+            return listaObjeto
+                .Where(x => x.data > dataInicio)
+                .Where(x => x.data < dataFinal)
+                .ToList();
+        }
     }
 }

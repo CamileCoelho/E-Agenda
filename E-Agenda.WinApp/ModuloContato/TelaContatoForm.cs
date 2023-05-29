@@ -12,24 +12,36 @@ namespace E_Agenda.WinApp.ModuloContato
             InitializeComponent();
         }
 
-        public Contato ObterContato
-        {
-            set
-            {
-                txtId.Text = value.id.ToString();
-                txtNome.Text = value.informacoesPessoais.nome;
-                txtTelefone.Text = value.informacoesPessoais.telefone.ToString();
-                txtEmail.Text = value.informacoesPessoais.email;
-                txtCargo.Text = value.cargo;
-                txtEmpresa.Text = value.empresa;
-            }
-            get
-            {
-                return contato;
-            }
-        }
+        //public Contato ObterContato
+        //{
+        //    set
+        //    {
+        //        txtId.Text = value.id.ToString();
+        //        txtNome.Text = value.informacoesPessoais.nome;
+        //        txtTelefone.Text = value.informacoesPessoais.telefone.ToString();
+        //        txtEmail.Text = value.informacoesPessoais.email;
+        //        txtCargo.Text = value.cargo;
+        //        txtEmpresa.Text = value.empresa;
+        //    }
+        //    get
+        //    {
+        //        return contato;
+        //    }
+        //}
 
         private void btnGravar_Click(object sender, EventArgs e)
+        {
+            contato = ObterContato();
+
+            string status = contato.Validar();
+
+            TelaPrincipalForm.Tela.AtualizarRodape(status);
+
+            if (status != "")
+                DialogResult = DialogResult.None;
+        }
+
+        public Contato ObterContato()
         {
             string nome = txtNome.Text;
 
@@ -43,19 +55,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             InformacoesPessoais info = new(nome, telefone, email);
 
-            contato = new(info, cargo, empresa);
-
-            string status = contato.Validar();
-
-            if (status != "")
-            {
-                TelaPrincipalForm.Tela.atualizarRodape(status);
-
-                DialogResult = DialogResult.None;
-            }
-
-            if (txtId.Text != "0")
-                contato.id = Convert.ToInt32(txtId.Text);
+            return new(info, cargo, empresa);
         }
     }
 }
