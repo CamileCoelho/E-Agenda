@@ -1,6 +1,5 @@
-﻿using E_Agenda.WinApp.ModuloTarefa;
-
-namespace e_Agenda.WinApp.ModuloTarefa
+﻿
+namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaCadastroItensTarefaForm : Form
     {
@@ -24,7 +23,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
         private void btnAdicionar_Click(object sender, EventArgs e)
         {
-            string item = txtItemDescricao.Text;
+            string item = txtItemDescricao.Text.Trim();
 
             if(string.IsNullOrEmpty(item) || string.IsNullOrWhiteSpace(item))
             {
@@ -37,7 +36,7 @@ namespace e_Agenda.WinApp.ModuloTarefa
 
             foreach (ItemTarefa i in listItens.Items)
             {
-                if (item.Trim() == i.ToString().Trim())
+                if (item == i.ToString().Trim())
                 {
                     MessageBox.Show($"Você não pode adicionar dois itens com a mesma descrição em sua To-Do List!",
                     "Tarefas",

@@ -3,6 +3,7 @@ using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloCompromissos
 {
+    [Serializable]
     public class Compromisso : EntidadeBase<Compromisso>
     {
         public string assunto { get; set; }

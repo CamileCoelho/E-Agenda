@@ -1,18 +1,15 @@
-﻿using e_Agenda.WinApp.ModuloTarefa;
-using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloContato;
-
+﻿
 namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class ControladorTarefa : ControladorBase
     {
-        RepositorioBase<Tarefa> repositorioBaseTarefa;
-        RepositorioTarefa repositorioTarefa;
+        //RepositorioBase<Tarefa> repositorioBaseTarefa;
+        //RepositorioTarefa repositorioTarefa;
         TabelaTarefaControl listagemTarefa;
+        IRepositorioTarefa repositorioTarefa;
 
-        public ControladorTarefa(RepositorioTarefa repositorioTarefa)
+        public ControladorTarefa(IRepositorioTarefa repositorioTarefa)
         {
-            this.repositorioBaseTarefa = repositorioTarefa;
             this.repositorioTarefa = repositorioTarefa;
         }
 
@@ -105,12 +102,12 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (tarefaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma tarefa primeiro", "Adição de Itens da Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma tarefa primeiro", "Adição de Itens na Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 return;
             }
 
-            TelaCadastroItensTarefaForm telaCadastroItensTarefa = new TelaCadastroItensTarefaForm(tarefaSelecionada);
+            TelaCadastroItensTarefaForm telaCadastroItensTarefa = new (tarefaSelecionada);
 
             DialogResult opcaoEscolhida = telaCadastroItensTarefa.ShowDialog();
 
@@ -134,12 +131,12 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (tarefaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma tarefa primeiro", "Atualização de Itens da Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma tarefa primeiro", "Atualização de Itens na Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 
                 return;
             }
 
-            TelaAtualizacaoItensTarefaForm telaAtualizacaoItensTarefa = new TelaAtualizacaoItensTarefaForm(tarefaSelecionada);
+            TelaAtualizacaoItensTarefaForm telaAtualizacaoItensTarefa = new(tarefaSelecionada);
 
             DialogResult opcaoEscolhida = telaAtualizacaoItensTarefa.ShowDialog();
 
@@ -167,7 +164,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public override void Filtrar()
         {
-            TelaFiltroTarefaForm telaFiltroTarefa = new TelaFiltroTarefaForm();
+            TelaFiltroTarefaForm telaFiltroTarefa = new();
 
             DialogResult opcaoEscolhida = telaFiltroTarefa.ShowDialog();
 
@@ -231,7 +228,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             int id = listagemTarefa.ObterNumeroTarefaSelecionada();
 
-            return (Tarefa)repositorioBaseTarefa.SelecionarPorId(id);
+            return repositorioTarefa.SelecionarPorId(id);
         }
     }
 }

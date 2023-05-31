@@ -1,4 +1,4 @@
-﻿namespace e_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     partial class TelaFiltroTarefaForm
     {

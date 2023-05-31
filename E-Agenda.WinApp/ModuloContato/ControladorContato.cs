@@ -5,13 +5,13 @@ namespace E_Agenda.WinApp.ModuloContato
 {
     public class ControladorContato : ControladorBase
     {
-        private RepositorioBase<Contato> repositorioBaseContato;
-        private RepositorioContato repositorioContato;
+        //private RepositorioBase<Contato> repositorioBaseContato;
+        //private RepositorioContato repositorioContato;
         private TabelaContatoControl listagemContato;
+        IRepositorioContato repositorioContato;
 
-        public ControladorContato(RepositorioContato repositorioContato)
+        public ControladorContato(IRepositorioContato repositorioContato)
         {
-            repositorioBaseContato = repositorioContato;
             this.repositorioContato = repositorioContato;
         }
 
@@ -35,7 +35,7 @@ namespace E_Agenda.WinApp.ModuloContato
             {
                 Contato contato = telaContato.ObterContato();
 
-                repositorioBaseContato.Inserir(contato);
+                repositorioContato.Inserir(contato);
 
                 CarregarContatos();
             }
@@ -90,14 +90,14 @@ namespace E_Agenda.WinApp.ModuloContato
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioBaseContato.Excluir(contato);
+                repositorioContato.Excluir(contato);
 
                 CarregarContatos();
             }
         }
         private void CarregarContatos()
         {
-            List<Contato> contatos = repositorioBaseContato.ListarTodos();
+            List<Contato> contatos = repositorioContato.SelecionarTodos();
 
             listagemContato.AtualizarRegistros(contatos);
         }
@@ -121,7 +121,7 @@ namespace E_Agenda.WinApp.ModuloContato
         {
             int id = listagemContato.ObterNumeroContatoSelecionado();
 
-            return (Contato)repositorioBaseContato.SelecionarPorId(id);
+            return repositorioContato.SelecionarPorId(id);
         }
     }
 }

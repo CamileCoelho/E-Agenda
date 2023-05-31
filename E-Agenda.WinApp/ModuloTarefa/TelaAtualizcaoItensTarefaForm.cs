@@ -1,6 +1,5 @@
-﻿using E_Agenda.WinApp.ModuloTarefa;
-
-namespace e_Agenda.WinApp.ModuloTarefa
+﻿
+namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaAtualizacaoItensTarefaForm : Form
     {

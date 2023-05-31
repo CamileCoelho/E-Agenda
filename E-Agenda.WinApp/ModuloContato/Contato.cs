@@ -2,6 +2,7 @@
 
 namespace E_Agenda.WinApp.ModuloContato
 {
+    [Serializable]
     public class Contato : EntidadeBase<Contato>
     {
         public InformacoesPessoais informacoesPessoais {  get; set; }
@@ -36,6 +37,9 @@ namespace E_Agenda.WinApp.ModuloContato
 
             if (informacoesPessoais.email == null || valida.ValidaFormatoEmail(informacoesPessoais.email))
                 return $"O e-mail deve ser no formato xxxxxx@xxxxx.xxx";
+
+            if (valida.ValidaString(empresa))
+                return $"O campo empresa deve ser peenchido!";
 
             return "";
         }

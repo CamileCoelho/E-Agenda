@@ -1,8 +1,8 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloCompromissos;
+﻿using E_Agenda.WinApp.ModuloCompromissos;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
+    [Serializable]
     public class Tarefa : EntidadeBase<Tarefa>
     {
         public string titulo { get; set; }
@@ -44,7 +44,12 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
         public void AdicionarItem(ItemTarefa item)
         {
+            if (itens.Contains(item))
+                return;
+
             itens.Add(item);
+
+            CalcularPercentualConcluido();
         }
 
         public void ConcluirItem(ItemTarefa item)

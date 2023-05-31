@@ -32,12 +32,12 @@
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // grid
+            // TabelaCategoriaControl
             // 
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grid.Dock = DockStyle.Fill;
             grid.Location = new Point(0, 0);
-            grid.Name = "grid";
+            grid.Name = "TabelaCategoriaControl";
             grid.RowTemplate.Height = 25;
             grid.Size = new Size(759, 574);
             grid.TabIndex = 1;

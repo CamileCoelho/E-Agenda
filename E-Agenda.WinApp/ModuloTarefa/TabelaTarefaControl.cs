@@ -1,7 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloContato;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TabelaTarefaControl : UserControl
     {
@@ -25,7 +22,9 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Data de Criação", HeaderText = "Data de Criação"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem Concluída", HeaderText = "Porcentagem Concluída"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Quantidade de itens  ", HeaderText = "Porcentagem de Conclusão"},
+
+                new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem de Conclusão", HeaderText = "Porcentagem de Conclusão"},
 
             };
 
@@ -45,7 +44,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
             {
                 grid.Rows.Add(tarefa.id, tarefa.titulo,
                    tarefa.prioridade, DateOnly.FromDateTime(tarefa.dataCriacao),
-                   tarefa.percentualConcluido+"%");
+                   tarefa.itens.Count(), tarefa.percentualConcluido+"%");
             }
         }
     }

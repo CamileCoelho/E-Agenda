@@ -1,6 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class RepositorioTarefa : RepositorioBase<Tarefa>
     {

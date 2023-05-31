@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.Compartilhado
 {
+    [Serializable]
     public abstract class EntidadeBase<T>
     {
         public int id { get; set; }

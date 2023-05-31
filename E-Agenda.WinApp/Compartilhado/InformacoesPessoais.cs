@@ -1,5 +1,6 @@
 ﻿namespace E_Agenda.WinApp.Compartilhado
 {
+    [Serializable]
     public class InformacoesPessoais 
     {
         public string nome { get; set; }

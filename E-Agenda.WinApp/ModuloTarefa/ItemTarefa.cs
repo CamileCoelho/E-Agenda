@@ -1,13 +1,6 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Text.Json.Serialization;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
+    [Serializable]
     public class ItemTarefa 
     {
         public bool concluido { get; set; }

@@ -2,13 +2,13 @@
 {
     public abstract class RepositorioBase<T> where T : EntidadeBase<T>
     {
-        protected List<T> listaObjeto = new List<T>();
+        protected List<T> listaObjeto = new();
 
-        protected int idcontador = 1;
+        protected int idContador = 0;
 
         public virtual void Inserir(T adicionar)
         {
-            adicionar.id = idcontador++;
+            adicionar.id = idContador++;
             listaObjeto.Add(adicionar);
         }
 

@@ -1,6 +1,6 @@
-﻿namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloDespesas
 {
-    partial class TabelaContatoControl
+    partial class TabelaCategoriaControl
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,38 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             grid = new DataGridView();
             ((System.ComponentModel.ISupportInitialize)grid).BeginInit();
             SuspendLayout();
             // 
-            // TabelaCategoriaControl
+            // gridCategorias
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = Color.LightGray;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            dataGridViewCellStyle1.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.True;
-            grid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             grid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grid.Dock = DockStyle.Fill;
             grid.Location = new Point(0, 0);
-            grid.MultiSelect = false;
-            grid.Name = "TabelaCategoriaControl";
-            grid.RowHeadersVisible = false;
+            grid.Name = "gridCategorias";
             grid.RowTemplate.Height = 25;
-            grid.Size = new Size(666, 435);
+            grid.Size = new Size(690, 444);
             grid.TabIndex = 0;
             // 
-            // TabelaContatoControl
+            // TabelaCategoriaControl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(grid);
-            Name = "TabelaContatoControl";
-            Size = new Size(666, 435);
+            Name = "TabelaCategoriaControl";
+            Size = new Size(690, 444);
             ((System.ComponentModel.ISupportInitialize)grid).EndInit();
             ResumeLayout(false);
         }
