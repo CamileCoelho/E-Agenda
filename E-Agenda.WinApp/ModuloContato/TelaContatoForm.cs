@@ -57,5 +57,10 @@ namespace E_Agenda.WinApp.ModuloContato
 
             return new(info, cargo, empresa);
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Tela.AtualizarRodape("");
+        }
     }
 }

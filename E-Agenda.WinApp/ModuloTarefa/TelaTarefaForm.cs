@@ -37,7 +37,7 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             DateTime dataCriacao = txtDataCriacao.Value;
 
-            return new ( titulo, prioridade, dataCriacao );
+            return new(titulo, prioridade, dataCriacao);
         }
 
         public void CarregarPrioridades()
@@ -57,6 +57,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (status != "")
                 DialogResult = DialogResult.None;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Tela.AtualizarRodape("");
         }
     }
 }

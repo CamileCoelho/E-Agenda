@@ -62,10 +62,22 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public bool ValidaDateTime(DateTime date)
         {
+            if (date == DateTime.MinValue)
+                return true;
             if (string.IsNullOrEmpty(date.ToString()) || string.IsNullOrWhiteSpace(date.ToString()))
                 return true;
+            else
+                return false;
+        }
+
+        public bool ValidaDateTimeComTimeOnly(DateTime date)
+        {
             if (date == DateTime.MinValue)
-                return true; 
+                return true;
+            if (TimeOnly.FromDateTime(date) == TimeOnly.MinValue)
+                return true;
+            if (string.IsNullOrEmpty(date.ToString()) || string.IsNullOrWhiteSpace(date.ToString()))
+                return true;
             else
                 return false;
         }
@@ -73,8 +85,6 @@ namespace E_Agenda.WinApp.Compartilhado
         public bool ValidaDateOnly(DateOnly data)
         {
             if (string.IsNullOrEmpty(data.ToString()) || string.IsNullOrWhiteSpace(data.ToString()))
-                return true;
-            if (data.ToString() == "01/01/2000")
                 return true;
             else
                 return false;

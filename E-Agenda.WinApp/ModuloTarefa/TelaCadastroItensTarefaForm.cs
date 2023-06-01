@@ -25,12 +25,9 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             string item = txtItemDescricao.Text.Trim();
 
-            if(string.IsNullOrEmpty(item) || string.IsNullOrWhiteSpace(item))
+            if (string.IsNullOrEmpty(item) || string.IsNullOrWhiteSpace(item))
             {
-                MessageBox.Show($"Você deve preencher o a descrição!",
-                    "Tarefas",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
+                TelaPrincipalForm.Tela.AtualizarRodape("Você deve preencher o a descrição!");
                 return;
             }
 
@@ -38,10 +35,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
             {
                 if (item == i.ToString().Trim())
                 {
-                    MessageBox.Show($"Você não pode adicionar dois itens com a mesma descrição em sua To-Do List!",
-                    "Tarefas",
-                    MessageBoxButtons.OK,
-                    MessageBoxIcon.Exclamation);
+                    TelaPrincipalForm.Tela.AtualizarRodape("Você não pode adicionar dois itens" +
+                        " com a mesma descrição em sua To-Do List!");
                     return;
                 }
             }
@@ -56,6 +51,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public List<ItemTarefa> ObterItensCadastrados()
         {
             return listItens.Items.Cast<ItemTarefa>().ToList();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Tela.AtualizarRodape("");
         }
     }
 }

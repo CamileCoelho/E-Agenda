@@ -70,7 +70,6 @@ namespace E_Agenda.WinApp.Compartilhado
         private void GravarEmArquivo()
         {
             JsonSerializerOptions opcoes = new();
-            //opcoes.IncludeFields = true;
             opcoes.WriteIndented = true;
 
             File.WriteAllText(NOME_ARQUIVO + typeof(T).Name + ".json", JsonSerializer.Serialize(listaGeral, opcoes));

@@ -2,6 +2,7 @@
 using E_Agenda.WinApp.ModuloContato;
 using System;
 using System.Xml.Linq;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace E_Agenda.WinApp.ModuloCompromissos
 {
@@ -56,9 +57,9 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         {
             txtId.Text = compromissoSelecionado.id.ToString();
             txtAssunto.Text = compromissoSelecionado.assunto;
-            txtData.Value = compromissoSelecionado.data.ToDateTime(TimeOnly.MinValue);
-            txtInicio.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioInicio);
-            txtTermino.Value = compromissoSelecionado.data.ToDateTime(compromissoSelecionado.horarioTermino);
+            txtData.Value = compromissoSelecionado.data;
+            txtInicio.Value = compromissoSelecionado.horarioInicio;
+            txtTermino.Value = compromissoSelecionado.horarioTermino;
 
             if (compromissoSelecionado.contato != null)
             {
@@ -87,12 +88,10 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             if (chkSelecionarContato.Checked == true && compromisso.contato == null)
                 status = $"Você deve selecionar um contato ou desmarcar essa opção!";
 
-            if (status.Length > 0)
-            {
-                TelaPrincipalForm.Tela.AtualizarRodape(status);
+            TelaPrincipalForm.Tela.AtualizarRodape(status);
 
+            if (status.Length > 0)
                 DialogResult = DialogResult.None;
-            }
         }
 
         private void rbtPresencial_CheckedChanged(object sender, EventArgs e)
@@ -113,6 +112,11 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         {
             cmbContatos.Enabled = !cmbContatos.Enabled;
             cmbContatos.SelectedIndex = -1;
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            TelaPrincipalForm.Tela.AtualizarRodape("");
         }
     }
 }

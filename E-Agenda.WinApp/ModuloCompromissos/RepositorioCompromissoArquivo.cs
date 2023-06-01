@@ -17,8 +17,8 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         public List<Compromisso> SelecionarCompromissosFuturos(DateOnly dataInicio, DateOnly dataFinal)
         {
             return listaGeral
-                .Where(x => x.data > dataInicio)
-                .Where(x => x.data < dataFinal)
+                .Where(x => x.data > dataInicio.ToDateTime(TimeOnly.MinValue))
+                .Where(x => x.data < dataFinal.ToDateTime(TimeOnly.MinValue))
                 .ToList();
         }
     }

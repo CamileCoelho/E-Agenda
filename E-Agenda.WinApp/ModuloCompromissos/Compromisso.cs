@@ -1,5 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloContato;
+﻿using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloCompromissos
 {
@@ -7,21 +6,26 @@ namespace E_Agenda.WinApp.ModuloCompromissos
     public class Compromisso : EntidadeBase<Compromisso>
     {
         public string assunto { get; set; }
-        public DateOnly data { get; set; }
-        public TimeOnly horarioInicio { get; set; }
-        public TimeOnly horarioTermino { get; set; }
+        public DateTime data { get; set; }
+        public DateTime horarioInicio { get; set; }
+        public DateTime horarioTermino { get; set; }
         public string localizacao { get; set; }
         public TipoLocalizacaoCompromissoEnum tipoLocal { get; set; }
         public Contato contato { get; set; }
+
+        public Compromisso()
+        {
+            
+        }
 
         public Compromisso(string assunto, DateOnly data, TimeOnly horarioInicio, 
         TimeOnly horarioTermino, Contato contato, string localizacao, 
         TipoLocalizacaoCompromissoEnum tipo)
         {
             this.assunto = assunto;
-            this.data = data;
-            this.horarioInicio = horarioInicio;
-            this.horarioTermino= horarioTermino;
+            this.data = data.ToDateTime(TimeOnly.MinValue);
+            this.horarioInicio = data.ToDateTime(horarioInicio);
+            this.horarioTermino= data.ToDateTime(horarioTermino);
             this.contato = contato;
             this.tipoLocal = tipo;
 
@@ -39,13 +43,13 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             if (valida.ValidaString(assunto))
                 return $"O campo de assunto não pode estar vazio!";
 
-            if (valida.ValidaDateOnly(data))
+            if (valida.ValidaDateTime(data))
                 return $"Você deve adicionar uma data!";
 
-            if (valida.ValidaTimeOnly(horarioInicio))
+            if (valida.ValidaDateTimeComTimeOnly(horarioInicio))
                 return $"Você deve adicionar o horario de início!";
 
-            if (valida.ValidaTimeOnly(horarioTermino))
+            if (valida.ValidaDateTimeComTimeOnly(horarioTermino))
                 return $"Você deve adicionar o horario de término!";
 
             if (horarioTermino <= horarioInicio)
