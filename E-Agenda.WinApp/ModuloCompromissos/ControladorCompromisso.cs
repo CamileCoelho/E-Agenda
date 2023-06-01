@@ -6,14 +6,12 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 {
     public class ControladorCompromisso : ControladorBase
     {
-        private RepositorioBase<Compromisso> repositorioBaseCompromisso;
-        private RepositorioCompromisso repositorioCompromisso;
+        private IRepositorioCompromisso repositorioCompromisso;
         private IRepositorioContato repositorioContato;
         private TabelaCompromissoControl listagemCompromisso;
 
-        public ControladorCompromisso(IRepositorioContato repositorioContato, RepositorioCompromisso repositorioCompromisso)
+        public ControladorCompromisso(IRepositorioContato repositorioContato, IRepositorioCompromisso repositorioCompromisso)
         {
-            repositorioBaseCompromisso = repositorioCompromisso;
             this.repositorioCompromisso = repositorioCompromisso;
             this.repositorioContato = repositorioContato;
         }
@@ -42,7 +40,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             {
                 Compromisso compromisso = tela.ObterCompromisso();
 
-                repositorioBaseCompromisso.Inserir(compromisso);
+                repositorioCompromisso.Inserir(compromisso);
 
                 CarregarCompromissos();
             }
@@ -97,7 +95,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
             if (opcaoEscolhida == DialogResult.OK)
             {
-                repositorioBaseCompromisso.Excluir(compromisso);
+                repositorioCompromisso.Excluir(compromisso);
 
                 CarregarCompromissos();
             }
@@ -138,7 +136,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
 
         private void CarregarCompromissos()
         {
-            List<Compromisso> compromissos = repositorioCompromisso.ListarTodos();
+            List<Compromisso> compromissos = repositorioCompromisso.SelecionarTodos();
 
             listagemCompromisso.AtualizarRegistros(compromissos);
         }
@@ -162,7 +160,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
         {
             int id = listagemCompromisso.ObterNumeroCompromissoSelecionado();
 
-            return (Compromisso)repositorioBaseCompromisso.SelecionarPorId(id);
+            return repositorioCompromisso.SelecionarPorId(id);
         }
     }
 }

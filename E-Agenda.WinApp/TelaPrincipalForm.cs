@@ -10,7 +10,7 @@ namespace E_Agenda.WinApp
         private ControladorBase controlador;
         private IRepositorioTarefa repositorioTarefa = new RepositorioTarefaArquivo();
         private IRepositorioContato repositorioContato = new RepositorioContatoArquivo();
-        private RepositorioCompromisso repositorioCompromisso = new();
+        private IRepositorioCompromisso repositorioCompromisso = new RepositorioCompromissoArquivo();
 
         public TelaPrincipalForm()
         {

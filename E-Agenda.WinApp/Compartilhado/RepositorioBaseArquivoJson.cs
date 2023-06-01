@@ -8,7 +8,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         protected int idContador = 0;
 
-        private const string NOME_ARQUIVO = "Arquivos/";
+        private const string NOME_ARQUIVO = "Compartilhado/";
 
         public RepositorioBaseArquivoJson()
         {

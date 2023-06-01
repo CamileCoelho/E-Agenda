@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class RepositorioTarefaArquivo : RepositorioBaseArquivoBin<Tarefa>, IRepositorioTarefa
+    public class RepositorioTarefaArquivo : RepositorioBaseArquivoJson<Tarefa>, IRepositorioTarefa
     {
         public List<Tarefa> SelecionarConcluidas()
         {

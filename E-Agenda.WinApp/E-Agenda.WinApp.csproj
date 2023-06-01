@@ -31,7 +31,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Arquivos\" />
+    <None Update="Compartilhado\Contato.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

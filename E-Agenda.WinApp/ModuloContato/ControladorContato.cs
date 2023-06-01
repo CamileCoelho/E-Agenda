@@ -5,10 +5,8 @@ namespace E_Agenda.WinApp.ModuloContato
 {
     public class ControladorContato : ControladorBase
     {
-        //private RepositorioBase<Contato> repositorioBaseContato;
-        //private RepositorioContato repositorioContato;
+        private IRepositorioContato repositorioContato;
         private TabelaContatoControl listagemContato;
-        IRepositorioContato repositorioContato;
 
         public ControladorContato(IRepositorioContato repositorioContato)
         {

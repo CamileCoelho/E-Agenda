@@ -3,10 +3,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
 {
     public class ControladorTarefa : ControladorBase
     {
-        //RepositorioBase<Tarefa> repositorioBaseTarefa;
-        //RepositorioTarefa repositorioTarefa;
-        TabelaTarefaControl listagemTarefa;
-        IRepositorioTarefa repositorioTarefa;
+        private IRepositorioTarefa repositorioTarefa;
+        private TabelaTarefaControl listagemTarefa;
 
         public ControladorTarefa(IRepositorioTarefa repositorioTarefa)
         {
