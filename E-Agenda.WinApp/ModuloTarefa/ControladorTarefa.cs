@@ -55,7 +55,8 @@ namespace E_Agenda.WinApp.ModuloTarefa
             }
 
             TelaTarefaForm tela = new(true);
-            tarefaSelecionada = tela.ObterTarefa();
+
+            tela.ConfigurarTela(tarefaSelecionada);
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
 
@@ -100,7 +101,10 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (tarefaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma tarefa primeiro", "Adição de Itens na Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma tarefa primeiro", 
+                    "Adição de Itens na Tarefa", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Exclamation);
 
                 return;
             }
@@ -129,7 +133,19 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (tarefaSelecionada == null)
             {
-                MessageBox.Show("Selecione uma tarefa primeiro", "Atualização de Itens na Tarefa", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Selecione uma tarefa primeiro", 
+                    "Atualização de Itens na Tarefa", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Exclamation);
+
+                return;
+            }
+            if (tarefaSelecionada.itens.Count() <=0)
+            {
+                MessageBox.Show("Essa tarefa não possuí nenhum item cadastrado ainda!", 
+                    "Atualização de Itens na Tarefa", 
+                    MessageBoxButtons.OK, 
+                    MessageBoxIcon.Exclamation);
 
                 return;
             }

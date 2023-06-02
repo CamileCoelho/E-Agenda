@@ -6,6 +6,10 @@
 
         public List<Despesa> despesas;
 
+        public Categoria()
+        {
+            
+        }
 
         public Categoria(string titulo)
         {

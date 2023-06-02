@@ -1,4 +1,5 @@
 ﻿using E_Agenda.WinApp.ModuloCompromissos;
+using E_Agenda.WinApp.ModuloContato;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {
@@ -57,6 +58,13 @@ namespace E_Agenda.WinApp.ModuloTarefa
 
             if (status != "")
                 DialogResult = DialogResult.None;
+        }
+
+        public void ConfigurarTela(Tarefa tarefaSelecionada)
+        {
+            txtId.Text = tarefaSelecionada.id.ToString();
+            txtTitulo.Text = tarefaSelecionada.titulo;
+            cmbPrioridades.Text = tarefaSelecionada.prioridade.ToString();
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)

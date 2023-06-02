@@ -8,6 +8,11 @@
         public TipoPgtoDespesaEnum formaPgto { get; set; }
         public List<Categoria> categorias { get; set; }
 
+        public Despesa()
+        {
+            
+        }
+
         public Despesa(string descricao, DateTime data, decimal valor, TipoPgtoDespesaEnum formaPgto)
         {
             this.descricao = descricao;

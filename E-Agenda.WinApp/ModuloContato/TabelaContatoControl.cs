@@ -1,16 +1,4 @@
-﻿using E_Agenda.WinApp.Compartilhado;
-using E_Agenda.WinApp.ModuloCompromissos;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
-
-namespace E_Agenda.WinApp.ModuloContato
+﻿namespace E_Agenda.WinApp.ModuloContato
 {
     public partial class TabelaContatoControl : UserControl
     {
@@ -34,6 +22,8 @@ namespace E_Agenda.WinApp.ModuloContato
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "E-mail", HeaderText = "E-mail"},
 
+                new DataGridViewTextBoxColumn {DataPropertyName = "Cargo", HeaderText = "Cargo"},
+
                 new DataGridViewTextBoxColumn {DataPropertyName = "Empresa", HeaderText = "Empresa"}
             };
 
@@ -52,8 +42,8 @@ namespace E_Agenda.WinApp.ModuloContato
             foreach (var contato in contatos)
             {
                 grid.Rows.Add(contato.id, contato.informacoesPessoais.nome,
-                    contato.informacoesPessoais.telefone, contato.informacoesPessoais.email, contato.empresa,
-                    contato.cargo);
+                    contato.informacoesPessoais.telefone, contato.informacoesPessoais.email,
+                    contato.cargo,contato.empresa);
             }
         }
     }

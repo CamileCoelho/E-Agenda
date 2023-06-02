@@ -55,7 +55,7 @@ namespace E_Agenda.WinApp.ModuloContato
 
             TelaContatoForm tela = new();
 
-            contatoSelecionado = tela.ObterContato();
+            tela.ConfigurarTela(contatoSelecionado);
 
             DialogResult opcaoEscolhida = tela.ShowDialog();
 

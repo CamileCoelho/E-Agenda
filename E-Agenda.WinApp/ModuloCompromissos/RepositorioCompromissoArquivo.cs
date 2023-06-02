@@ -1,25 +1,28 @@
-﻿using E_Agenda.WinApp.ModuloContato;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.ModuloCompromissos
+﻿namespace E_Agenda.WinApp.ModuloCompromissos
 {
-    public class RepositorioCompromissoArquivo : RepositorioBaseArquivoJson<Compromisso>, IRepositorioCompromisso
+    public class RepositorioCompromissoArquivo : RepositorioBaseArquivo<Compromisso>, IRepositorioCompromisso
     {
+        public RepositorioCompromissoArquivo(ContextoDeDados contexto) : base(contexto)
+        {
+            
+        }
+
         public List<Compromisso> SelecionarCompromissosPassados(DateOnly hoje)
         {
-            return listaGeral.Where(x => x.data.Day < hoje.Day).ToList();
+            return ObterRegistros().Where(x => x.data.Day < hoje.Day).ToList();
         }
 
         public List<Compromisso> SelecionarCompromissosFuturos(DateOnly dataInicio, DateOnly dataFinal)
         {
-            return listaGeral
+            return ObterRegistros()
                 .Where(x => x.data > dataInicio.ToDateTime(TimeOnly.MinValue))
                 .Where(x => x.data < dataFinal.ToDateTime(TimeOnly.MinValue))
                 .ToList();
+        }
+
+        protected override List<Compromisso> ObterRegistros()
+        {
+            return contextoDeDados.compromissos;
         }
     }
 }

@@ -4,7 +4,7 @@
     {
         protected List<T> listaObjeto = new();
 
-        protected int idContador = 0;
+        protected int idContador = 1;
 
         public virtual void Inserir(T adicionar)
         {

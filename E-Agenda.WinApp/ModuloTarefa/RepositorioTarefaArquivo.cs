@@ -1,33 +1,36 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace E_Agenda.WinApp.ModuloTarefa
+﻿namespace E_Agenda.WinApp.ModuloTarefa
 {
-    public class RepositorioTarefaArquivo : RepositorioBaseArquivoJson<Tarefa>, IRepositorioTarefa
+    public class RepositorioTarefaArquivo : RepositorioBaseArquivo<Tarefa>, IRepositorioTarefa
     {
+        public RepositorioTarefaArquivo(ContextoDeDados contexto) : base(contexto)
+        {
+
+        }
+
         public List<Tarefa> SelecionarConcluidas()
         {
-            return listaGeral
+            return ObterRegistros()
                     .Where(x => x.percentualConcluido == 100)
                     .ToList();
         }
 
         public List<Tarefa> SelecionarPendentes()
         {
-            return listaGeral
+            return ObterRegistros()
                     .Where(x => x.percentualConcluido < 100)
                     .ToList();
         }
 
         public List<Tarefa> SelecionarTodosOrdenadosPorPrioridade()
         {
-            return listaGeral
+            return ObterRegistros()
                     .OrderByDescending(x => x.prioridade)
                     .ToList();
+        }
+
+        protected override List<Tarefa> ObterRegistros()
+        {
+            return contextoDeDados.tarefas;
         }
     }
 }

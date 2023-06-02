@@ -131,7 +131,7 @@
             txtData.Name = "txtData";
             txtData.Size = new Size(181, 29);
             txtData.TabIndex = 46;
-            txtData.Value = new DateTime(2023, 5, 28, 0, 0, 0, 0);
+            txtData.Value = new DateTime(2023, 6, 2, 17, 15, 5, 0);
             // 
             // cmbContatos
             // 

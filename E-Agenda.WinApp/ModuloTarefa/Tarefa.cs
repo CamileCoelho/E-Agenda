@@ -11,6 +11,11 @@ namespace E_Agenda.WinApp.ModuloTarefa
         public List<ItemTarefa> itens { get; set; }
         public decimal percentualConcluido { get; set; }
 
+        public Tarefa()
+        { 
+
+        }
+
         public Tarefa(string titulo, TipoPrioridadeTarefaEnum prioridade, DateTime dataCriacao)
         {
             this.titulo = titulo;

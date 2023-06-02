@@ -1,4 +1,5 @@
-﻿using System.Runtime.Serialization.Formatters.Binary;
+﻿using E_Agenda.WinApp.ModuloCompromissos;
+using System.Xml.Serialization;
 
 namespace E_Agenda.WinApp.Compartilhado
 {
@@ -8,7 +9,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         protected int idContador = 0;
 
-        private const string NOME_ARQUIVO = "Arquivos/";
+        private const string NOME_ARQUIVO = "Compartilhado/";
 
         public RepositorioBaseArquivoXml()
         {
@@ -56,34 +57,37 @@ namespace E_Agenda.WinApp.Compartilhado
             return listaGeral.OrderByDescending(x => x.id).ToList();
         }
 
+        private void GravarEmArquivo()
+        {
+            XmlSerializer serializador = new XmlSerializer(typeof(List<Compromisso>));
+
+            MemoryStream compromissoStream = new MemoryStream();
+
+            serializador.Serialize(compromissoStream, listaGeral);
+
+            byte[] compromissosEmBytes = compromissoStream.ToArray();
+
+            File.WriteAllBytes(NOME_ARQUIVO + typeof(T).Name + ".xml", compromissosEmBytes);
+        }
+
         private void CarregarDoArquivo()
         {
-            BinaryFormatter serializador = new BinaryFormatter();
+            XmlSerializer serializador = new XmlSerializer(typeof(List<T>));
 
-            byte[] contatoEmBytes = File.ReadAllBytes(NOME_ARQUIVO + typeof(T).Name + ".xml");
+            byte[] registroEmBytes = File.ReadAllBytes(NOME_ARQUIVO + typeof(T).Name + ".xml");
 
-            MemoryStream contatoStream = new MemoryStream(contatoEmBytes);
+            MemoryStream registroStream = new MemoryStream(registroEmBytes);
 
-            listaGeral = (List<T>)serializador.Deserialize(contatoStream);
-            AtualizarContador();
+            if (registroStream.Length > 10)
+            {
+                listaGeral = (List<T>)serializador.Deserialize(registroStream);
+                AtualizarContador();
+            }
         }
 
         private void AtualizarContador()
         {
             idContador = listaGeral.Max(x => x.id);
-        }
-
-        private void GravarEmArquivo()
-        {
-            BinaryFormatter serializador = new();
-
-            MemoryStream contatoStream = new();
-
-            serializador.Serialize(contatoStream, listaGeral);
-
-            byte[] contatoEmBytes = contatoStream.ToArray();
-
-            File.WriteAllBytes(NOME_ARQUIVO + typeof(T).Name + ".xml", contatoEmBytes);
         }
     }
 }

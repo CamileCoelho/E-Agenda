@@ -9,20 +9,16 @@ namespace E_Agenda.WinApp.ModuloContato
         public string cargo { get; set; }
         public string empresa { get; set; }
 
+        public Contato()
+        {
+            
+        }
+
         public Contato(InformacoesPessoais informacoesPessoais, string cargo, string empresa)
         {
             this.informacoesPessoais = informacoesPessoais;
             this.cargo = cargo;
             this.empresa = empresa;
-        }
-
-        public override void AtualizarInformacoes(Contato registroAtualizado)
-        {
-            this.informacoesPessoais.nome = registroAtualizado.informacoesPessoais.nome;
-            this.informacoesPessoais.telefone = registroAtualizado.informacoesPessoais.telefone;
-            this.informacoesPessoais.email = registroAtualizado.informacoesPessoais.email;
-            this.cargo = registroAtualizado.cargo;
-            this.empresa = registroAtualizado.empresa;
         }
 
         public override string Validar()
@@ -42,6 +38,15 @@ namespace E_Agenda.WinApp.ModuloContato
                 return $"O campo empresa deve ser peenchido!";
 
             return "";
+        }
+
+        public override void AtualizarInformacoes(Contato registroAtualizado)
+        {
+            informacoesPessoais.nome = registroAtualizado.informacoesPessoais.nome;
+            informacoesPessoais.telefone = registroAtualizado.informacoesPessoais.telefone;
+            informacoesPessoais.email = registroAtualizado.informacoesPessoais.email;
+            cargo = registroAtualizado.cargo;
+            empresa = registroAtualizado.empresa;
         }
 
         public override string ToString()

@@ -22,7 +22,7 @@
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Data de Criação", HeaderText = "Data de Criação"},
 
-                new DataGridViewTextBoxColumn { DataPropertyName = "Quantidade de itens  ", HeaderText = "Porcentagem de Conclusão"},
+                new DataGridViewTextBoxColumn { DataPropertyName = "Quantidade de itens", HeaderText = "Quantidade de itens"},
 
                 new DataGridViewTextBoxColumn { DataPropertyName = "Porcentagem de Conclusão", HeaderText = "Porcentagem de Conclusão"},
 

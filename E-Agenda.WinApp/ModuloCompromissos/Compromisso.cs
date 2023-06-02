@@ -27,7 +27,7 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             this.horarioInicio = data.ToDateTime(horarioInicio);
             this.horarioTermino= data.ToDateTime(horarioTermino);
             this.contato = contato;
-            this.tipoLocal = tipo;
+            tipoLocal = tipo;
 
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
                 this.localizacao = localizacao;
@@ -58,32 +58,23 @@ namespace E_Agenda.WinApp.ModuloCompromissos
             if (tipoLocal == TipoLocalizacaoCompromissoEnum.Nenhum)
                 return $"Você deve selecionar uma das opções de localização!";
 
-            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Online)
-            {
-                if (valida.ValidaString(localizacao))
-                    return $"O campo do local online não pode estar vazio!";
-                else
-                    return "";
-            }
-            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial)
-            {
-                if (valida.ValidaString(localizacao))
-                    return $"O campo do local presencial não pode estar vazio!";
-                else
-                    return "";
-            }
+            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Online && valida.ValidaString(localizacao))
+                return $"O campo do local online não pode estar vazio!";
+
+            if (tipoLocal == TipoLocalizacaoCompromissoEnum.Presencial && valida.ValidaString(localizacao))
+                return $"O campo do local presencial não pode estar vazio!";
 
             return "";
         }
 
         public override void AtualizarInformacoes(Compromisso registroAtualizado)
         {
-            this.assunto = registroAtualizado.assunto;
-            this.data = registroAtualizado.data;
-            this.horarioInicio = registroAtualizado.horarioInicio;
-            this.horarioTermino = registroAtualizado.horarioTermino;
-            this.localizacao = registroAtualizado.localizacao;
-            this.contato = registroAtualizado.contato;
+            assunto = registroAtualizado.assunto;
+            data = registroAtualizado.data;
+            horarioInicio = registroAtualizado.horarioInicio;
+            horarioTermino = registroAtualizado.horarioTermino;
+            localizacao = registroAtualizado.localizacao;
+            contato = registroAtualizado.contato;
         }
     }
 }

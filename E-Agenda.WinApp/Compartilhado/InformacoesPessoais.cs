@@ -11,6 +11,7 @@
         {
             
         }
+
         public InformacoesPessoais(string nome, string telefone, string email)
         {
             this.nome = nome;

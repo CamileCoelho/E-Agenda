@@ -6,7 +6,7 @@ namespace E_Agenda.WinApp.Compartilhado
     {
         protected List<T> listaGeral = new();
 
-        protected int idContador = 0;
+        protected int idContador = 1;
 
         private const string NOME_ARQUIVO = "Compartilhado/";
 
@@ -18,8 +18,7 @@ namespace E_Agenda.WinApp.Compartilhado
 
         public void Inserir(T novoRegistro)
         {
-            idContador++;
-            novoRegistro.id = idContador;
+            novoRegistro.id = idContador++;
             listaGeral.Add(novoRegistro);
 
             GravarEmArquivo();

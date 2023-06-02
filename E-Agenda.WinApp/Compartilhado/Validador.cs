@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Text.RegularExpressions;
+﻿using System.Text.RegularExpressions;
 
 namespace E_Agenda.WinApp.Compartilhado
 {
@@ -50,7 +48,7 @@ namespace E_Agenda.WinApp.Compartilhado
         }
 
         public bool ValidaEmail(string email)
-        {
+        { 
             // formato permitido: qualquer coisa antes do "@" seguido por pelo menos um caractere depois
             Regex Rgx = new(@"^[^\s@]+@[^\s@]+$");
 
