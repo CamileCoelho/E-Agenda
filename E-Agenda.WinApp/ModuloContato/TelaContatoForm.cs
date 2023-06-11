@@ -1,5 +1,7 @@
 ﻿using E_Agenda.WinApp.Compartilhado;
+using E_Agenda.WinApp.ModuloCompromissos;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -12,22 +14,15 @@ namespace E_Agenda.WinApp.ModuloContato
             InitializeComponent();
         }
 
-        //public Contato ObterContato
-        //{
-        //    set
-        //    {
-        //        txtId.Text = value.id.ToString();
-        //        txtNome.Text = value.informacoesPessoais.nome;
-        //        txtTelefone.Text = value.informacoesPessoais.telefone.ToString();
-        //        txtEmail.Text = value.informacoesPessoais.email;
-        //        txtCargo.Text = value.cargo;
-        //        txtEmpresa.Text = value.empresa;
-        //    }
-        //    get
-        //    {
-        //        return contato;
-        //    }
-        //}
+        public void ConfigurarTela(Contato contatoSelecionado)
+        {
+            txtId.Text = contatoSelecionado.id.ToString();
+            txtNome.Text = contatoSelecionado.informacoesPessoais.nome;
+            txtTelefone.Text = contatoSelecionado.informacoesPessoais.telefone.ToString();
+            txtEmail.Text = contatoSelecionado.informacoesPessoais.email;
+            txtCargo.Text = contatoSelecionado.cargo;
+            txtEmpresa.Text = contatoSelecionado.empresa;
+        }
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
