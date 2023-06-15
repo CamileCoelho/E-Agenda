@@ -1,5 +1,5 @@
-﻿using E_Agenda.WinApp.ModuloCompromissos;
-using E_Agenda.WinApp.ModuloContato;
+﻿using E_Agenda.Dominio.ModuloCompromissos;
+using E_Agenda.Dominio.ModuloTarefa;
 
 namespace E_Agenda.WinApp.ModuloTarefa
 {

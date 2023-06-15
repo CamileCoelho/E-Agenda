@@ -1,4 +1,6 @@
 ﻿
+using E_Agenda.Dominio.ModuloTarefa;
+
 namespace E_Agenda.WinApp.ModuloTarefa
 {
     public partial class TelaFiltroTarefaForm : Form
@@ -12,11 +14,10 @@ namespace E_Agenda.WinApp.ModuloTarefa
         {
             if (rdbConcluidas.Checked == true)
                 return StatusTarefaEnum.Concluidas;
-
             else if (rdbPendentes.Checked == true)
                 return StatusTarefaEnum.Pendentes;
-
-            return StatusTarefaEnum.Todos;
+            else
+                return StatusTarefaEnum.Todos;
         }
     }
 }

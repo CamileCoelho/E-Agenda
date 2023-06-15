@@ -16,6 +16,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\E-Agenda.Dominio\E-Agenda.Dominio.csproj" />
+    <ProjectReference Include="..\E-Agenda.Infra.Arquivo\E-Agenda.Infra.Dados.Arquivo.csproj" />
+    <ProjectReference Include="..\E-Agenda.Infra.Memoria\E-Agenda.Infra.Dados.Memoria.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -28,12 +34,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="Compartilhado\E-Agenda.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 
 </Project>

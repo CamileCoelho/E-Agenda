@@ -1,8 +1,4 @@
-﻿using System;
-using System.Drawing;
-using System.Windows.Forms;
-
-namespace E_Agenda.WinApp.Compartilhado
+﻿namespace E_Agenda.WinApp.Compartilhado
 {
     public static class ConfiguracaoGrid
     {
