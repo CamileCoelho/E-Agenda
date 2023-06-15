@@ -1,4 +1,5 @@
 ﻿using E_Agenda.Dominio.ModuloContato;
+using System.Xml.Linq;
 
 namespace E_Agenda.WinApp.ModuloContato
 {
@@ -10,6 +11,27 @@ namespace E_Agenda.WinApp.ModuloContato
         {
             InitializeComponent();
         }
+
+        //    }
+        //    get
+        //    {
+        //        return contato;
+        //    }
+        //}
+
+        //    }
+        //    get
+        //    {
+        //        return contato;
+        //    }
+        //}
+
+        //    }
+        //    get
+        //    {
+        //        return contato;
+        //    }
+        //}
 
         private void btnGravar_Click(object sender, EventArgs e)
         {
